@@ -14,6 +14,8 @@ namespace Dota
             Console.WriteLine("Diana");
             Console.WriteLine("diana2");
             Console.WriteLine("Second attempy");
+
+            Console.WriteLine("vanka 3d");
         }
     }
 }
