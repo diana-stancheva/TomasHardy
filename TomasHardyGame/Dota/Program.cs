@@ -11,6 +11,7 @@ namespace Dota
         static void Main(string[] args)
         {
             Console.WriteLine("Hello dota");
+            Console.WriteLine("Diana");
         }
     }
 }
