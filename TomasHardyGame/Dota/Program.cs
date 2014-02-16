@@ -13,6 +13,7 @@ namespace Dota
             Console.WriteLine("Hello dota");
             Console.WriteLine("Diana");
             Console.WriteLine("diana2");
+            Console.WriteLine("Second attempy");
         }
     }
 }
