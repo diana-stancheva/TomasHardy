@@ -11,7 +11,16 @@
     {
         const int HEIGHT = 50;
         const int WIDTH = 130;
+        const int delay = 150;
 
+        static void ClearBuffer()
+        {
+            // Read keys until they finish without diplaying
+            while (Console.KeyAvailable)
+            {
+                Console.ReadKey(true);
+            }
+        }
         static void StartNewGame()
         {
 
@@ -52,14 +61,11 @@
                     }
                 }
 
-                while (Console.KeyAvailable)
-                {
-                    Console.ReadKey(true);
-                }
+                ClearBuffer();
                 
                 hero.Draw();
 
-                Thread.Sleep(150);
+                Thread.Sleep(delay);
             }
 
             
