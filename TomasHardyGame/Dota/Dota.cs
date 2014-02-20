@@ -124,7 +124,7 @@
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
-            Console.Title = String.Empty;
+            Console.Title = String.Format("DotA v. 0.1®");
 
             Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
             Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
