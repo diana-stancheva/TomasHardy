@@ -43,9 +43,9 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="File.cs" />
-    <Compile Include="IMovable.cs" />
+    <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Dota.cs" />
-    <Compile Include="IScreen.cs" />
+    <Compile Include="Interfaces\IScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screen.cs" />
   </ItemGroup>
