@@ -23,7 +23,8 @@
 
                 Console.WriteLine(line);
 
-                Console.SetCursorPosition(0, 0);
+                Console.WriteLine("\n\n\n\n\n");
+
                 for (int i = 0; i < 70; i++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
