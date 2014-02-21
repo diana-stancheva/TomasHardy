@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="Features\BloodBath.cs" />
     <Compile Include="Features\Bloodrage.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
     <Compile Include="Features\IEnchantable.cs" />

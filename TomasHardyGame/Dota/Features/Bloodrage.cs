@@ -4,10 +4,29 @@
 
     public class Bloodrage : Magic, IEnchantable
     {
-        public Bloodrage()
+        private static Bloodrage instance = null;
+        private static object syncRoot = new Object();
+
+
+        public static Bloodrage Instance
+        {
+            get
+            {
+                lock (syncRoot)
+                {
+                    if (instance == null)
+                    {
+                        instance = new Bloodrage();
+                    }
+                    return instance;
+                }
+            }
+        }
+
+        private Bloodrage()
             :base()
         {
-            this.Name = "Blood Rage";
+            this.Name = "Bloodrage";
             this.Description = "Drives a unit into a bloodthirsty rage, during which it has higher attack damage, but cannot cast spells and takes damage every second";
             this.ManaCost = 80;
             this.CooldownTime = 12;
@@ -20,8 +39,9 @@
 
             //if (hero.Mana >= 80)
             //{
-            //    hero.Mana -= this.ManaCost;   
-
+            //    hero.Mana -= this.ManaCost; 
+            //    hero.Damage += 100;
+            //    hero.Silince = true;
             //}
 
             //throw new NotImplementedException();
