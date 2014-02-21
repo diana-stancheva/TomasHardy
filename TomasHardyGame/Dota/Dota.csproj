@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="Features\Bloodrage.cs" />
+    <Compile Include="Features\Extensions.cs" />
+    <Compile Include="Features\IEnchantable.cs" />
+    <Compile Include="Features\Magic.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="Dota.cs" />
