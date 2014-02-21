@@ -15,6 +15,4 @@
             bloodbath.Use(hero);
         }
     }
-
-
 }

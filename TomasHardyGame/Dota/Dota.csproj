@@ -45,7 +45,7 @@
     <Compile Include="Features\BloodBath.cs" />
     <Compile Include="Features\Bloodrage.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
-    <Compile Include="Features\IEnchantable.cs" />
+    <Compile Include="Features\IEnchant.cs" />
     <Compile Include="Features\Magic.cs" />
     <Compile Include="File.cs" />
     <Compile Include="Interfaces\IMovable.cs" />

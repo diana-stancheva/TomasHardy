@@ -150,7 +150,7 @@
         }
 
         //Prints on position and apply color for string
-        static void PrintOnPosition(int x, int y, string str, ConsoleColor color = ConsoleColor.Green)
+        static void PrintOnPosition(int x, int y, string str, ConsoleColor color = ConsoleColor.Gray)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
