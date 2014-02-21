@@ -179,6 +179,57 @@
             {
                 StartNewGame();
             }
+
+
+
+            //   CHARACTER SISI DIDO:
+
+
+            //Character dido = new Hero(15, 20, 30);
+            //Character stefan = new Hero(100, 20, 30);
+
+            ////dido.Health -= 20;
+            ////Console.WriteLine(dido.Health);
+            //dido.Attack(stefan);
+            //Console.WriteLine(stefan.Health);
+
+            var roshan = new Roshan("Roshan", 5000, 100);
+
+            var creeps = new List<Creep>
+            {
+                new Creep("Wolf", 300, 50), 
+                new Creep("Tiger", 300, 50), 
+                new Creep("Dog", 300, 50), 
+                new Creep("Lion", 300, 50), 
+                new Creep("Sheep", 300, 50)
+            };
+
+            var heroes = new List<Hero>
+            {
+                new Hero("Bloodseeker", 500, 50, 300), 
+                new Hero("Dragon Knight", 500, 50, 300), 
+                new Hero("Sven", 500, 50, 300), 
+                new Hero("Tusk", 500, 50, 300), 
+                new Hero("Ursa", 500, 50, 300), 
+                new Hero("Zeus", 500, 50, 300), 
+                new Hero("Troll Warlord", 500, 50, 300), 
+                new Hero("Wraithking", 500, 50, 300), 
+                new Hero("Nyx Assassin", 500, 50, 300), 
+                new Hero("Huskar", 500, 50, 300)
+            };
+
+            //foreach (var item in heroes)
+            //{
+            //    Console.WriteLine(item.ToString());
+            //}
+
+            //Hero current = new Hero("Chicho Dido", 1000, 100, 200);
+
+            //Console.WriteLine(current.Experience);
+            //Console.WriteLine(current.Level);
+            //current.Experience = 1002;
+            //Console.WriteLine(current.Experience);
+            //Console.WriteLine(current.Level);
         }
     }
 }
