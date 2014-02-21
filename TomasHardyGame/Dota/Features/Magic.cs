@@ -1,7 +1,5 @@
 ﻿namespace Dota
 {
-    using System.Collections.Generic;
-
     public abstract class Magic
     {
         public string Name { get;  protected set; }

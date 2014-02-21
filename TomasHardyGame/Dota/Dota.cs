@@ -16,6 +16,8 @@
         const int delay = 150;
         public static char[,] arrayMapCells;
 
+        static Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+
         static void ClearBuffer()
         {
             // Read keys until they finish without diplaying
@@ -27,7 +29,8 @@
 
         static void StartNewGame()
         {
-            Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+            // Moved hero initialisation on line 19.
+            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
             hero.Draw();
 
             bool isKilled = false;
@@ -108,6 +111,12 @@
                         // Return to menu
                         return;
                     }
+                    else if (keyPressed.Key == ConsoleKey.Insert)
+                    {
+                        // choose magic from menu
+                        SelectMagic();
+                        
+                    }
                 }
 
                 ClearBuffer();
@@ -116,9 +125,36 @@
 
                 Thread.Sleep(delay);
             }
+        }
 
+        static void SelectMagic()
+        {
+            PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage");
+            PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath");
 
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
 
+                    if (key.Key == ConsoleKey.F1)
+                    {
+                        hero.BloodrageMagic();
+                        hero.Draw();
+                        StartNewGame();
+                    }
+                    
+                }
+            }
+        }
+
+        //Prints on position and apply color for string
+        static void PrintOnPosition(int x, int y, string str, ConsoleColor color = ConsoleColor.Green)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.Write(str);
         }
 
         static void Main(string[] args)

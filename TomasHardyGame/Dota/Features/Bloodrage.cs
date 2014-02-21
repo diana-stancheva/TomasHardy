@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
+    using System;
+
     public class Bloodrage : Magic, IEnchantable
     {
         public Bloodrage()
@@ -19,7 +15,7 @@ namespace Dota
 
         public void Use(Character hero)
         {
-            //hero.Color = ConsoleColor.Cyan;
+            hero.Color = ConsoleColor.Cyan;
             //int coolDown = 0;
 
             //if (hero.Mana >= 80)
@@ -28,7 +24,7 @@ namespace Dota
 
             //}
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
