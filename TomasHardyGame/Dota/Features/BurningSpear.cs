@@ -30,7 +30,7 @@ namespace Dota.Features
             :base()
         {
             this.Name = "Burning Spear";
-            this.Description = "Huskar sets his spears aflame, dealing damage over time with his regular attack. Multiple attacks will stack additional damage. Each attack drains some of Huskar's health.";
+            this.Description = "Huskar sets his spears aflame, dealing damage over time with his regular attack. Each attack drains some of Huskar's health.";
             this.ManaCost = 100;
             this.CooldownTime = 40;
         }

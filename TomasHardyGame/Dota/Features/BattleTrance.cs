@@ -30,13 +30,13 @@ namespace Dota.Features
             :base()
         {
             this.Name = "Battle Trance";
-            this.Description = "Troll's presence on the battlefield increases the attack speed of himself and all allied heroes.";
-            this.ManaCost = 75;
+            this.Description = "Troll's presence on the battlefield increases the attack speed of himself.";
+            this.ManaCost = 55;
             this.CooldownTime = 30;
         }
         public override void Use(Hero hero)
         {
-            //throw new NotImplementedException();
+            //throw new NotImplementedException();     // only movement speed
         }
     }
 }
