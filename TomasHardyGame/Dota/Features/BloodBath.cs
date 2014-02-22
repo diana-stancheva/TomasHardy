@@ -7,7 +7,6 @@
         private static BloodBath instance = null;
         private static object syncRoot = new Object();
 
-
         public static BloodBath Instance
         {
             get

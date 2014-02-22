@@ -209,7 +209,7 @@
             //var heroes = new List<Hero>
             //{
             //    new Hero("Bloodseeker", 500, 50, 300), 
-            //    new Hero("Dragon Knight", 500, 50, 300), 
+            //    new Hero("Dragon Knight", 300, 50, 300), 
             //    new Hero("Sven", 500, 50, 300), 
             //    new Hero("Tusk", 500, 50, 300), 
             //    new Hero("Ursa", 500, 50, 300), 

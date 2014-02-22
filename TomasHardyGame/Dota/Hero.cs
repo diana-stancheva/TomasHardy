@@ -141,14 +141,9 @@
             }
         }
 
-        public override string ToString()
-        {
-            return base.ToString() + string.Format("Mana: {0}\n", this.mana);
-        }
-
         public void ManaAndHealthIncrease()
         {
-            Thread.Sleep(1200);
+            //Thread.Sleep(1200);
 
             if (this.mana < this.initialMana)
             {
@@ -159,6 +154,11 @@
             {
                 this.Health++;
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("Mana: {0}\n", this.mana);
         }
     }
 }
