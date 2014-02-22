@@ -30,7 +30,7 @@
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     Console.Write('|');
-                    Thread.Sleep(50);
+                    Thread.Sleep(5);
                 }
                 Console.ResetColor();
                 Console.Clear();
