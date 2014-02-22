@@ -1,6 +1,7 @@
 ﻿namespace Dota
 {
     using System;
+    using System.Threading;
 
     public class Hero : Character, IMovable
     {
@@ -12,6 +13,8 @@
         private int mana;
         private int experience;
         private int level;
+        private readonly int initialMana;
+        private readonly int initialHealth;
         // private List<Magic> magics;
 
         public Hero(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y, int mana)
@@ -22,6 +25,8 @@
             this.Mana = mana;
             this.Experience = 0;
             this.Level = 1;
+            this.initialMana = mana;
+            this.initialHealth = health;
         }
 
         public int X
@@ -88,6 +93,16 @@
             }
         }
 
+        public int InitialMana
+        {
+            get { return this.mana; }
+        }
+
+        public int InitialHealth
+        {
+            get { return this.initialHealth; }
+        }
+
         private void LevelUp()
         {
             if (this.Experience >= 1000)
@@ -129,6 +144,21 @@
         public override string ToString()
         {
             return base.ToString() + string.Format("Mana: {0}\n", this.mana);
+        }
+
+        public void ManaAndHealthIncrease()
+        {
+            Thread.Sleep(1200);
+
+            if (this.mana < this.initialMana)
+            {
+                this.mana++;
+            }
+
+            if (this.Health < this.initialHealth)
+            {
+                this.Health++;
+            }
         }
     }
 }

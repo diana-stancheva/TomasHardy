@@ -124,6 +124,8 @@
                 hero.Draw();
 
                 Thread.Sleep(delay);
+
+                hero.ManaAndHealthIncrease();
             }
         }
 
@@ -175,11 +177,11 @@
             arrayMapCells = file.LoadMap();
             //file.LoadMap();
 
+
             while (true)
             {
                 StartNewGame();
             }
-
 
 
             //   CHARACTER SISI DIDO:
