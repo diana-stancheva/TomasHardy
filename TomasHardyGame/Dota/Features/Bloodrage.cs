@@ -32,9 +32,9 @@
             this.CooldownTime = 12;
         }
 
-        public void Use(Character hero)
+        public void Use(Hero hero)
         {
-            hero.Color = ConsoleColor.Cyan;
+            //hero.Color = ConsoleColor.Cyan;
             //int coolDown = 0;
 
             //if (hero.Mana >= 80)
