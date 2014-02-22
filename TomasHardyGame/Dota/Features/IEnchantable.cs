@@ -2,6 +2,6 @@
 {
     public interface IEnchantable
     {
-        void Use(Character hero);
+        void Use(Hero hero);
     }
 }
