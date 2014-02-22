@@ -125,7 +125,7 @@
 
         //        hero.ManaAndHealthIncrease();
         //    }
-        //}
+        }
 
         static void SelectMagic()
         {
