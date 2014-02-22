@@ -151,7 +151,12 @@
 
         public void ManaAndHealthIncrease()
         {
-            //Thread.Sleep(1200);
+            DateTime future = DateTime.Now.AddMilliseconds(1200);
+
+            while (!future.Equals(DateTime.Now))
+            {
+
+            }
 
             if (this.mana < this.initialMana)
             {
