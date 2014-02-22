@@ -191,6 +191,8 @@
                 creepInit.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
             }
 
+            Console.WriteLine("ivo");
+
 
             //Console.CursorVisible = false;
 
