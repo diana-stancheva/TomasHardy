@@ -29,13 +29,13 @@
             {
                 for (int col = 0; col < this.matrix.GetLength(1); col++)
                 {
-                    if (this.matrix[row, col].Equals(CreepSymbol) && !(this.matrix[row, col + 1].Equals(CreepSymbol)) 
+                    if (this.matrix[row, col].Equals(CreepSymbol) && !(this.matrix[row, col + 1].Equals(CreepSymbol))
                                                                   && !(this.matrix[row, col - 1].Equals(CreepSymbol)))
                     {
                         creepsPosition.Add(new CreepPosition(row, col));
                     }
                 }
-                
+
             }
         }
 
@@ -48,6 +48,35 @@
                 this.Creeps.Add(new Creep(CreepName, 300, 50, ConsoleColor.DarkMagenta, creepsPosition[i]));
             }
 
+        }
+
+        public void CheckForCreeps(int row, int col)
+        {
+            foreach (var creep in this.Creeps)
+            {
+                if ((creep.Position.Row + 1 == row && creep.Position.Col == col) ||
+                    (creep.Position.Row + 1 == row && creep.Position.Col + 1 == col) ||
+                    (creep.Position.Row + 1 == row && creep.Position.Col + 2 == col) ||
+                    (creep.Position.Row + 1 == row && creep.Position.Col + 3 == col) ||
+                    (creep.Position.Row + 1 == row && creep.Position.Col - 1 == col) ||
+                    (creep.Position.Row + 1 == row && creep.Position.Col - 2 == col) ||
+                    (creep.Position.Row + 1 == row && creep.Position.Col - 3 == col) ||
+                    (creep.Position.Row == row && creep.Position.Col - 3 == col) ||
+                    (creep.Position.Row == row && creep.Position.Col + 3 == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col + 1 == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col + 2 == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col + 3 == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col - 1 == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col - 2 == col) ||
+                    (creep.Position.Row - 1 == row && creep.Position.Col - 3 == col)
+                    )
+                {
+                    Console.SetCursorPosition(col, row);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write('@');
+                }
+            }
         }
 
     }

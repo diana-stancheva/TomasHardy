@@ -2,13 +2,13 @@
 {
     public struct CreepPosition
     {
-        public CreepPosition(int x, int y)
+        public CreepPosition(int row, int col)
             : this()
         {
-            this.X = x;
-            this.Y = y;
+            this.Row = row;
+            this.Col = col;
         }
-        public int X { get; set; }
-        public int Y { get; set; }
+        public int Row { get; set; }
+        public int Col { get; set; }
     }
 }
