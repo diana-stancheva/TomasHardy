@@ -22,6 +22,8 @@
             }
         }
 
+
+
         private FurySwipes()
             :base()
         {
