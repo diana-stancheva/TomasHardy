@@ -52,6 +52,13 @@
             {
                 for (int col = 0; col < this.mapMatrix.GetLength(1); col++)
                 {
+                    switch (this.mapMatrix[row, col])
+                    {
+                        case '#': Console.ForegroundColor = ConsoleColor.DarkGreen; break;
+                        case '[': Console.ForegroundColor = ConsoleColor.Magenta; break;
+                        case 'd': Console.ForegroundColor = ConsoleColor.Blue; break;
+                        default: Console.ResetColor(); break;
+                    }
                     Console.Write(this.mapMatrix[row, col]);
                 }
 
