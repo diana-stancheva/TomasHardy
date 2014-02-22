@@ -30,14 +30,14 @@ namespace Dota.Features
             :base()
         {
             this.Name = "Arc Lightning";
-            this.Description = "Hurls a bolt of lightning that leaps through nearby enemy units. ";
+            this.Description = "Hurls a bolt of lightning that leaps through nearby enemy units.";  
             this.ManaCost = 65;
-            this.CooldownTime = 2;
+            this.CooldownTime = 10;
         }
 
         public override void Use(Hero hero)
         {
-            //throw new NotImplementedException();
+            //throw new NotImplementedException();      // malko damage
         }
     }
 }

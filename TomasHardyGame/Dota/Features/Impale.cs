@@ -30,7 +30,7 @@ namespace Dota.Features
             :base()
         {
             this.Name = "Impale";
-            this.Description = "Rock spikes burst from the earth along a straight path. Enemy units are hurled into the air, then are stunned and take damage when they fall.";
+            this.Description = "Rock spikes burst from the earth along a straight path and enemy units take damage.";
             this.ManaCost = 95;
             this.CooldownTime = 11;
         }
