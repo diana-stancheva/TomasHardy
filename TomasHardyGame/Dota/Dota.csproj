@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Map.txt" />
+    <Content Include="Map1.txt" />
     <Content Include="StartScreen.txt" />
   </ItemGroup>
   <ItemGroup>
