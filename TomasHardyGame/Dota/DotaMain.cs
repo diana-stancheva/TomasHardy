@@ -184,6 +184,9 @@
             hero.Mana -= 100;
             hero.Health -= 100;
 
+            CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
+            creepIni.CreateCreeps();
+
             //var task = new Thread(new ThreadStart(hero.PutTaskDelay));
             //task.Start();
             //List<Thread> threads = new List<Thread>();
@@ -200,7 +203,12 @@
                 //threads.Add(new Thread(new ThreadStart(hero.PutTaskDelay)));
                 //threads[threads.Count - 1].Start();
                 //threads[threads.Count - 1].Join();
+                
                 player.Move();
+
+                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
+                
             }
 
             Console.WriteLine("ivo");
