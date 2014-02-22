@@ -11,7 +11,13 @@
         private const char WallSymbolTwo = '|';
         private const char DotSymbol = '.';
         private const char SemiColonSymbol = ':';
-        private char[] ForbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol };
+        private const char EnemySymbolOne = '[';
+        private const char EnemySymbolTwo = 'd';
+        private const char EnemySymbolThree = '*';
+        private const char EnemySymbolFour = 'b';
+        private const char EnemySymbolFive = ']';
+        private char[] ForbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol,
+                                                      EnemySymbolOne, EnemySymbolTwo, EnemySymbolThree, EnemySymbolFour, EnemySymbolFive};
 
 
         private readonly char[,] playerMap;
