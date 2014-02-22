@@ -186,6 +186,7 @@
                 player.Move();
             }
 
+
             //Console.CursorVisible = false;
 
             //arrayMapCells = file.LoadMap();
