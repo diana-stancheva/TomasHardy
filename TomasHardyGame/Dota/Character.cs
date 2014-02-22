@@ -2,29 +2,22 @@
 {
     using System;
 
-    public abstract class Character : IMovable
+    public abstract class Character
     {
-        private const int PlayerFieldLimitX = 78;
-        private const int PlayerFieldLimitY = 47;
-
         private string name;
         private int health;
         private int damage;
         private bool isDead;
         private string symbol;
-        private int x;
-        private int y;
         private ConsoleColor color;
          
-        public Character(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y)
+        public Character(string name, int health, int damage, string symbol, ConsoleColor color)
         {
             this.Name = name;
             this.Health = health;
             this.Damage = damage;
             this.Symbol = symbol;
             this.Color = color;
-            this.X = x;
-            this.Y = y;
         }
 
         public string Name
@@ -85,52 +78,13 @@
             set { this.symbol = value; }
         }
 
-        public int X
-        {
-            get { return this.x; }
-            set { this.x = value; }
-        }
-
-        public int Y
-        {
-            get { return this.y; }
-            set { this.y = value; }
-        }
-
         public ConsoleColor Color
         {
             get { return this.color; }
             set { this.color = value; }
         }
 
-        public void Draw()
-        {
-            Console.ForegroundColor = this.Color;
-            Console.SetCursorPosition(this.X, this.Y);
-            Console.Write(this.Symbol);
-        }
-
-        public void ClearPath()
-        {
-            Console.ForegroundColor = this.Color;
-            Console.SetCursorPosition(this.X, this.Y);
-            Console.CursorVisible = true;
-            Console.Write(' ');
-        }
-
-        public void Move(int xDelta, int yDelta)
-        {
-            this.ClearPath();
-
-            if (this.X + xDelta >= 1 && this.X + xDelta < PlayerFieldLimitX)
-            {
-                this.X += xDelta;
-            }
-            if (this.Y + yDelta >= 1 && this.Y + yDelta < PlayerFieldLimitY)
-            {
-                this.Y += yDelta;
-            }
-        }
+        
 
         public void Attack(Character opponent)
         {

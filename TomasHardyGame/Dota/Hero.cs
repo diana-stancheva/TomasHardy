@@ -2,19 +2,38 @@
 {
     using System;
 
-    public class Hero : Character
+    public class Hero : Character, IMovable
     {
+        private const int PlayerFieldLimitX = 78;
+        private const int PlayerFieldLimitY = 47;
+
+        private int x;
+        private int y;
         private int mana;
         private int experience;
         private int level;
         // private List<Magic> magics;
 
         public Hero(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y, int mana)
-            : base(name, health, damage, symbol, color, x, y)
+            : base(name, health, damage, symbol, color)
         {
+            this.X = x;
+            this.Y = y;
             this.Mana = mana;
             this.Experience = 0;
             this.Level = 1;
+        }
+
+        public int X
+        {
+            get { return this.x; }
+            set { this.x = value; }
+        }
+
+        public int Y
+        {
+            get { return this.y; }
+            set { this.y = value; }
         }
 
         public int Mana
@@ -75,6 +94,35 @@
             {
                 this.Experience = this.Experience % 1000;
                 this.Level++;
+            }
+        }
+
+        public void Draw()
+        {
+            Console.ForegroundColor = this.Color;
+            Console.SetCursorPosition(this.X, this.Y);
+            Console.Write(this.Symbol);
+        }
+
+        public void ClearPath()
+        {
+            Console.ForegroundColor = this.Color;
+            Console.SetCursorPosition(this.X, this.Y);
+            Console.CursorVisible = true;
+            Console.Write(' ');
+        }
+
+        public void Move(int xDelta, int yDelta)
+        {
+            this.ClearPath();
+
+            if (this.X + xDelta >= 1 && this.X + xDelta < PlayerFieldLimitX)
+            {
+                this.X += xDelta;
+            }
+            if (this.Y + yDelta >= 1 && this.Y + yDelta < PlayerFieldLimitY)
+            {
+                this.Y += yDelta;
             }
         }
 
