@@ -1,9 +1,11 @@
 ﻿namespace Dota
 {
-    public class Roshan : CharacterSisiDido
+    using System;
+
+    public class Roshan : Character
     {
-        public Roshan(string name, int health, int damage)
-            : base(name, health, damage)
+        public Roshan(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y)
+            : base(name, health, damage, symbol, color, x, y)
         {
 
         }

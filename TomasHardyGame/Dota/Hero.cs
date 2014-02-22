@@ -2,15 +2,15 @@
 {
     using System;
 
-    public class Hero : CharacterSisiDido
+    public class Hero : Character
     {
         private int mana;
         private int experience;
         private int level;
         // private List<Magic> magics;
 
-        public Hero(string name, int health, int damage, int mana)
-            : base(name, health, damage)
+        public Hero(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y, int mana)
+            : base(name, health, damage, symbol, color, x, y)
         {
             this.Mana = mana;
             this.Experience = 0;
