@@ -15,7 +15,7 @@
         private int x;
         private int y;
         private ConsoleColor color;
-
+         
         public Character(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y)
         {
             this.Name = name;
