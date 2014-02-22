@@ -1,6 +1,7 @@
 ﻿namespace Dota
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading;
 
     public class Hero : Character, IMovable
@@ -15,7 +16,7 @@
         private int level;
         private readonly int initialMana;
         private readonly int initialHealth;
-        // private List<Magic> magics;
+        private List<Magic> magics;
 
         public Hero(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y, int mana)
             : base(name, health, damage, symbol, color)
@@ -27,6 +28,7 @@
             this.Level = 1;
             this.initialMana = mana;
             this.initialHealth = health;
+            magics = new List<Magic>();
         }
 
         public int X
@@ -101,6 +103,12 @@
         public int InitialHealth
         {
             get { return this.initialHealth; }
+        }
+
+        public List<Magic> Magics
+        {
+            get { return this.magics; }
+            set { this.magics = value; }
         }
 
         private void LevelUp()
