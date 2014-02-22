@@ -2,13 +2,13 @@
 {
     using System;
 
-    class BloodBath : Magic, IEnchantable
+    class BreatheFire : Magic, IEnchantable
     {
-        private static BloodBath instance = null;
+        private static BreatheFire instance = null;
         private static object syncRoot = new Object();
 
 
-        public static BloodBath Instance
+        public static BreatheFire Instance
         {
             get
             {
@@ -16,20 +16,20 @@
                 {
                     if (instance == null)
                     {
-                        instance = new BloodBath();
+                        instance = new BreatheFire();
                     }
                     return instance;
                 }
             }
         }
 
-        private BloodBath()
+        private BreatheFire()
             :base()
         {
-            this.Name = "Blood Bath";
-            this.Description = "Whenever the hero kills a unit, he bathes himself in the blood, regenerating his life source.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.Name = "Breathe Fire";
+            this.Description = "Unleashes a breath of fire on enemy units in a cone in front of Dragon Knight";
+            this.ManaCost = 100;
+            this.CooldownTime = 12;
         }
 
         public void Use(Hero hero)

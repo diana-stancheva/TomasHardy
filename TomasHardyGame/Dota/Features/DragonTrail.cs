@@ -2,13 +2,13 @@
 {
     using System;
 
-    class BloodBath : Magic, IEnchantable
+    class DragonTrail : Magic, IEnchantable
     {
-        private static BloodBath instance = null;
+        private static DragonTrail instance = null;
         private static object syncRoot = new Object();
 
 
-        public static BloodBath Instance
+        public static DragonTrail Instance
         {
             get
             {
@@ -16,27 +16,27 @@
                 {
                     if (instance == null)
                     {
-                        instance = new BloodBath();
+                        instance = new DragonTrail();
                     }
                     return instance;
                 }
             }
         }
 
-        private BloodBath()
+        private DragonTrail()
             :base()
         {
-            this.Name = "Blood Bath";
-            this.Description = "Whenever the hero kills a unit, he bathes himself in the blood, regenerating his life source.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.Name = "Dragon Trail";
+            this.Description = "Unleashes a breath of fire on enemy units in a cone in front of Dragon Knight";
+            this.ManaCost = 100;
+            this.CooldownTime = 12;
         }
 
         public void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 
-            //if (hero.Mana >= 80)
+            //if (hero.Mana >= 100)
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;

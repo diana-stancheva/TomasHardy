@@ -2,9 +2,9 @@
 {
     using System;
 
-    public class Roshan : Character
+    public class Creep : Character
     {
-        public Roshan(string name, int health, int damage, string symbol, ConsoleColor color)
+        public Creep(string name, int health, int damage, string symbol, ConsoleColor color)
             : base(name, health, damage, symbol, color)
         {
 
