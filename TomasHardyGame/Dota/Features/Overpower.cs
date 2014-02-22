@@ -34,6 +34,12 @@
         public override void Use(Hero hero)
         {
             hero.Color = ConsoleColor.Magenta;
+            //int heroXPosition = hero.X;
+            //int HeroYPosition = hero.Y;
+            
+           // char[,] map = MapHandling.MapMatrix;
+
+            
 
             //if (hero.Mana >= 100)
             //{
