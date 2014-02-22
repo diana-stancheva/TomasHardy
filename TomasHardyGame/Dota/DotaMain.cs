@@ -43,9 +43,9 @@
 
         //static void StartNewGame()
         //{
-        // Moved hero initialisation on line 19.
-        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-        // hero.Draw();
+            // Moved hero initialisation on line 19.
+            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+            // hero.Draw();
 
         //    bool isKilled = false;
 
@@ -113,7 +113,7 @@
         //            {
         //                // choose magic from menu
         //                SelectMagic();
-
+                        
         //            }
         //        }
 
@@ -145,7 +145,7 @@
                         // hero.Draw();
                         //StartNewGame();
                     }
-
+                    
                 }
             }
         }
@@ -160,7 +160,7 @@
 
         static void Main(string[] args)
         {
-            Console.Title = String.Format("DotA v. 0.1®");
+            Console.Title = String.Format("Dota v. 0.1®");
 
             Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
             Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
@@ -173,7 +173,7 @@
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
 
-            string filePath = "../../Map1.txt";
+            string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
             mapHandling.LoadMapOnScreen();
@@ -201,11 +201,8 @@
                 //threads[threads.Count - 1].Start();
                 //threads[threads.Count - 1].Join();
                 player.Move();
-                //(new Task(hero.ManaAndHealthIncrease)).Start();
-                //counter++;
-                //dido.Start();
-                //hero.PutTaskDelay();
             }
+
 
             //Console.CursorVisible = false;
 

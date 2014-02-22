@@ -52,12 +52,24 @@
             {
                 for (int col = 0; col < this.mapMatrix.GetLength(1); col++)
                 {
+                    switch (this.mapMatrix[row, col])
+                    {
+                        case '#': Console.ForegroundColor = ConsoleColor.DarkGreen; break;
+                        case '[': Console.ForegroundColor = ConsoleColor.DarkYellow; break;
+                        case 'd': Console.ForegroundColor = ConsoleColor.Blue; break;
+                        case 'b': Console.ForegroundColor = ConsoleColor.Blue; break;
+                        case '*': Console.ForegroundColor = ConsoleColor.DarkYellow; break;
+                        case ']': Console.ForegroundColor = ConsoleColor.DarkYellow; break;
+                        case '-': Console.ForegroundColor = ConsoleColor.Magenta; break;
+                        case '=': Console.ForegroundColor = ConsoleColor.Magenta; break;
+                        case '0': Console.ForegroundColor = ConsoleColor.Green; break;
+                        default: Console.ResetColor(); break;
+                    }
                     Console.Write(this.mapMatrix[row, col]);
                 }
 
                 Console.WriteLine();
             }
-
             Console.CursorVisible = false;
         }
     }

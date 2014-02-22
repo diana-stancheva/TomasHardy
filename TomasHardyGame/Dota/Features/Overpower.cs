@@ -4,6 +4,7 @@
 
     class Overpower : Magic
     {
+        public DateTime startTime = DateTime.Now;
         private static Overpower instance = null;
         private static object syncRoot = new Object();
 
@@ -34,6 +35,15 @@
         public override void Use(Hero hero)
         {
             hero.Color = ConsoleColor.Magenta;
+            //int heroXPosition = hero.X;
+            //int HeroYPosition = hero.Y;
+
+            string filePath = "../../Map1.txt";
+            var mapHandling = new MapHandling(filePath);
+            mapHandling.ReadFromFile();
+            char[,] map = mapHandling.MapMatrix;
+
+            
 
             //if (hero.Mana >= 100)
             //{

@@ -26,9 +26,9 @@
             :base()
         {
             this.Name = "Storm Hammer";
-            this.Description = "Sven unleashes his magical gauntlet that deals damage and stuns enemy units.";
+            this.Description = "Sven unleashes his magical gauntlet that deals damage on enemy units.";
             this.ManaCost = 140;
-            this.CooldownTime = 13;
+            this.CooldownTime = 55;
         }
 
         public override void Use(Hero hero)
@@ -40,6 +40,7 @@
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;
+            //    hero.Stun ???
             //}
         }
     }

@@ -1,13 +1,13 @@
-﻿namespace Dota
+﻿namespace Dota.Features
 {
     using System;
 
-    class BloodBath : Magic
+    class FurySwipes : Magic
     {
-        private static BloodBath instance = null;
+        private static FurySwipes instance = null;
         private static object syncRoot = new Object();
 
-        public static BloodBath Instance
+        public static FurySwipes Instance
         {
             get
             {
@@ -15,27 +15,29 @@
                 {
                     if (instance == null)
                     {
-                        instance = new BloodBath();
+                        instance = new FurySwipes();
                     }
                     return instance;
                 }
             }
         }
 
-        private BloodBath()
+
+
+        private FurySwipes()
             :base()
         {
-            this.Name = "Blood Bath";
-            this.Description = "Whenever the hero attacks a unit, he bathes that unit in blood, damaging it.";
-            this.ManaCost = 80;
-            this.CooldownTime =35;
+            this.Name = "Fury Swipes";
+            this.Description = "Ursa's claws dig deeper wounds in the enemy, causing consecutive attacks to the same enemy to deal more damage.";
+            this.ManaCost = 35;
+            this.CooldownTime = 5;
         }
 
         public override void Use(Hero hero)
         {
-            //hero.Color = ConsoleColor.Magenta;
+            hero.Color = ConsoleColor.Magenta;            
 
-            //if (hero.Mana >= 80)
+            //if (hero.Mana >= 100)
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;
