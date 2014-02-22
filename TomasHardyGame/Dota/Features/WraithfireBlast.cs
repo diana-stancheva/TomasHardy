@@ -30,7 +30,7 @@ namespace Dota.Features
             :base()
         {
             this.Name = "Wraithfire Blast";
-            this.Description = "Wraith King sears an enemy unit with spectral fire, dealing damage and stunning, then dealing damage over time and slowing the target.";
+            this.Description = "Wraith King sears an enemy unit with spectral fire, dealing damage.";
             this.ManaCost = 140;
             this.CooldownTime = 8;
         }

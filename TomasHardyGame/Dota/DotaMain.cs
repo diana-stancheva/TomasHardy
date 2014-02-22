@@ -181,10 +181,16 @@
             var player = new PlayerMovement(mapHandling.MapMatrix);
             player.GetPlayerStartPosition();
 
+            CreepInitialization creepInit = new CreepInitialization(mapHandling.MapMatrix);
+            creepInit.CreateCreeps();
+            
             while (true)
             {
                 player.Move();
+                // check on each step for creeps
+                creepInit.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
             }
+
 
             //Console.CursorVisible = false;
 

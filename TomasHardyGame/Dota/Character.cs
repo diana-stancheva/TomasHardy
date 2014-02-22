@@ -10,14 +10,16 @@
         private bool isDead;
         // private string symbol;
         private ConsoleColor color;
+        private CreepPosition position;
          
-        public Character(string name, int health, int damage/*, string symbol*/, ConsoleColor color)
+        public Character(string name, int health, int damage/*, string symbol*/, ConsoleColor color, CreepPosition position)
         {
             this.Name = name;
             this.Health = health;
             this.Damage = damage;
             // this.Symbol = symbol;
             this.Color = color;
+            this.position = position;
         }
 
         public string Name
@@ -84,7 +86,11 @@
             set { this.color = value; }
         }
 
-        
+        public CreepPosition Position
+        {
+            get { return this.position; }
+            set { this.position = value; }
+        }        
 
         public void Attack(Character opponent)
         {
