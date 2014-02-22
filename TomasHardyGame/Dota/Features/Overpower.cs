@@ -2,12 +2,12 @@
 {
     using System;
 
-    class BloodBath : Magic, IEnchantable
+    class Overpower : Magic, IEnchantable
     {
-        private static BloodBath instance = null;
+        private static Overpower instance = null;
         private static object syncRoot = new Object();
 
-        public static BloodBath Instance
+        public static Overpower Instance
         {
             get
             {
@@ -15,27 +15,27 @@
                 {
                     if (instance == null)
                     {
-                        instance = new BloodBath();
+                        instance = new Overpower();
                     }
                     return instance;
                 }
             }
         }
 
-        private BloodBath()
+        private Overpower()
             :base()
         {
-            this.Name = "Blood Bath";
-            this.Description = "Whenever the hero kills a unit, he bathes himself in the blood, regenerating his life source.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.Name = "Overpower";
+            this.Description = "Using his skill in combat, Ursa gains increased attack speed for a set number of attacks or until the duration expires.";
+            this.ManaCost = 45;
+            this.CooldownTime = 10;
         }
 
         public void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 
-            //if (hero.Mana >= 80)
+            //if (hero.Mana >= 100)
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;

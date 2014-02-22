@@ -2,12 +2,12 @@
 {
     using System;
 
-    class BloodBath : Magic, IEnchantable
+    class IceShards : Magic, IEnchantable
     {
-        private static BloodBath instance = null;
+        private static IceShards instance = null;
         private static object syncRoot = new Object();
 
-        public static BloodBath Instance
+        public static IceShards Instance
         {
             get
             {
@@ -15,27 +15,27 @@
                 {
                     if (instance == null)
                     {
-                        instance = new BloodBath();
+                        instance = new IceShards();
                     }
                     return instance;
                 }
             }
         }
 
-        private BloodBath()
+        private IceShards()
             :base()
         {
-            this.Name = "Blood Bath";
-            this.Description = "Whenever the hero kills a unit, he bathes himself in the blood, regenerating his life source.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.Name = "Ice Shards";
+            this.Description = "Tusk compresses 5 shards of ice into a ball of frozen energy that damages all enemies it comes in contact with.";
+            this.ManaCost = 120;
+            this.CooldownTime = 18;
         }
 
         public void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 
-            //if (hero.Mana >= 80)
+            //if (hero.Mana >= 100)
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;

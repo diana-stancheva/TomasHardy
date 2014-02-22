@@ -37,5 +37,19 @@
             GreatCleave greatCleave = GreatCleave.Instance;
             greatCleave.Use(hero);
         }
+
+        public static void IceShardsMagic(this Hero hero)
+        {
+            IceShards iceShards = IceShards.Instance;
+            iceShards.Use(hero);
+        }
+
+        public static void EarthshockMagic(this Hero hero)
+        {
+            Earthshock earthshock = Earthshock.Instance;
+            earthshock.Use(hero);
+        }
+
+
     }
 }

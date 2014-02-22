@@ -2,12 +2,12 @@
 {
     using System;
 
-    class BloodBath : Magic, IEnchantable
+    class Earthshock : Magic, IEnchantable
     {
-        private static BloodBath instance = null;
+        private static Earthshock instance = null;
         private static object syncRoot = new Object();
 
-        public static BloodBath Instance
+        public static Earthshock Instance
         {
             get
             {
@@ -15,27 +15,27 @@
                 {
                     if (instance == null)
                     {
-                        instance = new BloodBath();
+                        instance = new Earthshock();
                     }
                     return instance;
                 }
             }
         }
 
-        private BloodBath()
+        private Earthshock()
             :base()
         {
-            this.Name = "Blood Bath";
-            this.Description = "Whenever the hero kills a unit, he bathes himself in the blood, regenerating his life source.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.Name = "Earthshock";
+            this.Description = "Ursa slams the earth, causing a powerful shock to damage and slow all enemy units in a nearby area for 4 seconds.";
+            this.ManaCost = 75;
+            this.CooldownTime = 6;
         }
 
         public void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 
-            //if (hero.Mana >= 80)
+            //if (hero.Mana >= 100)
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;
