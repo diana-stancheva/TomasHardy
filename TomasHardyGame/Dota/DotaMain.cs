@@ -43,9 +43,9 @@
 
         //static void StartNewGame()
         //{
-            // Moved hero initialisation on line 19.
-            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            // hero.Draw();
+        // Moved hero initialisation on line 19.
+        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+        // hero.Draw();
 
         //    bool isKilled = false;
 
@@ -113,7 +113,7 @@
         //            {
         //                // choose magic from menu
         //                SelectMagic();
-                        
+
         //            }
         //        }
 
@@ -145,7 +145,7 @@
                         // hero.Draw();
                         //StartNewGame();
                     }
-                    
+
                 }
             }
         }
@@ -181,9 +181,30 @@
             var player = new PlayerMovement(mapHandling.MapMatrix);
             player.GetPlayerStartPosition();
 
+            hero.Mana -= 100;
+            hero.Health -= 100;
+
+            //var task = new Thread(new ThreadStart(hero.PutTaskDelay));
+            //task.Start();
+            //List<Thread> threads = new List<Thread>();
+            //var dido = new Thread(new ThreadStart(hero.PutTaskDelay));
+            //dido.Start();
+            //(new Task(hero.ManaAndHealthIncrease)).Start();
+            //int counter = 1;
             while (true)
             {
+                //hero.PutTaskDelay();
+                //PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
+                //PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
+                //PrintOnPosition(Width - 25, Height - 43, string.Format("Counter: {0}", counter));
+                //threads.Add(new Thread(new ThreadStart(hero.PutTaskDelay)));
+                //threads[threads.Count - 1].Start();
+                //threads[threads.Count - 1].Join();
                 player.Move();
+                //(new Task(hero.ManaAndHealthIncrease)).Start();
+                //counter++;
+                //dido.Start();
+                //hero.PutTaskDelay();
             }
 
             //Console.CursorVisible = false;
