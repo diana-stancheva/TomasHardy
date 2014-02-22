@@ -8,15 +8,15 @@
         private int health;
         private int damage;
         private bool isDead;
-        private string symbol;
+        // private string symbol;
         private ConsoleColor color;
          
-        public Character(string name, int health, int damage, string symbol, ConsoleColor color)
+        public Character(string name, int health, int damage/*, string symbol*/, ConsoleColor color)
         {
             this.Name = name;
             this.Health = health;
             this.Damage = damage;
-            this.Symbol = symbol;
+            // this.Symbol = symbol;
             this.Color = color;
         }
 
@@ -72,11 +72,11 @@
             set { this.isDead = value; }
         }
 
-        public string Symbol
-        {
-            get { return this.symbol; }
-            set { this.symbol = value; }
-        }
+        //public string Symbol
+        //{
+        //    get { return this.symbol; }
+        //    set { this.symbol = value; }
+        //}
 
         public ConsoleColor Color
         {
