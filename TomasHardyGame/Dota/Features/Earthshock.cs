@@ -2,7 +2,7 @@
 {
     using System;
 
-    class Earthshock : Magic, IEnchantable
+    class Earthshock : Magic
     {
         private static Earthshock instance = null;
         private static object syncRoot = new Object();
@@ -31,7 +31,7 @@
             this.CooldownTime = 6;
         }
 
-        public void Use(Hero hero)
+        public override void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 

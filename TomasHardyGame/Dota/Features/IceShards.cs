@@ -2,7 +2,7 @@
 {
     using System;
 
-    class IceShards : Magic, IEnchantable
+    class IceShards : Magic
     {
         private static IceShards instance = null;
         private static object syncRoot = new Object();
@@ -31,7 +31,7 @@
             this.CooldownTime = 18;
         }
 
-        public void Use(Hero hero)
+        public override void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 

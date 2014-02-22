@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Bloodrage : Magic, IEnchantable
+    public class Bloodrage : Magic
     {
         private static Bloodrage instance = null;
         private static object syncRoot = new Object();
@@ -32,7 +32,7 @@
             this.CooldownTime = 12;
         }
 
-        public void Use(Hero hero)
+        public override void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Cyan;
             //int coolDown = 0;

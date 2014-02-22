@@ -2,7 +2,7 @@
 {
     using System;
 
-    class Overpower : Magic, IEnchantable
+    class Overpower : Magic
     {
         private static Overpower instance = null;
         private static object syncRoot = new Object();
@@ -31,9 +31,9 @@
             this.CooldownTime = 10;
         }
 
-        public void Use(Hero hero)
+        public override void Use(Hero hero)
         {
-            //hero.Color = ConsoleColor.Magenta;
+            hero.Color = ConsoleColor.Magenta;
 
             //if (hero.Mana >= 100)
             //{

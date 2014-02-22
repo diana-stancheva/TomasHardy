@@ -15,7 +15,7 @@
         const int Width = 110;
         const int delay = 150;
         public static char[,] arrayMapCells;
-
+        
         static Hero hero = new Hero("Bloodseeker", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300);
 
         static List<Hero> heroes = new List<Hero>
@@ -46,6 +46,7 @@
             // Moved hero initialisation on line 19.
             //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
             hero.Draw();
+            hero.Magics.Add(Overpower.Instance);
 
             bool isKilled = false;
 
@@ -140,7 +141,8 @@
 
                     if (key.Key == ConsoleKey.F1)
                     {
-                        hero.BloodrageMagic();
+                        hero.Magics[0].Use(hero);
+                        //hero.BloodrageMagic();
                         hero.Draw();
                         StartNewGame();
                     }

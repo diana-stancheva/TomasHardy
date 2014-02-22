@@ -2,7 +2,7 @@
 {
     using System;
 
-    class BreatheFire : Magic, IEnchantable
+    class BreatheFire : Magic
     {
         private static BreatheFire instance = null;
         private static object syncRoot = new Object();
@@ -32,7 +32,7 @@
             this.CooldownTime = 12;
         }
 
-        public void Use(Hero hero)
+        public override void Use(Hero hero)
         {
             //hero.Color = ConsoleColor.Magenta;
 
