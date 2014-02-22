@@ -18,6 +18,20 @@
 
         static Hero hero = new Hero("Bloodseeker", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300);
 
+        static List<Hero> heroes = new List<Hero>
+        {
+            new Hero("Bloodseeker", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Dragon Knight", 300, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Sven", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Tusk", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Ursa", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Zeus", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Troll Warlord", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Wraithking", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Nyx Assassin", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300), 
+            new Hero("Huskar", 500, 50, "@", ConsoleColor.Green, 2, Height - 4, 300)
+        };
+
         static void ClearBuffer()
         {
             // Read keys until they finish without diplaying
@@ -188,20 +202,6 @@
             //    new Creep("Dog", 300, 50), 
             //    new Creep("Lion", 300, 50), 
             //    new Creep("Sheep", 300, 50)
-            //};
-
-            //var heroes = new List<Hero>
-            //{
-            //    new Hero("Bloodseeker", 500, 50, 300), 
-            //    new Hero("Dragon Knight", 300, 50, 300), 
-            //    new Hero("Sven", 500, 50, 300), 
-            //    new Hero("Tusk", 500, 50, 300), 
-            //    new Hero("Ursa", 500, 50, 300), 
-            //    new Hero("Zeus", 500, 50, 300), 
-            //    new Hero("Troll Warlord", 500, 50, 300), 
-            //    new Hero("Wraithking", 500, 50, 300), 
-            //    new Hero("Nyx Assassin", 500, 50, 300), 
-            //    new Hero("Huskar", 500, 50, 300)
             //};
 
             //foreach (var item in heroes)
