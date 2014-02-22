@@ -8,8 +8,9 @@
         private const char CreepSymbol = '*';
         private const string CreepName = "Spooky Lion";
 
-        private List<CreepPosition> creepsPosition;
-        private char[,] matrix;
+        private readonly List<CreepPosition> creepsPosition;
+        private readonly char[,] matrix;
+
         public CreepInitialization(char[,] matrix)
         {
             this.matrix = matrix;
@@ -47,13 +48,13 @@
             {
                 this.Creeps.Add(new Creep(CreepName, 300, 50, ConsoleColor.DarkMagenta, creepsPosition[i]));
             }
-
         }
 
         public void CheckForCreeps(int row, int col)
         {
             foreach (var creep in this.Creeps)
             {
+                // checking around the creeps
                 if ((creep.Position.Row + 1 == row && creep.Position.Col == col) ||
                     (creep.Position.Row + 1 == row && creep.Position.Col + 1 == col) ||
                     (creep.Position.Row + 1 == row && creep.Position.Col + 2 == col) ||
