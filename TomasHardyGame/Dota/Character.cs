@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Character : IMovable
+    public abstract class Character : IMovable
     {
         private const int PlayerFieldLimitX = 78;
         private const int PlayerFieldLimitY = 47;
