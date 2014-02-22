@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using System.Threading;
@@ -43,9 +44,9 @@
 
         //static void StartNewGame()
         //{
-            // Moved hero initialisation on line 19.
-            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            // hero.Draw();
+        // Moved hero initialisation on line 19.
+        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+        // hero.Draw();
 
         //    bool isKilled = false;
 
@@ -113,7 +114,7 @@
         //            {
         //                // choose magic from menu
         //                SelectMagic();
-                        
+
         //            }
         //        }
 
@@ -145,7 +146,7 @@
                         // hero.Draw();
                         //StartNewGame();
                     }
-                    
+
                 }
             }
         }
@@ -181,34 +182,40 @@
             var player = new PlayerMovement(mapHandling.MapMatrix);
             player.GetPlayerStartPosition();
 
-            hero.Mana -= 100;
-            hero.Health -= 100;
-
             CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
             creepIni.CreateCreeps();
 
-            //var task = new Thread(new ThreadStart(hero.PutTaskDelay));
-            //task.Start();
-            //List<Thread> threads = new List<Thread>();
-            //var dido = new Thread(new ThreadStart(hero.PutTaskDelay));
-            //dido.Start();
-            //(new Task(hero.ManaAndHealthIncrease)).Start();
-            //int counter = 1;
+            hero.Mana -= 100;
+            hero.Health -= 100;
+
             while (true)
             {
-                //hero.PutTaskDelay();
+
                 //PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
                 //PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
                 //PrintOnPosition(Width - 25, Height - 43, string.Format("Counter: {0}", counter));
-                //threads.Add(new Thread(new ThreadStart(hero.PutTaskDelay)));
-                //threads[threads.Count - 1].Start();
-                //threads[threads.Count - 1].Join();
-                
-                player.Move();
 
-                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                //                          NE TRII, NE TRII, NE TRII KOMENTARITE
+                // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
+                //// Create new stopwatch
+                //Stopwatch stopwatch = new Stopwatch();
+                //// Begin timing
+                //stopwatch.Start();
 
-                
+                //// Do something
+                //while (stopwatch.ElapsedMilliseconds < 1000)
+                //{
+                    player.Move();
+
+                    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                //}
+                //hero.ManaAndHealthIncrease();
+                //// Stop timing
+                //stopwatch.Stop();
+
+                //// Write result
+                //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
+                //    stopwatch.Elapsed));
             }
 
             Console.WriteLine("ivo");
