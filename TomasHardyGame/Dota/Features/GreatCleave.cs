@@ -27,8 +27,8 @@
         {
             this.Name = "Great Cleave";
             this.Description = "Sven strikes with great force, cleaving all nearby enemy units with his attack.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.ManaCost = 80;
+            this.CooldownTime = 35;
         }
 
         public override void Use(Hero hero)

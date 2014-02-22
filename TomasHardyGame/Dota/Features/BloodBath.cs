@@ -26,9 +26,9 @@
             :base()
         {
             this.Name = "Blood Bath";
-            this.Description = "Whenever the hero kills a unit, he bathes himself in the blood, regenerating his life source.";
-            this.ManaCost = 0;
-            this.CooldownTime = 0;
+            this.Description = "Whenever the hero attacks a unit, he bathes that unit in blood, damaging it.";
+            this.ManaCost = 80;
+            this.CooldownTime =35;
         }
 
         public override void Use(Hero hero)

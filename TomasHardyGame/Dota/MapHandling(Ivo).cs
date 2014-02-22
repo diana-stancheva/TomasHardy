@@ -57,7 +57,6 @@
 
                 Console.WriteLine();
             }
-
             Console.CursorVisible = false;
         }
     }

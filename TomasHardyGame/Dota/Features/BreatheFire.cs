@@ -28,8 +28,8 @@
         {
             this.Name = "Breathe Fire";
             this.Description = "Unleashes a breath of fire on enemy units in a cone in front of Dragon Knight";
-            this.ManaCost = 100;
-            this.CooldownTime = 12;
+            this.ManaCost = 70;
+            this.CooldownTime = 20;
         }
 
         public override void Use(Hero hero)
