@@ -57,8 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
-    <Compile Include="CharacterSisiDido.cs" />
-    <Compile Include="Creeps.cs" />
+    <Compile Include="Creep.cs" />
     <Compile Include="Features\BloodBath.cs" />
     <Compile Include="Features\Bloodrage.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
