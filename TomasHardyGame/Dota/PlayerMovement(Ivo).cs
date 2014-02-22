@@ -16,7 +16,7 @@
         private const char EnemySymbolThree = '*';
         private const char EnemySymbolFour = 'b';
         private const char EnemySymbolFive = ']';
-        private char[] ForbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol,
+        private char[] forbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol,
                                                       EnemySymbolOne, EnemySymbolTwo, EnemySymbolThree, EnemySymbolFour, EnemySymbolFive};
 
         private readonly char[,] playerMap;

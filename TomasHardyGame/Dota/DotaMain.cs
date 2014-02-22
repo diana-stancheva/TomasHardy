@@ -41,11 +41,11 @@
             }
         }
 
-        static void StartNewGame()
-        {
+        //static void StartNewGame()
+        //{
             // Moved hero initialisation on line 19.
             //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            hero.Draw();
+            // hero.Draw();
 
         //    bool isKilled = false;
 
