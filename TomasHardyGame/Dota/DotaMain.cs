@@ -7,7 +7,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    class Dota
+    class DotaMain
     {
         const int HeightStartScreen = 20;
         const int WidthStartScreen = 70;
@@ -41,11 +41,11 @@
             }
         }
 
-        static void StartNewGame()
-        {
+        //static void StartNewGame()
+        //{
             // Moved hero initialisation on line 19.
             //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            hero.Draw();
+            // hero.Draw();
 
         //    bool isKilled = false;
 
