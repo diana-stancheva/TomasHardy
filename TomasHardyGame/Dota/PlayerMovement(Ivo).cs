@@ -11,8 +11,7 @@
         private const char WallSymbolTwo = '|';
         private const char DotSymbol = '.';
         private const char SemiColonSymbol = ':';
-        private char[] ForbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol };
-
+        private readonly char[] forbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol };
 
         private readonly char[,] playerMap;
         private int positionOnRow;
@@ -90,7 +89,7 @@
 
         private void MoveUp()
         {
-            foreach (var item in this.ForbiddenSymbos)
+            foreach (var item in this.forbiddenSymbos)
             {
                 if (this.playerMap[this.PositionOnRow - 1, this.PositionOnCol] == item )
                 {
@@ -110,7 +109,7 @@
 
         private void MoveDown()
         {
-            foreach (var item in this.ForbiddenSymbos)
+            foreach (var item in this.forbiddenSymbos)
             {
                 if (this.playerMap[this.PositionOnRow + 1, this.PositionOnCol] == item)
                 {
@@ -130,7 +129,7 @@
 
         private void MoveLeft()
         {
-            foreach (var item in this.ForbiddenSymbos)
+            foreach (var item in this.forbiddenSymbos)
             {
                 if (this.playerMap[this.PositionOnRow, this.PositionOnCol - 1] == item)
                 {
@@ -150,7 +149,7 @@
 
         private void MoveRight()
         {
-            foreach (var item in this.ForbiddenSymbos)
+            foreach (var item in this.forbiddenSymbos)
             {
                 if (this.playerMap[this.PositionOnRow, this.PositionOnCol + 1] == item)
                 {

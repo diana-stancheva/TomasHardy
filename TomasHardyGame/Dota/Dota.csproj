@@ -74,7 +74,7 @@
     <Compile Include="File.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
-    <Compile Include="Dota.cs" />
+    <Compile Include="DotaMain.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
     <Compile Include="MapHandling%28Ivo%29.cs" />
     <Compile Include="PlayerMovement%28Ivo%29.cs" />

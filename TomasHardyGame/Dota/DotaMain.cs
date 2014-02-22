@@ -7,7 +7,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    class Dota
+    class DotaMain
     {
         const int HeightStartScreen = 20;
         const int WidthStartScreen = 70;
