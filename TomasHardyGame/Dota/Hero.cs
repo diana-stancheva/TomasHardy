@@ -18,8 +18,8 @@
         private readonly int initialHealth;
         private List<Magic> magics;
 
-        public Hero(string name, int health, int damage, string symbol, ConsoleColor color/*, int x, int y*/, int mana)
-            : base(name, health, damage, symbol, color)
+        public Hero(string name, int health, int damage/*, string symbol*/, ConsoleColor color/*, int x, int y*/, int mana)
+            : base(name, health, damage/*, symbol*/, color)
         {
             //this.X = x;
             //this.Y = y;
