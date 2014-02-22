@@ -26,9 +26,9 @@
             :base()
         {
             this.Name = "Earthshock";
-            this.Description = "Ursa slams the earth, causing a powerful shock to damage and slow all enemy units in a nearby area for 4 seconds.";
-            this.ManaCost = 75;
-            this.CooldownTime = 6;
+            this.Description = "Ursa slams the earth, causing a powerful shock to damage all enemy units in a nearby area.";  // BIG RANGE
+            this.ManaCost = 120;
+            this.CooldownTime = 40;
         }
 
         public override void Use(Hero hero)

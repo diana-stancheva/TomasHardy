@@ -27,8 +27,8 @@
         {
             this.Name = "Ice Shards";
             this.Description = "Tusk compresses 5 shards of ice into a ball of frozen energy that damages all enemies it comes in contact with.";
-            this.ManaCost = 120;
-            this.CooldownTime = 18;
+            this.ManaCost = 100;
+            this.CooldownTime = 30;
         }
 
         public override void Use(Hero hero)

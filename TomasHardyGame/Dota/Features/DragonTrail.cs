@@ -27,9 +27,9 @@
             :base()
         {
             this.Name = "Dragon Trail";
-            this.Description = "Unleashes a breath of fire on enemy units in a cone in front of Dragon Knight";
-            this.ManaCost = 100;
-            this.CooldownTime = 12;
+            this.Description = "Dragon Knight smites an enemy unit in melee range with his shield, while dealing minor damage.";
+            this.ManaCost = 50;
+            this.CooldownTime = 15;
         }
 
         public override void Use(Hero hero)
@@ -40,6 +40,7 @@
             //{
             //    hero.Mana -= this.ManaCost; 
             //    hero.Damage -= 100;
+            //    hero.Stun ???
             //}
         }
     }
