@@ -4,6 +4,7 @@
 
     class Overpower : Magic
     {
+        public DateTime startTime = DateTime.Now;
         private static Overpower instance = null;
         private static object syncRoot = new Object();
 
@@ -36,8 +37,11 @@
             hero.Color = ConsoleColor.Magenta;
             //int heroXPosition = hero.X;
             //int HeroYPosition = hero.Y;
-            
-           // char[,] map = MapHandling.MapMatrix;
+
+            string filePath = "../../Map1.txt";
+            var mapHandling = new MapHandling(filePath);
+            mapHandling.ReadFromFile();
+            char[,] map = mapHandling.MapMatrix;
 
             
 
