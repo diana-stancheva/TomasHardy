@@ -31,5 +31,11 @@
             StormHammer stormHammer = StormHammer.Instance;
             stormHammer.Use(hero);
         }
+
+        public static void GreatCleaveMagic(this Hero hero)
+        {
+            GreatCleave greatCleave = GreatCleave.Instance;
+            greatCleave.Use(hero);
+        }
     }
 }

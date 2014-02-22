@@ -2,12 +2,12 @@
 {
     using System;
 
-    class StormHammer : Magic, IEnchantable
+    class GreatCleave : Magic, IEnchantable
     {
-        private static StormHammer instance = null;
+        private static GreatCleave instance = null;
         private static object syncRoot = new Object();
 
-        public static StormHammer Instance
+        public static GreatCleave Instance
         {
             get
             {
@@ -15,20 +15,20 @@
                 {
                     if (instance == null)
                     {
-                        instance = new StormHammer();
+                        instance = new GreatCleave();
                     }
                     return instance;
                 }
             }
         }
 
-        private StormHammer()
+        private GreatCleave()
             :base()
         {
-            this.Name = "Storm Hammer";
-            this.Description = "Sven unleashes his magical gauntlet that deals damage and stuns enemy units.";
-            this.ManaCost = 140;
-            this.CooldownTime = 13;
+            this.Name = "Great Cleave";
+            this.Description = "Sven strikes with great force, cleaving all nearby enemy units with his attack.";
+            this.ManaCost = 0;
+            this.CooldownTime = 0;
         }
 
         public void Use(Hero hero)

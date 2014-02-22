@@ -62,6 +62,7 @@
     <Compile Include="Features\Bloodrage.cs" />
     <Compile Include="Features\BreatheFire.cs" />
     <Compile Include="Features\DragonTrail.cs" />
+    <Compile Include="Features\GreatCleave.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
     <Compile Include="Features\IEnchantable.cs" />
     <Compile Include="Features\Magic.cs" />
