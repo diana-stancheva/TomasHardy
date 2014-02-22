@@ -50,11 +50,7 @@
 
                         // int left = Console.CursorLeft;
                         // int top = Console.CursorTop;
-                        if (arrayMapCells[hero.Y, hero.X - 1] == '#')
-                        {
-                            continue;
-                        }
-                        else
+                        if (arrayMapCells[hero.Y, hero.X - 1] != '#')
                         {
                             hero.Move(-1, 0);
                         }
@@ -63,11 +59,7 @@
                     {
                         hero.Color = ConsoleColor.Green;
 
-                        if (arrayMapCells[hero.Y, hero.X + 2] == '#')
-                        {
-                            continue;
-                        }
-                        else
+                        if (arrayMapCells[hero.Y, hero.X + 2] != '#')
                         {
                             hero.Move(1, 0);
                         }
@@ -77,14 +69,10 @@
                         hero.Color = ConsoleColor.Green;
 
                         if (
-                                arrayMapCells[hero.Y - 1, hero.X] == '#' ||
-                                arrayMapCells[hero.Y - 1, hero.X + 1] == '#' ||
-                                arrayMapCells[hero.Y - 1, hero.X - 1] == '#'
+                                arrayMapCells[hero.Y - 1, hero.X] != '#' ||
+                                arrayMapCells[hero.Y - 1, hero.X + 1] != '#' ||
+                                arrayMapCells[hero.Y - 1, hero.X - 1] != '#'
                             )
-                        {
-                            continue;
-                        }
-                        else
                         {
                             hero.Move(0, -1);
                         }
@@ -94,14 +82,10 @@
                         hero.Color = ConsoleColor.Green;
 
                         if (
-                                arrayMapCells[hero.Y + 1, hero.X] == '#' || 
-                                arrayMapCells[hero.Y + 1, hero.X - 1] == '#' || 
-                                arrayMapCells[hero.Y + 1, hero.X + 1] == '#'
+                                arrayMapCells[hero.Y + 1, hero.X] != '#' || 
+                                arrayMapCells[hero.Y + 1, hero.X - 1] != '#' || 
+                                arrayMapCells[hero.Y + 1, hero.X + 1] != '#'
                             )
-                        {
-                            continue;
-                        }
-                        else
                         {
                             hero.Move(0, 1);
                         }
