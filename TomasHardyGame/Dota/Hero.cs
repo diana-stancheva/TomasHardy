@@ -4,13 +4,13 @@
     using System.Collections.Generic;
     using System.Threading;
 
-    public class Hero : Character, IMovable
+    public class Hero : Character
     {
-        private const int PlayerFieldLimitX = 78;
-        private const int PlayerFieldLimitY = 47;
+        //private const int PlayerFieldLimitX = 78;
+        //private const int PlayerFieldLimitY = 47;
 
-        private int x;
-        private int y;
+        //private int x;
+        //private int y;
         private int mana;
         private int experience;
         private int level;
@@ -18,11 +18,11 @@
         private readonly int initialHealth;
         private List<Magic> magics;
 
-        public Hero(string name, int health, int damage, string symbol, ConsoleColor color, int x, int y, int mana)
-            : base(name, health, damage, symbol, color)
+        public Hero(string name, int health, int damage/*, string symbol*/, ConsoleColor color/*, int x, int y*/, int mana)
+            : base(name, health, damage/*, symbol*/, color)
         {
-            this.X = x;
-            this.Y = y;
+            //this.X = x;
+            //this.Y = y;
             this.Mana = mana;
             this.Experience = 0;
             this.Level = 1;
@@ -31,17 +31,17 @@
             magics = new List<Magic>();
         }
 
-        public int X
-        {
-            get { return this.x; }
-            set { this.x = value; }
-        }
+        //public int X
+        //{
+        //    get { return this.x; }
+        //    set { this.x = value; }
+        //}
 
-        public int Y
-        {
-            get { return this.y; }
-            set { this.y = value; }
-        }
+        //public int Y
+        //{
+        //    get { return this.y; }
+        //    set { this.y = value; }
+        //}
 
         public int Mana
         {
@@ -120,38 +120,43 @@
             }
         }
 
-        public void Draw()
-        {
-            Console.ForegroundColor = this.Color;
-            Console.SetCursorPosition(this.X, this.Y);
-            Console.Write(this.Symbol);
-        }
+        //public void Draw()
+        //{
+        //    Console.ForegroundColor = this.Color;
+        //    Console.SetCursorPosition(this.X, this.Y);
+        //    Console.Write(this.Symbol);
+        //}
 
-        public void ClearPath()
-        {
-            Console.ForegroundColor = this.Color;
-            Console.SetCursorPosition(this.X, this.Y);
-            Console.CursorVisible = true;
-            Console.Write(' ');
-        }
+        //public void ClearPath()
+        //{
+        //    Console.ForegroundColor = this.Color;
+        //    Console.SetCursorPosition(this.X, this.Y);
+        //    Console.CursorVisible = true;
+        //    Console.Write(' ');
+        //}
 
-        public void Move(int xDelta, int yDelta)
-        {
-            this.ClearPath();
+        //public void Move(int xDelta, int yDelta)
+        //{
+        //    this.ClearPath();
 
-            if (this.X + xDelta >= 1 && this.X + xDelta < PlayerFieldLimitX)
-            {
-                this.X += xDelta;
-            }
-            if (this.Y + yDelta >= 1 && this.Y + yDelta < PlayerFieldLimitY)
-            {
-                this.Y += yDelta;
-            }
-        }
+        //    if (this.X + xDelta >= 1 && this.X + xDelta < PlayerFieldLimitX)
+        //    {
+        //        this.X += xDelta;
+        //    }
+        //    if (this.Y + yDelta >= 1 && this.Y + yDelta < PlayerFieldLimitY)
+        //    {
+        //        this.Y += yDelta;
+        //    }
+        //}
 
         public void ManaAndHealthIncrease()
         {
-            //Thread.Sleep(1200);
+            DateTime future = DateTime.Now.AddMilliseconds(1200);
+
+            while (!future.Equals(DateTime.Now))
+            {
+
+            }
 
             if (this.mana < this.initialMana)
             {
