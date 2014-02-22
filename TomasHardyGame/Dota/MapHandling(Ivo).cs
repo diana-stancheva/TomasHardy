@@ -62,6 +62,7 @@
                         case ']': Console.ForegroundColor = ConsoleColor.DarkYellow; break;
                         case '-': Console.ForegroundColor = ConsoleColor.Magenta; break;
                         case '=': Console.ForegroundColor = ConsoleColor.Magenta; break;
+                        case '0': Console.ForegroundColor = ConsoleColor.Green; break;
                         default: Console.ResetColor(); break;
                     }
                     Console.Write(this.mapMatrix[row, col]);

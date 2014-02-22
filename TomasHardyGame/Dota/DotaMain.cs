@@ -160,7 +160,7 @@
 
         static void Main(string[] args)
         {
-            Console.Title = String.Format("DotA v. 0.1®");
+            Console.Title = String.Format("Dota v. 0.1®");
 
             Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
             Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
@@ -173,7 +173,7 @@
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
 
-            string filePath = "../../Map1.txt";
+            string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
             mapHandling.LoadMapOnScreen();
