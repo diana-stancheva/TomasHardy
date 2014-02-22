@@ -36,7 +36,7 @@ namespace Dota.Features
         }
         public override void Use(Hero hero)
         {
-            //throw new NotImplementedException();
+            ///throw new NotImplementedException();
         }
     }
 }
