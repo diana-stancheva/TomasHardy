@@ -31,12 +31,12 @@ namespace Dota.Features
         {
             this.Name = "Thundergod's Wrath";
             this.Description = "Strikes all enemy heroes with a bolt of lightning, no matter where they may be.";
-            this.ManaCost = 225;
-            this.CooldownTime = 120;
+            this.ManaCost = 300;
+            this.CooldownTime = 150;
         }
         public override void Use(Hero hero)
         {
-            //throw new NotImplementedException();
+            //throw new NotImplementedException();    // damage to all creeps and Rosho
         }
     }
 }
