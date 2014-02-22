@@ -16,8 +16,14 @@
         private const char EnemySymbolThree = '*';
         private const char EnemySymbolFour = 'b';
         private const char EnemySymbolFive = ']';
-        private char[] forbiddenSymbos = new char[] { WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol,
-                                                      EnemySymbolOne, EnemySymbolTwo, EnemySymbolThree, EnemySymbolFour, EnemySymbolFive};
+        private const char BossSymbolOne = '-';
+        private const char BossSymbolTwo = '=';
+        private readonly char[] forbiddenSymbos = new char[] 
+        { 
+            WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol,
+            EnemySymbolOne, EnemySymbolTwo, EnemySymbolThree, EnemySymbolFour, EnemySymbolFive,
+            BossSymbolOne, BossSymbolTwo
+        };
 
         private readonly char[,] playerMap;
         private int positionOnRow;
@@ -97,7 +103,7 @@
         {
             foreach (var item in this.forbiddenSymbos)
             {
-                if (this.playerMap[this.PositionOnRow - 1, this.PositionOnCol] == item )
+                if (this.playerMap[this.PositionOnRow - 1, this.PositionOnCol] == item)
                 {
                     this.checkFobidden = false;
                     break;
