@@ -41,11 +41,11 @@
             }
         }
 
-        //static void StartNewGame()
-        //{
-        //    // Moved hero initialisation on line 19.
-        //    //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-        //    hero.Draw();
+        static void StartNewGame()
+        {
+            // Moved hero initialisation on line 19.
+            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+            hero.Draw();
 
         //    bool isKilled = false;
 
@@ -140,7 +140,8 @@
 
                     if (key.Key == ConsoleKey.F1)
                     {
-                        hero.BloodrageMagic();
+                        hero.Magics[0].Use(hero);
+                        //hero.BloodrageMagic();
                         hero.Draw();
                         //StartNewGame();
                     }

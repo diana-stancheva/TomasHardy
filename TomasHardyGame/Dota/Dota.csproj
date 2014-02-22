@@ -57,7 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
-    <Compile Include="ChooseHeroesScreen.cs" />
     <Compile Include="Creep.cs" />
     <Compile Include="Features\BloodBath.cs" />
     <Compile Include="Features\Bloodrage.cs" />
