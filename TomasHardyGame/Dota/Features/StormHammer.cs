@@ -33,6 +33,7 @@
 
         public void Use(Hero hero)
         {
+
             //hero.Color = ConsoleColor.Magenta;
 
             //if (hero.Mana >= 100)
