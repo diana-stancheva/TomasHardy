@@ -1,5 +1,9 @@
-﻿namespace Dota
+﻿
+namespace Dota
 {
+    using System.Collections.Generic;
+    using System;
+
     public static class MagicExtensions
     {
         public static void BloodrageMagic(this Hero hero)
@@ -41,6 +45,7 @@
         public static void IceShardsMagic(this Hero hero)
         {
             IceShards iceShards = IceShards.Instance;
+            //IceShards iceShards = new IceShards();
             iceShards.Use(hero);
         }
 
@@ -50,6 +55,11 @@
             earthshock.Use(hero);
         }
 
-
+        public static void OverpowerMagic(this Hero hero)
+        {
+            Overpower overpower = Overpower.Instance;
+            //Overpower overpower = new Overpower();
+            overpower.Use(hero);
+        }
     }
 }

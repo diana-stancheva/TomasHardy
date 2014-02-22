@@ -11,6 +11,10 @@
 
         public Magic()
         {
+            
         }
+
+        public abstract void Use(Hero hero);
+
     }
 }
