@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="Map.txt" />
     <Content Include="Map1.txt" />
+    <Content Include="Map2.txt" />
     <Content Include="StartScreen.txt" />
   </ItemGroup>
   <ItemGroup>
