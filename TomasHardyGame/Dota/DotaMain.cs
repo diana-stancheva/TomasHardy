@@ -193,22 +193,27 @@
 
                 //PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
                 //PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
-                //PrintOnPosition(Width - 25, Height - 43, string.Format("Counter: {0}", counter));
 
-                //                          NE TRII, NE TRII, NE TRII KOMENTARITE
-                // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
+                ////                          NE TRII, NE TRII, NE TRII KOMENTARITE
+                //// TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
                 //// Create new stopwatch
                 //Stopwatch stopwatch = new Stopwatch();
                 //// Begin timing
                 //stopwatch.Start();
 
                 //// Do something
-                //while (stopwatch.ElapsedMilliseconds < 1000)
+                //while (stopwatch.ElapsedMilliseconds < 2000)
                 //{
-                    player.Move();
+                //    if (Console.KeyAvailable)
+                //    {
+                //        ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+                //        player.Move(pressedKey);
+                //    }
 
-                    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                //    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                 //}
+
+
                 //hero.ManaAndHealthIncrease();
                 //// Stop timing
                 //stopwatch.Stop();
@@ -216,6 +221,9 @@
                 //// Write result
                 //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
                 //    stopwatch.Elapsed));
+
+                player.Move();
+                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
             }
 
             Console.WriteLine("ivo");
