@@ -41,91 +41,91 @@
             }
         }
 
-        static void StartNewGame()
-        {
-            // Moved hero initialisation on line 19.
-            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            hero.Draw();
+        //static void StartNewGame()
+        //{
+        //    // Moved hero initialisation on line 19.
+        //    //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+        //    hero.Draw();
 
-            bool isKilled = false;
+        //    bool isKilled = false;
 
-            while (!isKilled)
-            {
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo keyPressed = Console.ReadKey();
-                    if (keyPressed.Key == ConsoleKey.Spacebar)
-                    {
-                        hero.Color = ConsoleColor.Magenta;
-                    }
-                    else if (keyPressed.Key == ConsoleKey.LeftArrow)
-                    {
-                        hero.Color = ConsoleColor.Green;
+        //    while (!isKilled)
+        //    {
+        //        if (Console.KeyAvailable)
+        //        {
+        //            ConsoleKeyInfo keyPressed = Console.ReadKey();
+        //            if (keyPressed.Key == ConsoleKey.Spacebar)
+        //            {
+        //                hero.Color = ConsoleColor.Magenta;
+        //            }
+        //            else if (keyPressed.Key == ConsoleKey.LeftArrow)
+        //            {
+        //                hero.Color = ConsoleColor.Green;
 
-                        // int left = Console.CursorLeft;
-                        // int top = Console.CursorTop;
-                        if (arrayMapCells[hero.Y, hero.X - 1] != '#')
-                        {
-                            hero.Move(-1, 0);
-                        }
-                    }
-                    else if (keyPressed.Key == ConsoleKey.RightArrow)
-                    {
-                        hero.Color = ConsoleColor.Green;
+        //                // int left = Console.CursorLeft;
+        //                // int top = Console.CursorTop;
+        //                if (arrayMapCells[hero.Y, hero.X - 1] != '#')
+        //                {
+        //                    hero.Move(-1, 0);
+        //                }
+        //            }
+        //            else if (keyPressed.Key == ConsoleKey.RightArrow)
+        //            {
+        //                hero.Color = ConsoleColor.Green;
 
-                        if (arrayMapCells[hero.Y, hero.X + 2] != '#')
-                        {
-                            hero.Move(1, 0);
-                        }
-                    }
-                    else if (keyPressed.Key == ConsoleKey.UpArrow)
-                    {
-                        hero.Color = ConsoleColor.Green;
+        //                if (arrayMapCells[hero.Y, hero.X + 2] != '#')
+        //                {
+        //                    hero.Move(1, 0);
+        //                }
+        //            }
+        //            else if (keyPressed.Key == ConsoleKey.UpArrow)
+        //            {
+        //                hero.Color = ConsoleColor.Green;
 
-                        if (
-                                arrayMapCells[hero.Y - 1, hero.X] != '#' ||
-                                arrayMapCells[hero.Y - 1, hero.X + 1] != '#' ||
-                                arrayMapCells[hero.Y - 1, hero.X - 1] != '#'
-                            )
-                        {
-                            hero.Move(0, -1);
-                        }
-                    }
-                    else if (keyPressed.Key == ConsoleKey.DownArrow)
-                    {
-                        hero.Color = ConsoleColor.Green;
+        //                if (
+        //                        arrayMapCells[hero.Y - 1, hero.X] != '#' ||
+        //                        arrayMapCells[hero.Y - 1, hero.X + 1] != '#' ||
+        //                        arrayMapCells[hero.Y - 1, hero.X - 1] != '#'
+        //                    )
+        //                {
+        //                    hero.Move(0, -1);
+        //                }
+        //            }
+        //            else if (keyPressed.Key == ConsoleKey.DownArrow)
+        //            {
+        //                hero.Color = ConsoleColor.Green;
 
-                        if (
-                                arrayMapCells[hero.Y + 1, hero.X] != '#' || 
-                                arrayMapCells[hero.Y + 1, hero.X - 1] != '#' || 
-                                arrayMapCells[hero.Y + 1, hero.X + 1] != '#'
-                            )
-                        {
-                            hero.Move(0, 1);
-                        }
-                    }
-                    else if (keyPressed.Key == ConsoleKey.Escape)
-                    {
-                        // Return to menu
-                        return;
-                    }
-                    else if (keyPressed.Key == ConsoleKey.Insert)
-                    {
-                        // choose magic from menu
-                        SelectMagic();
+        //                if (
+        //                        arrayMapCells[hero.Y + 1, hero.X] != '#' || 
+        //                        arrayMapCells[hero.Y + 1, hero.X - 1] != '#' || 
+        //                        arrayMapCells[hero.Y + 1, hero.X + 1] != '#'
+        //                    )
+        //                {
+        //                    hero.Move(0, 1);
+        //                }
+        //            }
+        //            else if (keyPressed.Key == ConsoleKey.Escape)
+        //            {
+        //                // Return to menu
+        //                return;
+        //            }
+        //            else if (keyPressed.Key == ConsoleKey.Insert)
+        //            {
+        //                // choose magic from menu
+        //                SelectMagic();
                         
-                    }
-                }
+        //            }
+        //        }
 
-                ClearBuffer();
+        //        ClearBuffer();
 
-                hero.Draw();
+        //        hero.Draw();
 
-                Thread.Sleep(delay);
+        //        Thread.Sleep(delay);
 
-                hero.ManaAndHealthIncrease();
-            }
-        }
+        //        hero.ManaAndHealthIncrease();
+        //    }
+        //}
 
         static void SelectMagic()
         {
@@ -142,7 +142,7 @@
                     {
                         hero.BloodrageMagic();
                         hero.Draw();
-                        StartNewGame();
+                        //StartNewGame();
                     }
                     
                 }
@@ -159,27 +159,42 @@
 
         static void Main(string[] args)
         {
-            Console.CursorVisible = false;
             Console.Title = String.Format("DotA v. 0.1®");
 
             Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
             Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
 
-            File file = new File(@"..\..\Map.txt");
+            //File file = new File(@"..\..\Map.txt");
 
             Screen startScreen = new Screen(@"..\..\StartScreen.txt");
             startScreen.LoadScreen();
 
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
-            arrayMapCells = file.LoadMap();
-            //file.LoadMap();
 
+            string filePath = "../../Map1.txt";
+            var mapHandling = new MapHandling(filePath);
+            mapHandling.ReadFromFile();
+            mapHandling.LoadMapOnScreen();
+
+            var player = new PlayerMovement(mapHandling.MapMatrix);
+            player.GetPlayerStartPosition();
 
             while (true)
             {
-                StartNewGame();
+                player.Move();
             }
+
+            //Console.CursorVisible = false;
+
+            //arrayMapCells = file.LoadMap();
+            ////file.LoadMap();
+
+
+            //while (true)
+            //{
+            //    StartNewGame();
+            //}
 
 
             //   CHARACTER SISI DIDO:
