@@ -73,6 +73,7 @@
     <Compile Include="Dota.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
     <Compile Include="MapHandling%28Ivo%29.cs" />
+    <Compile Include="PlayerMovement%28Ivo%29.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roshan.cs" />
     <Compile Include="Screen.cs" />
