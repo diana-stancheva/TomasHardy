@@ -10,12 +10,10 @@
 
     class DotaMain
     {
-        private const int Height = 50;
-        private const int Width = 110;
-        const int HeightStartScreen = 20;
-        const int WidthStartScreen = 70;
-        // const int delay = 150;
-        // public static char[,] ArrayMapCells;
+        const int Height = 50;
+        const int Width = 110;
+        const int delay = 150;
+        public static char[,] arrayMapCells;
 
         static Hero hero = new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
 
@@ -161,15 +159,15 @@
 
         public static void Main()
         {
-            Console.Title = String.Format("Dota v. 0.1®");
-
-            Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
-            Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
+            //File file = new File(@"..\..\Map.txt");
 
             Screen startScreen = new Screen(@"..\..\StartScreen.txt");
             startScreen.LoadScreen();
 
-            // reading and creating a map
+            Console.BufferHeight = Console.WindowHeight = Height;
+            Console.BufferWidth = Console.WindowWidth = Width;
+
+            // reading and creating map
             string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
@@ -235,17 +233,21 @@
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
+                        List<Creep> creepsList = creepIni.Creeps;
+
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
                             hero.Magics[0].Use(hero);
+                            DecreaseCreepHealth(tempCreep, creepsList);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
                             hero.Magics[1].Use(hero);
+                            DecreaseCreepHealth(tempCreep, creepsList);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-
+                            DecreaseCreepHealth(tempCreep, creepsList);
                         }   
                     }
                 }
@@ -295,6 +297,17 @@
             //current.Experience = 1002;
             //Console.WriteLine(current.Experience);
             //Console.WriteLine(current.Level);
+        }
+
+        private static void DecreaseCreepHealth(Creep tempCreep, List<Creep> creepsList)
+        {
+            foreach (var creep in creepsList)
+            {
+                if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
+                {
+                    creep.Health -= hero.Damage;
+                }
+            }
         }
     }
 }

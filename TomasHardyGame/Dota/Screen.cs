@@ -6,6 +6,10 @@
 
     public class Screen : IScreen
     {
+        const int HeightStartScreen = 20;
+        const int WidthStartScreen = 70;
+        const string GameTitle = "Dota v. 0.1®";
+
         // const string FileName = @"..\..\StartScreen.txt";
         public Screen(string fileName)
         {
@@ -15,6 +19,11 @@
 
         public void LoadScreen()
         {
+            Console.Title = String.Format(GameTitle);
+
+            Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
+            Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
+
             using (StreamReader sr = new StreamReader(this.FileName))
             {
                 string line = sr.ReadToEnd();
