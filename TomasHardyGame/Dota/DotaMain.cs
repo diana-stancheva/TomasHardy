@@ -217,6 +217,8 @@
                 PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
+                // ne trii zachistva Experience na geroq !!!!!!!!!!!!!!!!!!!!!!!
+                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
@@ -258,6 +260,7 @@
 
                 while (stopwatch.ElapsedMilliseconds < 2000)
                 {
+
                     if (stopwatch.ElapsedMilliseconds >= 1000)
                     {
                         PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
@@ -269,6 +272,7 @@
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
+                        DeleteCreepFromMatrix(player.PlayerMap, tempCreep);
 
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
@@ -312,6 +316,21 @@
             }
         }
 
+        private static void DeleteCreepFromMatrix(char[,] matrix, Creep tempCreep)
+        {
+            if (tempCreep != null && tempCreep.IsDead == true)
+            {
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
+            }
+
+        }
+
+
+
         private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
         {
             foreach (var creep in creepsList)
@@ -328,7 +347,7 @@
 
                         if (creep.IsDead == true)
                         {
-                            PrintOnPosition(creep.Position.Col, creep.Position.Row, string.Format("\b\b[d*b]"), ConsoleColor.Gray);
+                            PrintOnPosition(creep.Position.Col, creep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
                             creepsList.Remove(creep);
 
                             if (hero.Level != 10)
