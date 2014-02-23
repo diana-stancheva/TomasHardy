@@ -259,7 +259,7 @@
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
 
-                        
+
 
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
@@ -283,17 +283,22 @@
                     }
                 }
 
+                // print position
+                //PrintOnPosition(Width - 19, Height - 50, player.PositionOnCol + " " + player.PositionOnRow, ConsoleColor.DarkCyan);
+
                 if (tempCreep != null && tempCreep.IsDead == false)
                 {
                     hero.Health -= tempCreep.Damage;
                 }
 
-                if (player.PositionOnCol <= 2 && player.PositionOnRow >= 47)
+                if (player.PositionOnCol == 1 && player.PositionOnRow == 47)
                 {
                     hero.ManaAndHealthIncreaseFountain();
                 }
-
-                hero.ManaAndHealthIncrease();
+                else
+                {
+                    hero.ManaAndHealthIncrease();
+                }
 
                 // Stop timing
                 stopwatch.Stop();
