@@ -130,8 +130,8 @@
 
         static void SelectMagic()
         {
-            PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage");
-            PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath");
+            PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage", ConsoleColor.Gray);
+            PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath", ConsoleColor.Gray);
 
             while (true)
             {
@@ -152,7 +152,7 @@
         }
 
         //Prints on position and apply color for string
-        static void PrintOnPosition(int x, int y, string str, ConsoleColor color = ConsoleColor.Gray)
+        static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -193,12 +193,11 @@
 
             while (true)
             {
+                PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                    timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
-                PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
-                PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
-                // Write result
-                PrintOnPosition(Width - 25, Height - 43, string.Format("Time elapsed: {0:D2}:{1:D2}:{2:D2}",
-                    timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds));
+                PrintOnPosition(Width - 25, Height - 44, string.Format("MANA: {0}", hero.Mana), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0}", hero.Health), ConsoleColor.Gray);
 
 
                 //                          NE TRII, NE TRII, NE TRII KOMENTARITE
