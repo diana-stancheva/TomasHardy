@@ -15,19 +15,19 @@
         // const int delay = 150;
         // public static char[,] arrayMapCells;
 
-        static Hero hero = new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
+        static Hero hero;
 
         static List<Hero> heroes = new List<Hero>
         {
-            new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
-            new Hero("Dragon Knight", 300, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
-            new Hero("Anti Mage", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
-            new Hero("Juggernaut", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
-            new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
-            new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
-            new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
-            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
+            new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
+            new Hero("Dragon Knight", 300, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
+            new Hero("Anti Mage", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Juggernaut", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
+            new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
         //static void ClearBuffer()
@@ -272,7 +272,6 @@
                 }
             }
 
-
             // creating and loading map
             string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
@@ -315,8 +314,10 @@
                 if (tempCreep != null)
                 {
                     PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 9, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0}", tempCreep.Health), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 7, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, string.Format("Is it dead: {0}", tempCreep.IsDead), ConsoleColor.Gray);
                 }
                 else
