@@ -21,14 +21,13 @@
         {
             new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
             new Hero("Dragon Knight", 300, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
-            new Hero("Sven", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
-            new Hero("Tusk", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
-            new Hero("Ursa", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
-            new Hero("Zeus", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Anti Mage", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Juggernaut", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
             new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
             new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
-            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }), 
-            new Hero("Huskar", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { InnerVitality.Instance, BurningSpear.Instance })
+            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
         //static void ClearBuffer()
@@ -157,12 +156,121 @@
             Console.WriteLine(str);
         }
 
+
+
+        static void PrintChoosingHero(int x, int y,Hero hero, ConsoleColor color)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine("health: " + hero.Health);
+            Console.SetCursorPosition(x, y + 1);
+            Console.WriteLine("mana: " + hero.Mana);
+            Console.SetCursorPosition(x, y + 2);
+            Console.WriteLine("damage: " + hero.Damage);
+            Console.SetCursorPosition(x, y + 3);
+            Console.WriteLine("move speed: " + hero.MoveSpeed);
+            Console.SetCursorPosition(x, y + 4);
+            Console.WriteLine("attack speed: " + hero.AttackSpeed);
+        }
+
+        static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(hero.Name);
+            Console.SetCursorPosition(x + (hero.Name.Length / 2 == 0 ? hero.Name.Length / 2 : hero.Name.Length / 2 - 1), y + 1);
+            Console.WriteLine(letter);
+            Console.SetCursorPosition(x, y + 2);
+        }
+
+        static void PrintChooseText(int x, int y, string name, ConsoleColor color)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(name);
+        }
+        
+
+
+
         public static void Main()
         {
             Screen startScreen = new Screen(@"..\..\StartScreen.txt");
             startScreen.LoadScreen();
 
-            // reading and creating map
+            Console.BufferHeight = Console.WindowHeight = Height;
+            Console.BufferWidth = Console.WindowWidth = Width;
+
+
+            PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
+
+            PrintHeroName(Width - 100, Height - 43, heroes[0], "<B>");
+            PrintChoosingHero(Width - 100, Height - 41, heroes[0], ConsoleColor.Gray);
+            PrintHeroName(Width - 65, Height - 43, heroes[1], "<D>");
+            PrintChoosingHero(Width - 65, Height - 41, heroes[1], ConsoleColor.Gray);
+            PrintHeroName(Width - 30, Height - 43, heroes[2], "<A>");
+            PrintChoosingHero(Width - 30, Height - 41, heroes[2], ConsoleColor.Gray);
+            PrintHeroName(Width - 100, Height - 30, heroes[3], "<J>");
+            PrintChoosingHero(Width - 100, Height - 28, heroes[3], ConsoleColor.Gray);
+            PrintHeroName(Width - 65, Height - 30, heroes[4], "<M>");
+            PrintChoosingHero(Width - 65, Height - 28, heroes[4], ConsoleColor.Gray);
+            PrintHeroName(Width - 30, Height - 30, heroes[5], "<S>");
+            PrintChoosingHero(Width - 30, Height - 28, heroes[5], ConsoleColor.Gray);
+            PrintHeroName(Width - 100, Height - 17, heroes[0], "<T>");
+            PrintChoosingHero(Width - 100, Height - 15, heroes[0], ConsoleColor.Gray);
+            PrintHeroName(Width - 65, Height - 17, heroes[1], "<K>");
+            PrintChoosingHero(Width - 65, Height - 15, heroes[1], ConsoleColor.Gray);
+            PrintHeroName(Width - 30, Height - 17, heroes[2], "<N>");
+            PrintChoosingHero(Width - 30, Height - 15, heroes[2], ConsoleColor.Gray);
+
+
+            ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
+            bool heroLetter = false;
+            while (!heroLetter)
+            {
+                switch (pressedKeyHero.Key) 
+                {
+                    case ConsoleKey.B:
+                        hero = heroes[0];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.D:
+                        hero = heroes[1];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.A:
+                        hero = heroes[2];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.J:
+                        hero = heroes[3];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.M:
+                        hero = heroes[4];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.S:
+                        hero = heroes[5];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.T:
+                        hero = heroes[6];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.K:
+                        hero = heroes[7];
+                        heroLetter = true;
+                        break;
+                    case ConsoleKey.N:
+                        hero = heroes[8];
+                        heroLetter = true;
+                        break;
+                }
+            }
+
+
+
             string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();

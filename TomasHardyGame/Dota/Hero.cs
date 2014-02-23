@@ -131,8 +131,10 @@
                 }
 
                 this.moveSpeed = value;
-            }
+             }
         }
+
+        
 
         public int InitialMana
         {

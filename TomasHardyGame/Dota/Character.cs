@@ -12,7 +12,7 @@
         // private string symbol;
         // private ConsoleColor color;
         private CreepPosition position;
-
+         
         public Character()
         {
 

@@ -86,8 +86,8 @@
                     Console.Write('@');
 
                     return creep;
-                }
             }
+        }
 
             return null;
         }
