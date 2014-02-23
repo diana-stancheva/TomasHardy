@@ -305,7 +305,7 @@
                     }
                     else
                     {
-                    creep.Health -= hero.Damage;
+                        creep.Health -= hero.Damage;
 
                         if (creep.IsDead == true)
                         {
@@ -314,14 +314,14 @@
 
                             if (hero.Level != 10)
                             {
-                            hero.Experience += 50;
+                                hero.Experience += 50;
+                            }
                         }
-                }
                     }
 
                     break;
+                }
             }
         }
     }
-}
 }
