@@ -26,7 +26,7 @@
             new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
             new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
             new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Wraith King", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
             new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
@@ -157,7 +157,6 @@
         }
 
 
-
         static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
             Console.SetCursorPosition(x, y);
@@ -190,6 +189,14 @@
             Console.WriteLine(name);
         }
 
+        static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(hero.Magics[0].Description);
+            Console.SetCursorPosition(x + 3, y + 3);
+            Console.WriteLine(hero.Magics[1].Description);
+        }
 
 
 
@@ -222,6 +229,8 @@
             PrintHeroName(Width - 30, Height - 15, heroes[8], "<N>");
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
 
+
+            
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
