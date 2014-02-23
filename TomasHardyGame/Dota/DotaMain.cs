@@ -308,8 +308,10 @@
                 if (tempCreep != null)
                 {
                     PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 9, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0}", tempCreep.Health), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 7, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, string.Format("Is it dead: {0}", tempCreep.IsDead), ConsoleColor.Gray);
                 }
                 else
