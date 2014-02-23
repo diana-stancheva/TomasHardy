@@ -372,6 +372,11 @@
                     }
                 }
 
+                if (tempCreep != null)
+                {
+                    hero.Health -= tempCreep.Damage;
+                }
+
                 hero.ManaAndHealthIncrease();
                 // Stop timing
                 stopwatch.Stop();
@@ -431,10 +436,10 @@
                     }
                     else
                     {
-                    creep.Health -= hero.Damage;
+                        creep.Health -= hero.Damage;
+                    }
                 }
             }
         }
     }
-}
 }
