@@ -17,20 +17,20 @@
         const int delay = 150;
         public static char[,] arrayMapCells;
 
-        static Hero hero = new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300);
+        //static Hero hero = new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300);
 
         static List<Hero> heroes = new List<Hero>
         {
-            new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Dragon Knight", 300, 50, ConsoleColor.Green, 300), 
-            new Hero("Sven", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Tusk", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Ursa", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Zeus", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Troll Warlord", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Wraithking", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Nyx Assassin", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Huskar", 500, 50, ConsoleColor.Green, 300)
+            new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
+            new Hero("Dragon Knight", 300, 50, ConsoleColor.Green, 300, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
+            new Hero("Sven", 500, 50, ConsoleColor.Green, 300, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Tusk", 500, 50, ConsoleColor.Green, 300, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Ursa", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Zeus", 500, 50, ConsoleColor.Green, 300, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Troll Warlord", 500, 50, ConsoleColor.Green, 300, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
+            new Hero("Wraithking", 500, 50, ConsoleColor.Green, 300, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Nyx Assassin", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Vendetta.Instance, Impale.Instance }), 
+            new Hero("Huskar", 500, 50, ConsoleColor.Green, 300, new List<Magic> { InnerVitality.Instance, BurningSpear.Instance })
         };
 
         //static void ClearBuffer()
@@ -190,7 +190,6 @@
 
             while (true)
             {
-
                 PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
                 PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
 
