@@ -156,7 +156,7 @@
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
-            Console.Write(str);
+            Console.WriteLine(str);
         }
 
         static void Main(string[] args)
@@ -191,8 +191,8 @@
             while (true)
             {
 
-                PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
-                PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
+                PrintOnPosition(Width - 25, Height - 45, string.Format("HEALTH: {0}", hero.Health));
+                PrintOnPosition(Width - 25, Height - 43, string.Format("MANA: {0}", hero.Mana));
 
                 //                          NE TRII, NE TRII, NE TRII KOMENTARITE
                 // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
