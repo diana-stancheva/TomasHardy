@@ -23,7 +23,7 @@
         private readonly int initialHealth;
         public List<Magic> Magics { get; set; }
 
-        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana, 
+        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana,
             int attackSpeed, int moveSpeed, List<Magic> magicList, CreepPosition position = default(CreepPosition))
             : base(name, health, damage/*, symbol, color*/, position)
         {
@@ -131,10 +131,10 @@
                 }
 
                 this.moveSpeed = value;
-             }
+            }
         }
 
-        
+
 
         public int InitialMana
         {
