@@ -59,6 +59,8 @@
     <Compile Include="Character.cs" />
     <Compile Include="Creep.cs" />
     <Compile Include="CreepInitialization.cs" />
+    <Compile Include="Features\ArcLightning.cs" />
+    <Compile Include="Features\BattleTrance.cs" />
     <Compile Include="Features\BloodBath.cs" />
     <Compile Include="Features\Bloodrage.cs" />
     <Compile Include="Features\BreatheFire.cs" />

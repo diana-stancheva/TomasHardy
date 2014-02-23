@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dota.Features
+namespace Dota
 {
     class Reincarnation:Magic
     {

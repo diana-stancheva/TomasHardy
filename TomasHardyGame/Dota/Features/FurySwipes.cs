@@ -1,4 +1,4 @@
-﻿namespace Dota.Features
+﻿namespace Dota
 {
     using System;
 
