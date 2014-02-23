@@ -202,7 +202,7 @@
                 stopwatch.Start();
 
                 // Do something
-                while (stopwatch.ElapsedMilliseconds < 1200)
+                while (stopwatch.ElapsedMilliseconds < 2000)
                 {
                     if (Console.KeyAvailable)
                     {
@@ -219,8 +219,8 @@
                 stopwatch.Stop();
 
                 // Write result
-                PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
-                    stopwatch.Elapsed));
+                //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
+                //    stopwatch.Elapsed));
 
                 //player.Move();
                 // check on each step for creeps
