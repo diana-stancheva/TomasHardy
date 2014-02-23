@@ -13,7 +13,8 @@
         private readonly List<string> creepyNames = new List<string> 
         { 
             "Barnabas", "Bloody Mary", "Spooky Lion", "Fang", "Frankenstein", "Hulk", "Morticia", "Salem", "Zorak"
-            , "Wednesday", "Sasquatch", "Phantom", "Quasimodo", "Merlin", "Midnight", "Freddie Krueger"
+            , "Wednesday", "Sasquatch", "Phantom", "Quasimodo", "Merlin", "Midnight", "Freddie Krueger", "Fester",
+            "Endora", "Chaos"
         };
 
         private readonly List<CreepPosition> creepsPosition;
