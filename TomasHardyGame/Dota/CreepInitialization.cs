@@ -37,7 +37,7 @@
             {
                 for (int col = 0; col < this.matrix.GetLength(1); col++)
                 {
-                    if (this.matrix[row, col].Equals(CreepSymbol) && 
+                    if (this.matrix[row, col].Equals(CreepSymbol) &&
                       !(this.matrix[row, col + 1].Equals(CreepSymbol)) &&
                       !(this.matrix[row, col - 1].Equals(CreepSymbol)))
                     {
@@ -53,7 +53,7 @@
 
             for (int i = 0; i < creepsPosition.Count; i++)
             {
-                this.Creeps.Add(new Creep(CreepName, random.Next(CreepMinHealth, CreepMaxHealth), 
+                this.Creeps.Add(new Creep(CreepName, random.Next(CreepMinHealth, CreepMaxHealth),
                     random.Next(CreepMinDamage, CreepMaxDamage), creepsPosition[i]));
             }
         }
@@ -86,8 +86,8 @@
                     Console.Write('@');
 
                     return creep;
+                }
             }
-        }
 
             return null;
         }

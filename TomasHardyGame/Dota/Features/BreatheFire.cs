@@ -30,17 +30,17 @@
             this.Description = "Unleashes a breath of fire on enemy units in a cone in front of Dragon Knight";
             this.ManaCost = 70;
             this.CooldownTime = 20;
+            this.Damage = 90;
         }
 
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
             //hero.Color = ConsoleColor.Magenta;
-
-            //if (hero.Mana >= 80)
-            //{
-            //    hero.Mana -= this.ManaCost; 
-            //    hero.Damage -= 100;
-            //}
+            if (hero.Mana >= this.ManaCost)
+            {
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

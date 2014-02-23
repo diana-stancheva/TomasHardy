@@ -29,19 +29,17 @@
             this.Description = "Sven unleashes his magical gauntlet that deals damage on enemy units.";
             this.ManaCost = 140;
             this.CooldownTime = 55;
+            this.Damage = 100;
         }
 
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-
             //hero.Color = ConsoleColor.Magenta;
-
-            //if (hero.Mana >= 100)
-            //{
-            //    hero.Mana -= this.ManaCost; 
-            //    hero.Damage -= 100;
-            //    hero.Stun ???
-            //}
+            if (hero.Mana >= this.ManaCost)
+            {
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }
