@@ -10,12 +10,12 @@
 
     class DotaMain
     {
+        private const int Height = 50;
+        private const int Width = 110;
         const int HeightStartScreen = 20;
         const int WidthStartScreen = 70;
-        const int Height = 50;
-        const int Width = 110;
-        const int delay = 150;
-        public static char[,] arrayMapCells;
+        // const int delay = 150;
+        // public static char[,] ArrayMapCells;
 
         static Hero hero = new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
 
@@ -166,15 +166,10 @@
             Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
             Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
 
-            //File file = new File(@"..\..\Map.txt");
-
             Screen startScreen = new Screen(@"..\..\StartScreen.txt");
             startScreen.LoadScreen();
 
-            Console.BufferHeight = Console.WindowHeight = Height;
-            Console.BufferWidth = Console.WindowWidth = Width;
-
-            // reading and creating map
+            // reading and creating a map
             string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
@@ -195,7 +190,6 @@
 
             Stopwatch timeElapsed = new Stopwatch();
             timeElapsed.Start();
-
 
             while (true)
             {
@@ -256,15 +250,10 @@
                     }
                 }
 
-
                 hero.ManaAndHealthIncrease();
                 // Stop timing
                 stopwatch.Stop();
             }
-
-            //arrayMapCells = file.LoadMap();
-            ////file.LoadMap();
-
 
             //while (true)
             //{
