@@ -230,7 +230,7 @@
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
 
 
-            
+
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
@@ -441,10 +441,10 @@
                     }
                     else
                     {
-                    creep.Health -= hero.Damage;
+                        creep.Health -= hero.Damage;
+                    }
                 }
             }
         }
     }
-}
 }
