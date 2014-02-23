@@ -17,16 +17,21 @@
         private int mana;
         private int experience;
         private int level;
+        private int attackSpeed;
+        private int moveSpeed;
         private readonly int initialMana;
         private readonly int initialHealth;
         private List<Magic> magics;
 
-        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana, List<Magic> magicList, CreepPosition position = default(CreepPosition))
+        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana, 
+            int attackSpeed, int moveSpeed, List<Magic> magicList, CreepPosition position = default(CreepPosition))
             : base(name, health, damage/*, symbol, color*/, position)
         {
             //this.X = x;
             //this.Y = y;
             this.Mana = mana;
+            this.AttackSpeed = attackSpeed;
+            this.MoveSpeed = moveSpeed;
             this.Experience = 0;
             this.Level = 1;
             this.initialMana = mana;
@@ -95,6 +100,36 @@
                 }
 
                 this.level = value;
+            }
+        }
+
+        public int AttackSpeed
+        {
+            get { return this.attackSpeed; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                this.attackSpeed = value;
+            }
+        }
+
+        public int MoveSpeed
+        {
+            get { return this.moveSpeed; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                this.moveSpeed = value;
             }
         }
 
