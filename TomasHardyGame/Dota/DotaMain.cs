@@ -132,9 +132,6 @@
             PrintHeroName(Width - 30, Height - 15, heroes[8], "<N>");
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
 
-
-
-
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
             bool heroLetter = false;
@@ -200,8 +197,8 @@
             Creep tempCreep = new Creep();
             tempCreep = null;
 
-            hero.Mana -= 100;
-            hero.Health -= 50;
+            //hero.Mana -= 100;
+            //hero.Health -= 50;
 
             Stopwatch timeElapsed = new Stopwatch();
             timeElapsed.Start();
@@ -260,7 +257,6 @@
 
                 while (stopwatch.ElapsedMilliseconds < 2000)
                 {
-
                     if (stopwatch.ElapsedMilliseconds >= 1000)
                     {
                         PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
@@ -294,11 +290,11 @@
                         if (DeleteCreepFromMatrix(player.PlayerMap, tempCreep, creepIni.Creeps))
                         {
                             player.PrintSymbol('@');
-                        } 
+                        }
                     }
                 }
 
-                // print position
+                // print position 3 47
                 //PrintOnPosition(Width - 19, Height - 50, player.PositionOnCol + " " + player.PositionOnRow, ConsoleColor.DarkCyan);
 
                 if (tempCreep != null && tempCreep.IsDead == false)
@@ -317,6 +313,28 @@
 
                 // Stop timing
                 stopwatch.Stop();
+
+                if (hero.IsDead)
+                {
+                    if (hero.InitialHealth > 150)
+                    {
+                        player.PrintSymbol(' ');
+                        Thread.Sleep(10000);
+                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.Mana, 
+                            hero.AttackSpeed, hero.MoveSpeed, hero.Magics, hero.Position);
+                        player.PositionOnCol = 3;
+                        player.PositionOnRow = 47;
+                        player.PrintSymbol('@');
+                    }
+                    else
+                    {
+                        // KAKVOTO RESHI SHTE PISHE NAKRAQ!!!!!!!!!!!!!!!!
+                        Console.Clear();
+                        Console.WriteLine("GAME OVER!");
+                        break;
+                    }
+
+                }
             }
         }
 
