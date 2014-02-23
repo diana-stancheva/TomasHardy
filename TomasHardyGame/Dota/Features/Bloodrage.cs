@@ -30,14 +30,16 @@
             this.Description = "Drives a unit into a bloodthirsty rage, during which it has higher attack damage, but cannot cast spells and takes damage every second";
             this.ManaCost = 100;
             this.CooldownTime = 25;
+            this.Damage = 25;
         }
 
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            if (hero.Mana >= 100)
+            if (hero.Mana >= this.ManaCost)
             {
                 //hero.Color = ConsoleColor.Cyan;
                 hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
             }
         }
     }

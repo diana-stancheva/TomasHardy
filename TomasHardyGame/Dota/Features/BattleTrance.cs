@@ -33,10 +33,16 @@ namespace Dota
             this.Description = "Troll's presence on the battlefield increases the attack speed of himself.";
             this.ManaCost = 55;
             this.CooldownTime = 30;
+            this.Damage = 60;
         }
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();     // only movement speed
+            if (hero.Mana >= this.ManaCost)
+            {
+                //hero.Color = ConsoleColor.Cyan;
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

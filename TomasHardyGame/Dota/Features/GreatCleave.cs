@@ -29,18 +29,17 @@
             this.Description = "Sven strikes with great force, cleaving all nearby enemy units with his attack.";
             this.ManaCost = 80;
             this.CooldownTime = 35;
+            this.Damage = 20;
         }
 
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-
             //hero.Color = ConsoleColor.Magenta;
-
-            //if (hero.Mana >= 100)
-            //{
-            //    hero.Mana -= this.ManaCost; 
-            //    hero.Damage -= 100;
-            //}
+            if (hero.Mana >= this.ManaCost)
+            {
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

@@ -33,10 +33,16 @@ namespace Dota
             this.Description = "Strikes all enemy heroes with a bolt of lightning, no matter where they may be.";
             this.ManaCost = 300;
             this.CooldownTime = 150;
+            this.Damage = 80;
         }
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();    // damage to all creeps and Rosho
+            if (hero.Mana >= this.ManaCost)
+            {
+                //hero.Color = ConsoleColor.Magenta;
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

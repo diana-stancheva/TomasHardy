@@ -26,7 +26,7 @@
             new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
             new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
             new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Wraith King", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
             new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
@@ -125,28 +125,28 @@
         //    }
         //}
 
-        static void SelectMagic()
-        {
-            PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage", ConsoleColor.Gray);
-            PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath", ConsoleColor.Gray);
+        //static void SelectMagic()
+        //{
+        //    PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage", ConsoleColor.Gray);
+        //    PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath", ConsoleColor.Gray);
 
-            while (true)
-            {
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey();
+        //    while (true)
+        //    {
+        //        if (Console.KeyAvailable)
+        //        {
+        //            ConsoleKeyInfo key = Console.ReadKey();
 
-                    if (key.Key == ConsoleKey.F1)
-                    {
-                        hero.Magics[0].Use(hero);
-                        //hero.BloodrageMagic();
-                        // hero.Draw();
-                        //StartNewGame();
-                    }
+        //            if (key.Key == ConsoleKey.F1)
+        //            {
+        //                hero.Magics[0].Use(hero);
+        //                //hero.BloodrageMagic();
+        //                // hero.Draw();
+        //                //StartNewGame();
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         //Prints on position and apply color for string
         static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
@@ -155,7 +155,6 @@
             Console.ForegroundColor = color;
             Console.WriteLine(str);
         }
-
 
 
         static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
@@ -190,6 +189,14 @@
             Console.WriteLine(name);
         }
 
+        static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(hero.Magics[0].Description);
+            Console.SetCursorPosition(x + 3, y + 3);
+            Console.WriteLine(hero.Magics[1].Description);
+        }
 
 
 
@@ -222,6 +229,8 @@
             PrintHeroName(Width - 30, Height - 15, heroes[8], "<N>");
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
 
+
+            
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
@@ -300,8 +309,8 @@
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
                 PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,5}", hero.Health), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0}", hero.Mana), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
@@ -316,7 +325,7 @@
                     PrintOnPosition(Width - 25, Height - 10, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 9, new string(' ', 20), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0}", tempCreep.Health), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, string.Format("Is it dead: {0}", tempCreep.IsDead), ConsoleColor.Gray);
@@ -337,8 +346,15 @@
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 // Do something
-                while (stopwatch.ElapsedMilliseconds < 1000)
+                while (stopwatch.ElapsedMilliseconds < 2000)
                 {
+                    if (stopwatch.ElapsedMilliseconds >= 1000)
+                    {
+                        PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                                        timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes,
+                                        timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
+                    }
+
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
@@ -351,17 +367,17 @@
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            hero.Magics[0].Use(hero);
-                            DecreaseCreepHealth(tempCreep, creepsList);
+                            //hero.Magics[0].Use(hero);
+                            AttakCreep(tempCreep, creepsList, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            hero.Magics[1].Use(hero);
-                            DecreaseCreepHealth(tempCreep, creepsList);
+                            //hero.Magics[1].Use(hero);
+                            AttakCreep(tempCreep, creepsList, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            DecreaseCreepHealth(tempCreep, creepsList);
+                            AttakCreep(tempCreep, creepsList);
                         }
                     }
                 }
@@ -413,15 +429,22 @@
             //Console.WriteLine(current.Level);
         }
 
-        private static void DecreaseCreepHealth(Creep tempCreep, List<Creep> creepsList)
+        private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
         {
             foreach (var creep in creepsList)
             {
                 if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
                 {
+                    if (isMagic)
+                    {
+                        hero.Magics[index].Use(hero, creep);
+                    }
+                    else
+                    {
                     creep.Health -= hero.Damage;
                 }
             }
         }
     }
+}
 }

@@ -33,10 +33,16 @@ namespace Dota
             this.Description = "Summons a bolt of lightning to strike an enemy unit, causing damage and a ministun.";
             this.ManaCost = 75;
             this.CooldownTime = 6;
+            this.Damage = 100;
         }
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();
+            if (hero.Mana >= this.ManaCost)
+            {
+                //hero.Color = ConsoleColor.Cyan;
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

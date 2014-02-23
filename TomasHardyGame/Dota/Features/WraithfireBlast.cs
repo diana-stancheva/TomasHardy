@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class WraithfireBlast:Magic
+    using System;
+
+    class WraithfireBlast : Magic
     {
         private static WraithfireBlast instance = null;
         private static object syncRoot = new Object();
@@ -33,10 +29,17 @@ namespace Dota
             this.Description = "Wraith King sears an enemy unit with spectral fire, dealing damage.";
             this.ManaCost = 140;
             this.CooldownTime = 8;
+            this.Damage = 50;
+            
         }
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();
+            if (hero.Mana >= this.ManaCost)
+            {
+                //hero.Color = ConsoleColor.Magenta;
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }
