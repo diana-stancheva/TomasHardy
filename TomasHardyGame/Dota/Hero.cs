@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Timers;
@@ -170,9 +171,18 @@
             ManaAndHealthIncrease();
         }
 
-        public override string ToString()
-        {
-            return base.ToString() + string.Format("Mana: {0}\n", this.mana);
-        }
+        //public override string ToString()
+        //{
+
+        //    StringBuilder result = new StringBuilder();
+
+        //    result.Append(base.ToString());
+        //    result.AppendFormat("Mana: {0}\n".PadLeft(95), this.mana);
+        //    result.AppendFormat("Experience: {0}\n".PadLeft(101), this.experience);
+        //    result.AppendFormat("Level: {0}\n".PadLeft(96), this.level);
+
+        //    return result.ToString();
+        //    //return base.ToString() + string.Format("Mana: {0}\nExperience: {1}\nLevel: {2}\n", this.mana, this.experience, this.level);
+        //}
     }
 }

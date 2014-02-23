@@ -1,6 +1,7 @@
 ﻿namespace Dota
 {
     using System;
+    using System.Text;
 
     public abstract class Character
     {
@@ -97,9 +98,16 @@
             opponent.Health -= this.damage;
         }
 
-        public override string ToString()
-        {
-            return string.Format("Name: {0}\nHealth: {1}\nDamage: {2}\n", this.name, this.health, this.damage);
-        }
+        //public override string ToString()
+        //{
+        //    StringBuilder result = new StringBuilder();
+
+        //    result.AppendLine();
+        //    result.AppendFormat("Name: {0}\n".PadLeft(95), this.name);
+        //    result.AppendFormat("Health: {0}\n".PadLeft(97), this.health);
+        //    result.AppendFormat("Damage: {0}\n".PadLeft(97), this.damage);
+
+        //    return result.ToString();
+        //}
     }
 }
