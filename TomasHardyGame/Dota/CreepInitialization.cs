@@ -30,8 +30,9 @@
             {
                 for (int col = 0; col < this.matrix.GetLength(1); col++)
                 {
-                    if (this.matrix[row, col].Equals(CreepSymbol) && !(this.matrix[row, col + 1].Equals(CreepSymbol))
-                                                                  && !(this.matrix[row, col - 1].Equals(CreepSymbol)))
+                    if (this.matrix[row, col].Equals(CreepSymbol) && 
+                      !(this.matrix[row, col + 1].Equals(CreepSymbol)) &&
+                      !(this.matrix[row, col - 1].Equals(CreepSymbol)))
                     {
                         creepsPosition.Add(new CreepPosition(row, col));
                     }
