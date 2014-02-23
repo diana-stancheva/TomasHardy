@@ -247,6 +247,7 @@
 
                 while (stopwatch.ElapsedMilliseconds < 2000)
                 {
+
                     if (stopwatch.ElapsedMilliseconds >= 1000)
                     {
                         PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
@@ -258,8 +259,6 @@
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
-
-
 
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
