@@ -336,8 +336,15 @@
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 // Do something
-                while (stopwatch.ElapsedMilliseconds < 1000)
+                while (stopwatch.ElapsedMilliseconds < 2000)
                 {
+                    if (stopwatch.ElapsedMilliseconds >= 1000)
+                    {
+                        PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                                        timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes,
+                                        timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
+                    }
+
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
