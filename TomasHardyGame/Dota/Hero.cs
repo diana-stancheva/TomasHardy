@@ -154,9 +154,9 @@
 
         private void LevelUp()
         {
-            if (this.Experience >= 90)
+            if (this.Experience >= 1000)
             {
-                this.experience = this.experience % 90;
+                this.experience = this.experience % 1000;
                 this.Level++;
             }
         }
@@ -200,6 +200,19 @@
             if (this.Health < this.initialHealth)
             {
                 this.Health++;
+            }
+        }
+
+        public void ManaAndHealthIncreaseFountain()
+        {
+            if (this.mana < this.initialMana - 20)
+            {
+                this.mana+=20;
+            }
+
+            if (this.Health < this.initialHealth - 20)
+            {
+                this.Health+=20;
             }
         }
 

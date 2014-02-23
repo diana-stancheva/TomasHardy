@@ -28,9 +28,9 @@
         {
             this.Name = "Bloodrage";
             this.Description = "Drives a unit into a bloodthirsty rage, during which it has higher attack damage, but cannot cast spells and takes damage every second";
-            this.ManaCost = 100;
+            this.ManaCost = 95;
             this.CooldownTime = 25;
-            this.Damage = 25;
+            this.Damage = 35;
         }
 
         public override void Use(Hero hero, Creep creep)

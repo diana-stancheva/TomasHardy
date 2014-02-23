@@ -17,15 +17,15 @@
 
         static List<Hero> heroes = new List<Hero>
         {
-            new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
+            new Hero("Bloodseeker", 566, 50/*, ConsoleColor.Green*/, 320, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
             new Hero("Dragon Knight", 550, 60/*, ConsoleColor.Green*/, 150, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
-            new Hero("Anti Mage", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
-            new Hero("Juggernaut", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
-            new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
-            new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
-            new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraith King", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
-            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
+            new Hero("Anti Mage", 444, 60/*, ConsoleColor.Green*/, 380, 1, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Juggernaut", 500, 42/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Morphiling", 399, 44/*, ConsoleColor.Green*/, 400, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Spirit Breaker", 509, 39/*, ConsoleColor.Green*/, 200, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Troll Warlord", 512, 48/*, ConsoleColor.Green*/, 340, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
+            new Hero("Wraith King", 333, 66/*, ConsoleColor.Green*/, 444, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Nyx Assassin", 600, 27/*, ConsoleColor.Green*/, 270, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
         //static void SelectMagic()
@@ -267,12 +267,10 @@
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            //hero.Magics[0].Use(hero);
                             AttakCreep(tempCreep, creepsList, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            //hero.Magics[1].Use(hero);
                             AttakCreep(tempCreep, creepsList, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
@@ -282,12 +280,22 @@
                     }
                 }
 
+                // print position
+                //PrintOnPosition(Width - 19, Height - 50, player.PositionOnCol + " " + player.PositionOnRow, ConsoleColor.DarkCyan);
+
                 if (tempCreep != null && tempCreep.IsDead == false)
                 {
                     hero.Health -= tempCreep.Damage;
                 }
 
-                hero.ManaAndHealthIncrease();
+                if (player.PositionOnCol == 1 && player.PositionOnRow == 47)
+                {
+                    hero.ManaAndHealthIncreaseFountain();
+                }
+                else
+                {
+                    hero.ManaAndHealthIncrease();
+                }
 
                 // Stop timing
                 stopwatch.Stop();
