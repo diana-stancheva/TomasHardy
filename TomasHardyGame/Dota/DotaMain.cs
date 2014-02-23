@@ -201,7 +201,6 @@
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
 
-
             PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
             PrintHeroName(Width - 100, Height - 41, heroes[0], "<B>");
@@ -274,7 +273,7 @@
             }
 
 
-
+            // creating and loading map
             string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();

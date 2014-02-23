@@ -20,7 +20,6 @@
             get { return this.mapMatrix; }
         }
 
-
         // read a map from a file
         public void ReadFromFile()
         {
@@ -50,6 +49,10 @@
             catch (FileNotFoundException)
             {
                 throw new FileLoadException("Missing file to read from.");
+            }
+            catch (IOException exc)
+            {
+                Console.WriteLine("Error: {0}.", exc.Message);
             }
         }
 
@@ -81,6 +84,7 @@
 
                 Console.WriteLine();
             }
+
             Console.CursorVisible = false;
         }
     }
