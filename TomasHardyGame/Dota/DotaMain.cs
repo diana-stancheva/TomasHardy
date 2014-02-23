@@ -234,18 +234,24 @@
                         // check for creeps on each step (if the player moves)
                         creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
+                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
+                        List<Creep> creepsList = creepIni.Creeps;
+
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
                             hero.Magics[0].Use(hero);
+                            DecreaseCreepHealth(tempCreep, creepsList);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
                             hero.Magics[1].Use(hero);
+                            DecreaseCreepHealth(tempCreep, creepsList);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
+                            DecreaseCreepHealth(tempCreep, creepsList);
                         }
-                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                     }
                 }
 
@@ -299,6 +305,17 @@
             //current.Experience = 1002;
             //Console.WriteLine(current.Experience);
             //Console.WriteLine(current.Level);
+        }
+
+        private static void DecreaseCreepHealth(Creep tempCreep, List<Creep> creepsList)
+        {
+            foreach (var creep in creepsList)
+            {
+                if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
+                {
+                    creep.Health -= hero.Damage;
+                }
+            }
         }
     }
 }
