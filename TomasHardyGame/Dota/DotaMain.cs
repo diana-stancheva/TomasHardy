@@ -44,9 +44,9 @@
 
         //static void StartNewGame()
         //{
-            // Moved hero initialisation on line 19.
-            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            // hero.Draw();
+        // Moved hero initialisation on line 19.
+        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+        // hero.Draw();
 
         //    bool isKilled = false;
 
@@ -114,7 +114,7 @@
         //            {
         //                // choose magic from menu
         //                SelectMagic();
-                        
+
         //            }
         //        }
 
@@ -146,7 +146,7 @@
                         // hero.Draw();
                         //StartNewGame();
                     }
-                    
+
                 }
             }
         }
@@ -184,7 +184,7 @@
 
             CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
             creepIni.CreateCreeps();
-            
+
             hero.Mana -= 100;
             hero.Health -= 50;
 
@@ -213,8 +213,8 @@
                         player.Move(pressedKey);
 
                         // check for creeps on each step (if the player moves)
-                    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
-                }
+                        creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                    }
                 }
 
                 hero.ManaAndHealthIncrease();
