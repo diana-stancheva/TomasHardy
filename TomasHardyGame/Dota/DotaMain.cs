@@ -12,8 +12,8 @@
     {
         const int Height = 50;
         const int Width = 110;
-        const int delay = 150;
-        public static char[,] arrayMapCells;
+        // const int delay = 150;
+        // public static char[,] arrayMapCells;
 
         static Hero hero = new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
 
@@ -159,13 +159,8 @@
 
         public static void Main()
         {
-            //File file = new File(@"..\..\Map.txt");
-
             Screen startScreen = new Screen(@"..\..\StartScreen.txt");
             startScreen.LoadScreen();
-
-            Console.BufferHeight = Console.WindowHeight = Height;
-            Console.BufferWidth = Console.WindowWidth = Width;
 
             // reading and creating map
             string filePath = "../../Map2.txt";
