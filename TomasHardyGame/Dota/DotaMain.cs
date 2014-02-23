@@ -17,15 +17,15 @@
 
         static List<Hero> heroes = new List<Hero>
         {
-            new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
+            new Hero("Bloodseeker", 566, 50/*, ConsoleColor.Green*/, 320, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
             new Hero("Dragon Knight", 550, 60/*, ConsoleColor.Green*/, 150, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
-            new Hero("Anti Mage", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
-            new Hero("Juggernaut", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
-            new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
-            new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
-            new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraith King", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
-            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
+            new Hero("Anti Mage", 444, 60/*, ConsoleColor.Green*/, 380, 1, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Juggernaut", 500, 42/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Morphiling", 399, 44/*, ConsoleColor.Green*/, 400, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Spirit Breaker", 509, 39/*, ConsoleColor.Green*/, 200, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Troll Warlord", 512, 48/*, ConsoleColor.Green*/, 340, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
+            new Hero("Wraith King", 333, 66/*, ConsoleColor.Green*/, 444, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Nyx Assassin", 600, 27/*, ConsoleColor.Green*/, 270, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
         //static void SelectMagic()
@@ -259,6 +259,7 @@
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
+                        DeleteCreepFromMatrix(player.PlayerMap, tempCreep);
 
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
@@ -302,6 +303,21 @@
             }
         }
 
+        private static void DeleteCreepFromMatrix(char[,] matrix, Creep tempCreep)
+        {
+            if (tempCreep != null && tempCreep.IsDead == true)
+            {
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
+            }
+
+        }
+
+
+
         private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
         {
             foreach (var creep in creepsList)
@@ -318,7 +334,7 @@
 
                         if (creep.IsDead == true)
                         {
-                            PrintOnPosition(creep.Position.Col, creep.Position.Row, string.Format("\b\b[d*b]"), ConsoleColor.Gray);
+                            PrintOnPosition(creep.Position.Col, creep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
                             creepsList.Remove(creep);
 
                             if (hero.Level != 10)

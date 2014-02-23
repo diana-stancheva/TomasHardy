@@ -30,7 +30,7 @@ namespace Dota
             :base()
         {
             this.Name = "Lightning Bolt";
-            this.Description = "Summons a bolt of lightning to strike an enemy unit, causing damage and a ministun.";
+            this.Description = "Summons a bolt of lightning to strike an enemy unit, causing damage.";
             this.ManaCost = 75;
             this.CooldownTime = 6;
             this.Damage = 100;
