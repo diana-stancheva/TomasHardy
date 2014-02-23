@@ -31,7 +31,7 @@
             this.Level = 1;
             this.initialMana = mana;
             this.initialHealth = health;
-            magics = new List<Magic>();
+            this.Magics = magicList;
         }
 
         //public int X
