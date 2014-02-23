@@ -221,7 +221,7 @@
                 stopwatch.Stop();
 
                 // Write result
-                PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0 : }",
+                PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
                     timeElapsed.Elapsed));
 
                 // check on each step for creeps
