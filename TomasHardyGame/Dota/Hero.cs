@@ -131,38 +131,10 @@
                 }
 
                 this.moveSpeed = value;
-        }
-        }
-
-        public int AttackSpeed
-        {
-            get { return this.attackSpeed; }
-
-            set
-            {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-
-                this.attackSpeed = value;
-            }
+             }
         }
 
-        public int MoveSpeed
-        {
-            get { return this.moveSpeed; }
-
-            set
-            {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-
-                this.moveSpeed = value;
-            }
-        }
+        
 
         public int InitialMana
         {
