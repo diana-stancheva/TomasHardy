@@ -189,6 +189,7 @@
                 player.Move();
                 // check on each step for creeps
                 creepInit.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
             }
 
 
