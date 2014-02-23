@@ -223,12 +223,6 @@
                 hero.ManaAndHealthIncrease();
                 // Stop timing
                 stopwatch.Stop();
-
-                
-
-                // check on each step for creeps
-                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
-
             }
 
             //arrayMapCells = file.LoadMap();
