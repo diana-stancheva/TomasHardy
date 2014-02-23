@@ -196,6 +196,10 @@
 
                 PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
                 PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
+                // Write result
+                PrintOnPosition(Width - 25, Height - 43, string.Format("Time elapsed: {0:D2}:{1:D2}:{2:D2}",
+                    timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds));
+
 
                 //                          NE TRII, NE TRII, NE TRII KOMENTARITE
                 // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
@@ -221,9 +225,7 @@
                 // Stop timing
                 stopwatch.Stop();
 
-                // Write result
-                PrintOnPosition(Width - 25, Height - 43, string.Format("Time elapsed: {0:D2}:{1:D2}:{2:D2}",
-                    timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds));
+                
 
                 // check on each step for creeps
                 creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
