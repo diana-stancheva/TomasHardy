@@ -185,7 +185,7 @@
             this.checkFobidden = true;
         }
 
-        private void PrintSymbol(char symbol)
+        public void PrintSymbol(char symbol)
         {
             Console.SetCursorPosition(this.PositionOnCol, this.PositionOnRow);
 
