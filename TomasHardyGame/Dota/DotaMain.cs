@@ -208,7 +208,7 @@
                 PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
-                PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Yellow);
                 PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
@@ -230,7 +230,7 @@
                 PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
 
-                PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.DarkCyan);
 
                 // printing creep info on the screen if available
                 if (tempCreep != null)
