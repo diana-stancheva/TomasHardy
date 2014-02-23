@@ -20,8 +20,8 @@
         private readonly int initialHealth;
         private List<Magic> magics;
 
-        public Hero(string name, int health, int damage/*, string symbol*/, ConsoleColor color/*, int x, int y*/, int mana, List<Magic> magicList, CreepPosition position = default(CreepPosition))
-            : base(name, health, damage/*, symbol*/, color, position)
+        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana, List<Magic> magicList, CreepPosition position = default(CreepPosition))
+            : base(name, health, damage/*, symbol, color*/, position)
         {
             //this.X = x;
             //this.Y = y;

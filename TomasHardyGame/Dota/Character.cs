@@ -12,13 +12,13 @@
         private ConsoleColor color;
         private CreepPosition position;
          
-        public Character(string name, int health, int damage/*, string symbol*/, ConsoleColor color, CreepPosition position)
+        public Character(string name, int health, int damage/*, string symbol, ConsoleColor color*/, CreepPosition position)
         {
             this.Name = name;
             this.Health = health;
             this.Damage = damage;
             // this.Symbol = symbol;
-            this.Color = color;
+            // this.Color = color;
             this.position = position;
         }
 
