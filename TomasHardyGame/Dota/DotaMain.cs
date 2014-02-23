@@ -44,9 +44,9 @@
 
         //static void StartNewGame()
         //{
-            // Moved hero initialisation on line 19.
-            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            // hero.Draw();
+        // Moved hero initialisation on line 19.
+        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+        // hero.Draw();
 
         //    bool isKilled = false;
 
@@ -114,7 +114,7 @@
         //            {
         //                // choose magic from menu
         //                SelectMagic();
-                        
+
         //            }
         //        }
 
@@ -146,7 +146,7 @@
                         // hero.Draw();
                         //StartNewGame();
                     }
-                    
+
                 }
             }
         }
@@ -184,25 +184,27 @@
 
             CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
             creepIni.CreateCreeps();
-            
+
             hero.Mana -= 100;
-            hero.Health -= 100;
+            hero.Health -= 50;
+
+            Stopwatch timeElapsed = new Stopwatch();
+            timeElapsed.Start();
 
             while (true)
             {
-
                 PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
                 PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
 
                 //                          NE TRII, NE TRII, NE TRII KOMENTARITE
                 // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
                 // Create new stopwatch
-                Stopwatch stopwatch = new Stopwatch();
-                // Begin timing
-                stopwatch.Start();
 
+                // Begin timing
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
                 // Do something
-                while (stopwatch.ElapsedMilliseconds < 2000)
+                while (stopwatch.ElapsedMilliseconds < 1000)
                 {
                     if (Console.KeyAvailable)
                     {
@@ -213,14 +215,13 @@
                     creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                 }
 
-
                 hero.ManaAndHealthIncrease();
                 // Stop timing
                 stopwatch.Stop();
 
                 // Write result
-                //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
-                //    stopwatch.Elapsed));
+                PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0 : }",
+                    timeElapsed.Elapsed));
 
                 //player.Move();
                 // check on each step for creeps
@@ -228,8 +229,7 @@
 
             }
 
-
-
+            timeElapsed.Stop();
             Console.WriteLine("ivo");
 
 
