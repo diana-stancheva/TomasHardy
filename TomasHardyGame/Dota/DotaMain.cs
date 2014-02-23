@@ -281,7 +281,7 @@
                     }
                 }
 
-                if (tempCreep != null)
+                if (tempCreep != null && tempCreep.IsDead == false)
                 {
                     hero.Health -= tempCreep.Damage;
                 }
