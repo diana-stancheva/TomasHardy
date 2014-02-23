@@ -158,7 +158,7 @@
 
 
 
-        static void PrintChoosingHero(int x, int y,Hero hero, ConsoleColor color)
+        static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -189,7 +189,7 @@
             Console.ForegroundColor = color;
             Console.WriteLine(name);
         }
-        
+
 
 
 
@@ -229,7 +229,7 @@
             bool heroLetter = false;
             while (!heroLetter)
             {
-                switch (pressedKeyHero.Key) 
+                switch (pressedKeyHero.Key)
                 {
                     case ConsoleKey.B:
                         hero = heroes[0];
@@ -266,6 +266,9 @@
                     case ConsoleKey.N:
                         hero = heroes[8];
                         heroLetter = true;
+                        break;
+                    default:
+                        pressedKeyHero = Console.ReadKey(true);
                         break;
                 }
             }
@@ -352,7 +355,7 @@
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
                             DecreaseCreepHealth(tempCreep, creepsList);
-                        }   
+                        }
                     }
                 }
 
