@@ -9,7 +9,7 @@
         private int damage;
         private bool isDead;
         // private string symbol;
-        private ConsoleColor color;
+        // private ConsoleColor color;
         private CreepPosition position;
          
         public Character(string name, int health, int damage/*, string symbol, ConsoleColor color*/, CreepPosition position)
@@ -80,11 +80,11 @@
         //    set { this.symbol = value; }
         //}
 
-        public ConsoleColor Color
-        {
-            get { return this.color; }
-            set { this.color = value; }
-        }
+        //public ConsoleColor Color
+        //{
+        //    get { return this.color; }
+        //    set { this.color = value; }
+        //}
 
         public CreepPosition Position
         {
