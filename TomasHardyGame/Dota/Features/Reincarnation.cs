@@ -33,10 +33,16 @@ namespace Dota
             this.Description = "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.";
             this.ManaCost = 140;
             this.CooldownTime = 260;
+            this.Damage = 75;
         }
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();
+            if (hero.Mana >= this.ManaCost)
+            {
+                //hero.Color = ConsoleColor.Magenta;
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

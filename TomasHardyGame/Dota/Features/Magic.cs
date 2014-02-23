@@ -7,6 +7,7 @@
         public string Hero { get; protected set; }
         public int ManaCost { get; protected set; }
         public int CooldownTime { get; protected set; }
+        public int Damage { get; protected set; }
 
 
         public Magic()
@@ -14,7 +15,7 @@
             
         }
 
-        public abstract void Use(Hero hero);
+        public abstract void Use(Hero hero, Creep creep);
 
     }
 }

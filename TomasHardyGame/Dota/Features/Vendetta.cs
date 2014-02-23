@@ -33,10 +33,16 @@ namespace Dota
             this.Description = "Allows Nyx Assassin to become invisible and gain a speed bonus.";
             this.ManaCost = 160;
             this.CooldownTime = 70;
+            this.Damage = 90;
         }
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();                 // movement speed and invisibility
+            //hero.Color = ConsoleColor.Magenta;
+            if (hero.Mana >= this.ManaCost)
+            {
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

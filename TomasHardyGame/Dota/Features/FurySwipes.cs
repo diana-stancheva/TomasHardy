@@ -31,17 +31,17 @@
             this.Description = "Ursa's claws dig deeper wounds in the enemy, causing consecutive attacks to the same enemy to deal more damage.";
             this.ManaCost = 35;
             this.CooldownTime = 5;
+            this.Damage = 15;
         }
 
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            // hero.Color = ConsoleColor.Magenta;            
-
-            //if (hero.Mana >= 100)
-            //{
-            //    hero.Mana -= this.ManaCost; 
-            //    hero.Damage -= 100;
-            //}
+            //hero.Color = ConsoleColor.Magenta;
+            if (hero.Mana >= this.ManaCost)
+            {
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

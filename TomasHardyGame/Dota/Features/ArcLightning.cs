@@ -33,11 +33,17 @@ namespace Dota
             this.Description = "Hurls a bolt of lightning that leaps through nearby enemy units.";  
             this.ManaCost = 65;
             this.CooldownTime = 10;
+            this.Damage = 85;
         }
 
-        public override void Use(Hero hero)
+        public override void Use(Hero hero, Creep creep)
         {
-            //throw new NotImplementedException();      // malko damage
+            if (hero.Mana >= this.ManaCost)
+            {
+                //hero.Color = ConsoleColor.Cyan;
+                hero.Mana -= this.ManaCost;
+                creep.Health -= this.Damage;
+            }
         }
     }
 }

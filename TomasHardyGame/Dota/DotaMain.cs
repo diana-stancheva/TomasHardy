@@ -128,28 +128,28 @@
         //    }
         //}
 
-        static void SelectMagic()
-        {
-            PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage", ConsoleColor.Gray);
-            PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath", ConsoleColor.Gray);
+        //static void SelectMagic()
+        //{
+        //    PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage", ConsoleColor.Gray);
+        //    PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath", ConsoleColor.Gray);
 
-            while (true)
-            {
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey();
+        //    while (true)
+        //    {
+        //        if (Console.KeyAvailable)
+        //        {
+        //            ConsoleKeyInfo key = Console.ReadKey();
 
-                    if (key.Key == ConsoleKey.F1)
-                    {
-                        hero.Magics[0].Use(hero);
-                        //hero.BloodrageMagic();
-                        // hero.Draw();
-                        //StartNewGame();
-                    }
+        //            if (key.Key == ConsoleKey.F1)
+        //            {
+        //                hero.Magics[0].Use(hero);
+        //                //hero.BloodrageMagic();
+        //                // hero.Draw();
+        //                //StartNewGame();
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         //Prints on position and apply color for string
         static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
@@ -211,7 +211,7 @@
                 if (tempCreep != null)
                 {
                     PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0}", tempCreep.Health), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, string.Format("Is it dead: {0}", tempCreep.IsDead), ConsoleColor.Gray);
                 }
@@ -247,17 +247,17 @@
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            hero.Magics[0].Use(hero);
-                            DecreaseCreepHealth(tempCreep, creepsList);
+                            //hero.Magics[0].Use(hero);
+                            AttakCreep(tempCreep, creepsList, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            hero.Magics[1].Use(hero);
-                            DecreaseCreepHealth(tempCreep, creepsList);
+                            //hero.Magics[1].Use(hero);
+                            AttakCreep(tempCreep, creepsList, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            DecreaseCreepHealth(tempCreep, creepsList);
+                            AttakCreep(tempCreep, creepsList);
                         }
                     }
                 }
@@ -314,13 +314,20 @@
             //Console.WriteLine(current.Level);
         }
 
-        private static void DecreaseCreepHealth(Creep tempCreep, List<Creep> creepsList)
+        private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
         {
             foreach (var creep in creepsList)
             {
                 if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
                 {
-                    creep.Health -= hero.Damage;
+                    if (isMagic)
+                    {
+                        hero.Magics[index].Use(hero, creep);
+                    }
+                    else
+                    {
+                        creep.Health -= hero.Damage;
+                    }
                 }
             }
         }
