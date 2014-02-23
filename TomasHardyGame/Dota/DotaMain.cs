@@ -305,14 +305,17 @@
                     }
                     else
                     {
-                        creep.Health -= hero.Damage;
+                    creep.Health -= hero.Damage;
                         if (creep.IsDead == true)
                         {
+                            creepsList.Remove(creep);
                             hero.Experience += 50;
                         }
-                    }
                 }
+
+                    break;
             }
         }
     }
+}
 }
