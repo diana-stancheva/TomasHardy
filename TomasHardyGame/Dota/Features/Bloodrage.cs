@@ -36,7 +36,7 @@
         {
             if (hero.Mana >= 100)
             {
-                // hero.Color = ConsoleColor.Cyan;
+                //hero.Color = ConsoleColor.Cyan;
                 hero.Mana -= this.ManaCost;
             }
         }
