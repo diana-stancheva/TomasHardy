@@ -194,7 +194,7 @@
             while (true)
             {
 
-                PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
+                PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0,5}", hero.Mana));
                 PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
 
                 //                          NE TRII, NE TRII, NE TRII KOMENTARITE
@@ -214,8 +214,22 @@
 
                         // check for creeps on each step (if the player moves)
                         creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
+                        if (pressedKey.Key == ConsoleKey.Q)
+                        {
+                            hero.Magics[0].Use(hero);
+                        }
+                        else if (pressedKey.Key == ConsoleKey.W)
+                        {
+                            hero.Magics[1].Use(hero);
+                        }
+                        else if (pressedKey.Key == ConsoleKey.A)
+                        {
+                            
+                        }
                     }
                 }
+
 
                 hero.ManaAndHealthIncrease();
                 // Stop timing

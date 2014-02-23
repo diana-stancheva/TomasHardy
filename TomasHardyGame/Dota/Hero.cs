@@ -18,7 +18,7 @@
         private int level;
         private readonly int initialMana;
         private readonly int initialHealth;
-        private List<Magic> magics;
+        public List<Magic> Magics { get; set; }
 
         public Hero(string name, int health, int damage/*, string symbol*/, ConsoleColor color/*, int x, int y*/, int mana, List<Magic> magicList, CreepPosition position = default(CreepPosition))
             : base(name, health, damage/*, symbol*/, color, position)
@@ -30,7 +30,8 @@
             this.Level = 1;
             this.initialMana = mana;
             this.initialHealth = health;
-            magics = new List<Magic>();
+            //magics = new List<Magic>();
+            this.Magics = magicList;
         }
 
         //public int X
@@ -107,11 +108,11 @@
             get { return this.initialHealth; }
         }
 
-        public List<Magic> Magics
-        {
-            get { return this.magics; }
-            set { this.magics = value; }
-        }
+        //public List<Magic> Magics
+        //{
+        //    get { return this.magics; }
+        //    set { this.magics = value; }
+        //}
 
         private void LevelUp()
         {
