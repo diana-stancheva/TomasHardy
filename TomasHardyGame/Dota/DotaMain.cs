@@ -258,6 +258,7 @@
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
+                        DeleteCreepFromMatrix(player.PlayerMap, tempCreep);
 
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
@@ -293,6 +294,21 @@
             }
         }
 
+        private static void DeleteCreepFromMatrix(char[,] matrix, Creep tempCreep)
+        {
+            if (tempCreep != null && tempCreep.IsDead == true)
+            {
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
+                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
+            }
+
+        }
+
+
+
         private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
         {
             foreach (var creep in creepsList)
@@ -309,7 +325,7 @@
 
                         if (creep.IsDead == true)
                         {
-                            PrintOnPosition(creep.Position.Col, creep.Position.Row, string.Format("\b\b[d*b]"), ConsoleColor.Gray);
+                            PrintOnPosition(creep.Position.Col, creep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
                             creepsList.Remove(creep);
 
                             if (hero.Level != 10)

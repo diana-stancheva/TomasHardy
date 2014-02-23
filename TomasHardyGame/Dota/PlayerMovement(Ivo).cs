@@ -25,13 +25,19 @@
             BossSymbolOne, BossSymbolTwo
         };
 
-        private readonly char[,] playerMap;
+        private char[,] playerMap;
         private int positionOnRow;
         private int positionOnCol;
 
         public PlayerMovement(char[,] map)
         {
             this.playerMap = map;
+        }
+
+        public char[,] PlayerMap
+        {
+            get { return this.playerMap; }
+            set { this.playerMap = value; }
         }
 
         public int PositionOnRow
