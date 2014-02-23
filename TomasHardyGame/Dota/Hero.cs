@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Threading;
+    using System.Threading.Tasks;
+    using System.Timers;
 
     public class Hero : Character
     {
@@ -151,13 +153,6 @@
 
         public void ManaAndHealthIncrease()
         {
-            DateTime future = DateTime.Now.AddMilliseconds(1200);
-
-            while (!future.Equals(DateTime.Now))
-            {
-
-            }
-
             if (this.mana < this.initialMana)
             {
                 this.mana++;
@@ -167,6 +162,12 @@
             {
                 this.Health++;
             }
+        }
+
+        public async void PutTaskDelay()
+        {
+            await Task.Delay(2000);
+            ManaAndHealthIncrease();
         }
 
         public override string ToString()

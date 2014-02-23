@@ -61,7 +61,7 @@
             }
         }
 
-        public void Move()
+        public void Move(/*ConsoleKeyInfo pressedKey*/)
         {
             ConsoleKeyInfo pressedKey = Console.ReadKey(true);
 

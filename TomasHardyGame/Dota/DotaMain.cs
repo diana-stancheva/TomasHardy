@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Text;
     using System.Threading;
@@ -160,7 +161,7 @@
 
         static void Main(string[] args)
         {
-            Console.Title = String.Format("DotA v. 0.1®");
+            Console.Title = String.Format("Dota v. 0.1®");
 
             Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
             Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
@@ -173,7 +174,7 @@
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
 
-            string filePath = "../../Map1.txt";
+            string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
             mapHandling.LoadMapOnScreen();
@@ -181,16 +182,53 @@
             var player = new PlayerMovement(mapHandling.MapMatrix);
             player.GetPlayerStartPosition();
 
-            CreepInitialization creepInit = new CreepInitialization(mapHandling.MapMatrix);
-            creepInit.CreateCreeps();
+            CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
+            creepIni.CreateCreeps();
             
+            hero.Mana -= 100;
+            hero.Health -= 100;
+
             while (true)
             {
+
+                //PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
+                //PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
+
+                ////                          NE TRII, NE TRII, NE TRII KOMENTARITE
+                //// TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
+                //// Create new stopwatch
+                //Stopwatch stopwatch = new Stopwatch();
+                //// Begin timing
+                //stopwatch.Start();
+
+                //// Do something
+                //while (stopwatch.ElapsedMilliseconds < 2000)
+                //{
+                //    if (Console.KeyAvailable)
+                //    {
+                //        ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+                //        player.Move(pressedKey);
+                //    }
+
+                //    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                //}
+
+
+                //hero.ManaAndHealthIncrease();
+                //// Stop timing
+                //stopwatch.Stop();
+
+                //// Write result
+                //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
+                //    stopwatch.Elapsed));
+
                 player.Move();
                 // check on each step for creeps
                 creepInit.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
             }
+
+            Console.WriteLine("ivo");
 
 
             //Console.CursorVisible = false;
