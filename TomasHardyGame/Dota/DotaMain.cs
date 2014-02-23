@@ -133,7 +133,7 @@
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
 
 
-            
+
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
@@ -225,6 +225,7 @@
                 // printing creep info on the screen if available
                 if (tempCreep != null)
                 {
+                    PrintOnPosition(Width - 25, Height - 10, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 9, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
@@ -343,10 +344,10 @@
                     }
                     else
                     {
-                    creep.Health -= hero.Damage;
+                        creep.Health -= hero.Damage;
+                    }
                 }
             }
         }
     }
-}
 }
