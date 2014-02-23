@@ -231,7 +231,7 @@
                     PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, new string(' ', 20), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, string.Format("Is it dead: {0}", tempCreep.IsDead), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 7, (tempCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
                 }
                 else
                 {
@@ -241,14 +241,10 @@
                     PrintOnPosition(Width - 25, Height - 7, new string(' ', 20), ConsoleColor.Gray);
                 }
 
-                //                          NE TRII, NE TRII, NE TRII KOMENTARITE
-                // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
-                // Create new stopwatch
-
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                // Do something
+
                 while (stopwatch.ElapsedMilliseconds < 2000)
                 {
                     if (stopwatch.ElapsedMilliseconds >= 1000)
@@ -291,50 +287,10 @@
                 }
 
                 hero.ManaAndHealthIncrease();
+
                 // Stop timing
                 stopwatch.Stop();
             }
-
-            //while (true)
-            //{
-            //    StartNewGame();
-            //}
-
-
-            //   CHARACTER SISI DIDO:
-
-
-            //Character dido = new Hero(15, 20, 30);
-            //Character stefan = new Hero(100, 20, 30);
-
-            ////dido.Health -= 20;
-            ////Console.WriteLine(dido.Health);
-            //dido.Attack(stefan);
-            //Console.WriteLine(stefan.Health);
-
-            //var roshan = new Roshan("Roshan", 5000, 100);
-
-            //var creeps = new List<Creep>
-            //{
-            //    new Creep("Wolf", 300, 50), 
-            //    new Creep("Tiger", 300, 50), 
-            //    new Creep("Dog", 300, 50), 
-            //    new Creep("Lion", 300, 50), 
-            //    new Creep("Sheep", 300, 50)
-            //};
-
-            //foreach (var item in heroes)
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
-
-            //Hero current = new Hero("Chicho Dido", 1000, 100, 200);
-
-            //Console.WriteLine(current.Experience);
-            //Console.WriteLine(current.Level);
-            //current.Experience = 1002;
-            //Console.WriteLine(current.Experience);
-            //Console.WriteLine(current.Level);
         }
 
         private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
@@ -349,14 +305,14 @@
                     }
                     else
                     {
-                        creep.Health -= hero.Damage;
+                    creep.Health -= hero.Damage;
                         if (creep.IsDead == true)
                         {
                             hero.Experience += 50;
                         }
-                    }
                 }
             }
         }
     }
+}
 }
