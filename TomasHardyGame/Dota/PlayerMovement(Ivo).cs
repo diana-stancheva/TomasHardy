@@ -61,9 +61,9 @@
             }
         }
 
-        public void Move(/*ConsoleKeyInfo pressedKey*/)
+        public void Move(ConsoleKeyInfo pressedKey)
         {
-            ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+            //ConsoleKeyInfo pressedKey = Console.ReadKey(true);
 
             // To remove lag! Check if needed.
             //while (Console.KeyAvailable)
