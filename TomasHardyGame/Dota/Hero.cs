@@ -154,9 +154,9 @@
 
         private void LevelUp()
         {
-            if (this.Experience >= 1000)
+            if (this.Experience >= 90)
             {
-                this.Experience = this.Experience % 1000;
+                this.experience = this.experience % 90;
                 this.Level++;
             }
         }
