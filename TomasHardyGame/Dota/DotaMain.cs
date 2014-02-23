@@ -268,12 +268,10 @@
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            //hero.Magics[0].Use(hero);
                             AttakCreep(tempCreep, creepsList, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            //hero.Magics[1].Use(hero);
                             AttakCreep(tempCreep, creepsList, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
