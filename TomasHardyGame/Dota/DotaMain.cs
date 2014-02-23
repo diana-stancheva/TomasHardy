@@ -203,26 +203,27 @@
 
             PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
-            PrintHeroName(Width - 100, Height - 43, heroes[0], "<B>");
-            PrintChoosingHero(Width - 100, Height - 41, heroes[0], ConsoleColor.Gray);
-            PrintHeroName(Width - 65, Height - 43, heroes[1], "<D>");
-            PrintChoosingHero(Width - 65, Height - 41, heroes[1], ConsoleColor.Gray);
-            PrintHeroName(Width - 30, Height - 43, heroes[2], "<A>");
-            PrintChoosingHero(Width - 30, Height - 41, heroes[2], ConsoleColor.Gray);
-            PrintHeroName(Width - 100, Height - 30, heroes[3], "<J>");
-            PrintChoosingHero(Width - 100, Height - 28, heroes[3], ConsoleColor.Gray);
-            PrintHeroName(Width - 65, Height - 30, heroes[4], "<M>");
-            PrintChoosingHero(Width - 65, Height - 28, heroes[4], ConsoleColor.Gray);
-            PrintHeroName(Width - 30, Height - 30, heroes[5], "<S>");
-            PrintChoosingHero(Width - 30, Height - 28, heroes[5], ConsoleColor.Gray);
-            PrintHeroName(Width - 100, Height - 17, heroes[0], "<T>");
-            PrintChoosingHero(Width - 100, Height - 15, heroes[0], ConsoleColor.Gray);
-            PrintHeroName(Width - 65, Height - 17, heroes[1], "<K>");
-            PrintChoosingHero(Width - 65, Height - 15, heroes[1], ConsoleColor.Gray);
-            PrintHeroName(Width - 30, Height - 17, heroes[2], "<N>");
-            PrintChoosingHero(Width - 30, Height - 15, heroes[2], ConsoleColor.Gray);
+            PrintHeroName(Width - 100, Height - 41, heroes[0], "<B>");
+            PrintChoosingHero(Width - 100, Height - 39, heroes[0], ConsoleColor.Gray);
+            PrintHeroName(Width - 65, Height - 41, heroes[1], "<D>");
+            PrintChoosingHero(Width - 65, Height - 39, heroes[1], ConsoleColor.Gray);
+            PrintHeroName(Width - 30, Height - 41, heroes[2], "<A>");
+            PrintChoosingHero(Width - 30, Height - 39, heroes[2], ConsoleColor.Gray);
+            PrintHeroName(Width - 100, Height - 28, heroes[3], "<J>");
+            PrintChoosingHero(Width - 100, Height - 26, heroes[3], ConsoleColor.Gray);
+            PrintHeroName(Width - 65, Height - 28, heroes[4], "<M>");
+            PrintChoosingHero(Width - 65, Height - 26, heroes[4], ConsoleColor.Gray);
+            PrintHeroName(Width - 30, Height - 28, heroes[5], "<S>");
+            PrintChoosingHero(Width - 30, Height - 26, heroes[5], ConsoleColor.Gray);
+            PrintHeroName(Width - 100, Height - 15, heroes[6], "<T>");
+            PrintChoosingHero(Width - 100, Height - 13, heroes[6], ConsoleColor.Gray);
+            PrintHeroName(Width - 65, Height - 15, heroes[7], "<K>");
+            PrintChoosingHero(Width - 65, Height - 13, heroes[7], ConsoleColor.Gray);
+            PrintHeroName(Width - 30, Height - 15, heroes[8], "<N>");
+            PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
 
 
+            Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
             bool heroLetter = false;
             while (!heroLetter)
