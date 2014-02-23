@@ -10,8 +10,6 @@
 
     class DotaMain
     {
-        const int HeightStartScreen = 20;
-        const int WidthStartScreen = 70;
         const int Height = 50;
         const int Width = 110;
         const int delay = 150;
@@ -161,11 +159,6 @@
 
         public static void Main()
         {
-            Console.Title = String.Format("Dota v. 0.1®");
-
-            Console.BufferHeight = Console.WindowHeight = HeightStartScreen;
-            Console.BufferWidth = Console.WindowWidth = WidthStartScreen;
-
             //File file = new File(@"..\..\Map.txt");
 
             Screen startScreen = new Screen(@"..\..\StartScreen.txt");
