@@ -24,26 +24,32 @@
         // read a map from a file
         public void ReadFromFile()
         {
-            StreamReader reader = new StreamReader(this.filePath);
-
-            // TODO: use try/catch and exceptions
-            using (reader)
+            try
             {
-                string line = reader.ReadLine();
-                string[] lineAsArray = line.Split(' ');
-                int totalRows = int.Parse(lineAsArray[0]);
-                int totalCols = int.Parse(lineAsArray[1]);
-                this.mapMatrix = new char[totalRows, totalCols];
+                StreamReader reader = new StreamReader(this.filePath);
 
-                for (int row = 0; row < totalRows; row++)
+                using (reader)
                 {
-                    line = reader.ReadLine();
+                    string line = reader.ReadLine();
+                    string[] lineAsArray = line.Split(' ');
+                    int totalRows = int.Parse(lineAsArray[0]);
+                    int totalCols = int.Parse(lineAsArray[1]);
+                    this.mapMatrix = new char[totalRows, totalCols];
 
-                    for (int col = 0; col < totalCols; col++)
+                    for (int row = 0; row < totalRows; row++)
                     {
-                        this.mapMatrix[row, col] = line[col];
+                        line = reader.ReadLine();
+
+                        for (int col = 0; col < totalCols; col++)
+                        {
+                            this.mapMatrix[row, col] = line[col];
+                        }
                     }
                 }
+            }
+            catch (FileNotFoundException)
+            {
+                throw new FileLoadException("Missing file to read from.");
             }
         }
 
