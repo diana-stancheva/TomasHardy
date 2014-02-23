@@ -82,7 +82,6 @@
     <Compile Include="Features\ThundergodWrath.cs" />
     <Compile Include="Features\Vendetta.cs" />
     <Compile Include="Features\WraithfireBlast.cs" />
-    <Compile Include="File.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="DotaMain.cs" />
