@@ -49,7 +49,7 @@
 
             for (int i = 0; i < creepsPosition.Count; i++)
             {
-                this.Creeps.Add(new Creep(CreepName, random.Next(150, 350), random.Next(15, 35), ConsoleColor.DarkMagenta, creepsPosition[i]));
+                this.Creeps.Add(new Creep(CreepName, random.Next(150, 350), random.Next(15, 35), creepsPosition[i]));
             }
         }
 

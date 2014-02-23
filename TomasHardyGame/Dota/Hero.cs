@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Timers;
@@ -16,21 +17,26 @@
         private int mana;
         private int experience;
         private int level;
+        private int attackSpeed;
+        private int moveSpeed;
         private readonly int initialMana;
         private readonly int initialHealth;
         private List<Magic> magics;
 
-        public Hero(string name, int health, int damage/*, string symbol*/, ConsoleColor color/*, int x, int y*/, int mana, List<Magic> magicList, CreepPosition position = default(CreepPosition))
-            : base(name, health, damage/*, symbol*/, color, position)
+        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana,
+            int attackSpeed, int moveSpeed, List<Magic> magicList, CreepPosition position = default(CreepPosition))
+            : base(name, health, damage/*, symbol, color*/, position)
         {
             //this.X = x;
             //this.Y = y;
             this.Mana = mana;
+            this.AttackSpeed = attackSpeed;
+            this.MoveSpeed = moveSpeed;
             this.Experience = 0;
             this.Level = 1;
             this.initialMana = mana;
             this.initialHealth = health;
-            magics = new List<Magic>();
+            this.Magics = magicList;
         }
 
         //public int X
@@ -94,6 +100,36 @@
                 }
 
                 this.level = value;
+            }
+        }
+
+        public int AttackSpeed
+        {
+            get { return this.attackSpeed; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                this.attackSpeed = value;
+            }
+        }
+
+        public int MoveSpeed
+        {
+            get { return this.moveSpeed; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                this.moveSpeed = value;
             }
         }
 
@@ -170,9 +206,18 @@
             ManaAndHealthIncrease();
         }
 
-        public override string ToString()
-        {
-            return base.ToString() + string.Format("Mana: {0}\n", this.mana);
-        }
+        //public override string ToString()
+        //{
+
+        //    StringBuilder result = new StringBuilder();
+
+        //    result.Append(base.ToString());
+        //    result.AppendFormat("Mana: {0}\n".PadLeft(95), this.mana);
+        //    result.AppendFormat("Experience: {0}\n".PadLeft(101), this.experience);
+        //    result.AppendFormat("Level: {0}\n".PadLeft(96), this.level);
+
+        //    return result.ToString();
+        //    //return base.ToString() + string.Format("Mana: {0}\nExperience: {1}\nLevel: {2}\n", this.mana, this.experience, this.level);
+        //}
     }
 }

@@ -34,7 +34,7 @@
 
         public override void Use(Hero hero)
         {
-            hero.Color = ConsoleColor.Magenta;
+            //hero.Color = ConsoleColor.Magenta;
             //int heroXPosition = hero.X;
             //int HeroYPosition = hero.Y;
 
