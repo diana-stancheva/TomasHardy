@@ -291,7 +291,7 @@
                             AttakCreep(tempCreep, creepsList);
                         }
 
-                        if (DeleteCreepFromMatrix(player.PlayerMap, tempCreep, creepIni.Creeps))
+                        if (DeleteCreepFromMap(player.PlayerMap, tempCreep, creepIni.Creeps))
                         {
                             player.PrintSymbol('@');
                         } 
@@ -320,7 +320,7 @@
             }
         }
 
-        private static bool DeleteCreepFromMatrix(char[,] matrix, Creep tempCreep, List<Creep> listOfCreeps)
+        private static bool DeleteCreepFromMap(char[,] matrix, Creep tempCreep, List<Creep> listOfCreeps)
         {
             if (tempCreep != null && tempCreep.IsDead == true)
             {
