@@ -44,9 +44,9 @@
 
         //static void StartNewGame()
         //{
-            // Moved hero initialisation on line 19.
-            //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-            // hero.Draw();
+        // Moved hero initialisation on line 19.
+        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
+        // hero.Draw();
 
         //    bool isKilled = false;
 
@@ -114,7 +114,7 @@
         //            {
         //                // choose magic from menu
         //                SelectMagic();
-                        
+
         //            }
         //        }
 
@@ -146,7 +146,7 @@
                         // hero.Draw();
                         //StartNewGame();
                     }
-                    
+
                 }
             }
         }
@@ -159,7 +159,7 @@
             Console.WriteLine(str);
         }
 
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.Title = String.Format("Dota v. 0.1®");
 
@@ -184,7 +184,7 @@
 
             CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
             creepIni.CreateCreeps();
-            
+
             hero.Mana -= 100;
             hero.Health -= 50;
 
@@ -211,9 +211,10 @@
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
-                    }
 
-                    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                        // check for creeps on each step (if the player moves)
+                        creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                    }
                 }
 
                 hero.ManaAndHealthIncrease();
@@ -228,13 +229,6 @@
                 creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
             }
-
-
-
-            Console.WriteLine("ivo");
-
-
-            //Console.CursorVisible = false;
 
             //arrayMapCells = file.LoadMap();
             ////file.LoadMap();
