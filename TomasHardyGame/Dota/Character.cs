@@ -12,12 +12,12 @@
         // private string symbol;
         // private ConsoleColor color;
         private CreepPosition position;
-
+         
         public Character()
         {
 
         }
-
+         
         public Character(string name, int health, int damage/*, string symbol, ConsoleColor color*/, CreepPosition position)
         {
             this.Name = name;
@@ -96,7 +96,7 @@
         {
             get { return this.position; }
             set { this.position = value; }
-        }
+        }        
 
         public void Attack(Character opponent)
         {

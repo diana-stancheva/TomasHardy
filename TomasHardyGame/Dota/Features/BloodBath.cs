@@ -33,13 +33,11 @@
 
         public override void Use(Hero hero)
         {
-            //hero.Color = ConsoleColor.Magenta;
-
-            //if (hero.Mana >= 80)
-            //{
-            //    hero.Mana -= this.ManaCost; 
-            //    hero.Damage -= 100;
-            //}
+            if (hero.Mana >= 80)
+            {
+                //hero.Color = ConsoleColor.Magenta;
+                hero.Mana -= this.ManaCost;
+            }
         }
     }
 }

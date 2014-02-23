@@ -21,9 +21,9 @@
         private int moveSpeed;
         private readonly int initialMana;
         private readonly int initialHealth;
-        private List<Magic> magics;
+        public List<Magic> Magics { get; set; }
 
-        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana,
+        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana, 
             int attackSpeed, int moveSpeed, List<Magic> magicList, CreepPosition position = default(CreepPosition))
             : base(name, health, damage/*, symbol, color*/, position)
         {
@@ -36,6 +36,7 @@
             this.Level = 1;
             this.initialMana = mana;
             this.initialHealth = health;
+            //magics = new List<Magic>();
             this.Magics = magicList;
         }
 
@@ -130,6 +131,36 @@
                 }
 
                 this.moveSpeed = value;
+        }
+        }
+
+        public int AttackSpeed
+        {
+            get { return this.attackSpeed; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                this.attackSpeed = value;
+            }
+        }
+
+        public int MoveSpeed
+        {
+            get { return this.moveSpeed; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
+                this.moveSpeed = value;
             }
         }
 
@@ -143,11 +174,11 @@
             get { return this.initialHealth; }
         }
 
-        public List<Magic> Magics
-        {
-            get { return this.magics; }
-            set { this.magics = value; }
-        }
+        //public List<Magic> Magics
+        //{
+        //    get { return this.magics; }
+        //    set { this.magics = value; }
+        //}
 
         private void LevelUp()
         {

@@ -7,10 +7,14 @@
     {
         private const char CreepSymbol = '*';
         private const string CreepName = "Spooky Lion";
+        private const int CreepMaxHealth = 350;
+        private const int CreepMinHealth = 150;
+        private const int CreepMaxDamage = 35;
+        private const int CreepMinDamage = 15;
 
         private readonly List<CreepPosition> creepsPosition;
         private readonly char[,] matrix;
-        private Random random;
+        private readonly Random random;
 
         public CreepInitialization(char[,] matrix)
         {
@@ -23,7 +27,7 @@
         public List<Creep> Creeps
         {
             get;
-            set;
+            private set;
         }
 
         // Search for the creeps in the map and add them to a list of creeps.
@@ -49,11 +53,12 @@
 
             for (int i = 0; i < creepsPosition.Count; i++)
             {
-                this.Creeps.Add(new Creep(CreepName, random.Next(150, 350), random.Next(15, 35), creepsPosition[i]));
+                this.Creeps.Add(new Creep(CreepName, random.Next(CreepMinHealth, CreepMaxHealth), 
+                    random.Next(CreepMinDamage, CreepMaxDamage), creepsPosition[i]));
             }
         }
 
-        public void CheckForCreeps(int row, int col)
+        public Creep CheckForCreeps(int row, int col)
         {
             foreach (var creep in this.Creeps)
             {
@@ -79,9 +84,12 @@
                     Console.SetCursorPosition(col, row);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write('@');
-                }
+
+                    return creep;
             }
         }
 
+            return null;
+        }
     }
 }

@@ -34,17 +34,11 @@
 
         public override void Use(Hero hero)
         {
-            //hero.Color = ConsoleColor.Cyan;
-            //int coolDown = 0;
-
-            //if (hero.Mana >= 80)
-            //{
-            //    hero.Mana -= this.ManaCost; 
-            //    hero.Damage += 100;
-            //    hero.Silince = true;
-            //}
-
-            //throw new NotImplementedException();
+            if (hero.Mana >= 100)
+            {
+                //hero.Color = ConsoleColor.Cyan;
+                hero.Mana -= this.ManaCost;
+            }
         }
     }
 }

@@ -5,9 +5,11 @@
 
     public class MapHandling
     {
+        private const int Height = 50;
+        private const int Width = 110;
         private readonly string filePath;
         private char[,] mapMatrix;
-
+        
         public MapHandling(string mapPath)
         {
             this.filePath = mapPath;
@@ -48,6 +50,9 @@
         // print it on the console
         public void LoadMapOnScreen()
         {
+            Console.BufferHeight = Console.WindowHeight = Height;
+            Console.BufferWidth = Console.WindowWidth = Width;
+
             for (int row = 0; row < this.mapMatrix.GetLength(0); row++)
             {
                 for (int col = 0; col < this.mapMatrix.GetLength(1); col++)
