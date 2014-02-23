@@ -11,6 +11,11 @@
         // private string symbol;
         // private ConsoleColor color;
         private CreepPosition position;
+
+        public Character()
+        {
+
+        }
          
         public Character(string name, int health, int damage/*, string symbol, ConsoleColor color*/, CreepPosition position)
         {

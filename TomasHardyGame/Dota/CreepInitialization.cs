@@ -27,7 +27,7 @@
         public List<Creep> Creeps
         {
             get;
-            set;
+            private set;
         }
 
         // Search for the creeps in the map and add them to a list of creeps.
@@ -58,7 +58,7 @@
             }
         }
 
-        public void CheckForCreeps(int row, int col)
+        public Creep CheckForCreeps(int row, int col)
         {
             foreach (var creep in this.Creeps)
             {
@@ -84,9 +84,12 @@
                     Console.SetCursorPosition(col, row);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write('@');
+
+                    return creep;
                 }
             }
-        }
 
+            return null;
+        }
     }
 }
