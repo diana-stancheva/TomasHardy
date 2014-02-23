@@ -159,7 +159,7 @@
             Console.WriteLine(str);
         }
 
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.Title = String.Format("Dota v. 0.1®");
 
@@ -190,7 +190,6 @@
 
             while (true)
             {
-
                 PrintOnPosition(Width - 25, Height - 45, string.Format("HEALTH: {0}", hero.Health));
                 PrintOnPosition(Width - 25, Height - 43, string.Format("MANA: {0}", hero.Mana));
 
@@ -208,9 +207,10 @@
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
-                    }
 
-                    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                        // check for creeps on each step (if the player moves)
+                        creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                    }
                 }
 
 
@@ -221,10 +221,6 @@
                 // Write result
                 //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
                 //    stopwatch.Elapsed));
-
-                // check on each step for creeps
-                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
-
             }
 
             //arrayMapCells = file.LoadMap();
