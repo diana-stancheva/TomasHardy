@@ -251,8 +251,8 @@
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            
-                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
+                        }   
                     }
                 }
 
