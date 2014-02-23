@@ -127,7 +127,7 @@
             PrintChoosingHero(Width - 30, Height - 26, heroes[5], ConsoleColor.Gray);
             PrintHeroName(Width - 100, Height - 15, heroes[6], "<T>");
             PrintChoosingHero(Width - 100, Height - 13, heroes[6], ConsoleColor.Gray);
-            PrintHeroName(Width - 65, Height - 15, heroes[7], "<K>");
+            PrintHeroName(Width - 65, Height - 15, heroes[7], "<W>");
             PrintChoosingHero(Width - 65, Height - 13, heroes[7], ConsoleColor.Gray);
             PrintHeroName(Width - 30, Height - 15, heroes[8], "<N>");
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
@@ -217,8 +217,21 @@
                 PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
+                // ne trii zachistva Experience na geroq !!!!!!!!!!!!!!!!!!!!!!!
+                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
+
+                // magics
+                PrintOnPosition(Width - 25, Height - 25, string.Format(hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
+                PrintOnPosition(Width - 25, Height - 24, "Damage: " + hero.Magics[0].Damage, ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 23, "ManaCost: " + hero.Magics[0].ManaCost, ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 22, "Cooldown: " + hero.Magics[0].CooldownTime, ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 20, string.Format(hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
+                PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
 
                 PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.Gray);
 
@@ -247,6 +260,7 @@
 
                 while (stopwatch.ElapsedMilliseconds < 2000)
                 {
+
                     if (stopwatch.ElapsedMilliseconds >= 1000)
                     {
                         PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
