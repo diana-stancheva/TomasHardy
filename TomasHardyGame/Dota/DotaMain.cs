@@ -159,13 +159,6 @@
             Console.WriteLine(str);
         }
 
-        static void PrintOnPosition(int x, int y, string str, ConsoleColor color = ConsoleColor.Gray)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.ForegroundColor = color;
-            Console.WriteLine(str);
-        }
-
         static void Main(string[] args)
         {
             Console.Title = String.Format("Dota v. 0.1®");
