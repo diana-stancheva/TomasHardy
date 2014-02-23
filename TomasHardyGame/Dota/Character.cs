@@ -1,6 +1,7 @@
 ﻿namespace Dota
 {
     using System;
+    using System.Text;
 
     public abstract class Character
     {
@@ -9,16 +10,21 @@
         private int damage;
         private bool isDead;
         // private string symbol;
-        private ConsoleColor color;
+        // private ConsoleColor color;
         private CreepPosition position;
+
+        public Character()
+        {
+
+        }
          
-        public Character(string name, int health, int damage/*, string symbol*/, ConsoleColor color, CreepPosition position)
+        public Character(string name, int health, int damage/*, string symbol, ConsoleColor color*/, CreepPosition position)
         {
             this.Name = name;
             this.Health = health;
             this.Damage = damage;
             // this.Symbol = symbol;
-            this.Color = color;
+            // this.Color = color;
             this.position = position;
         }
 
@@ -80,11 +86,11 @@
         //    set { this.symbol = value; }
         //}
 
-        public ConsoleColor Color
-        {
-            get { return this.color; }
-            set { this.color = value; }
-        }
+        //public ConsoleColor Color
+        //{
+        //    get { return this.color; }
+        //    set { this.color = value; }
+        //}
 
         public CreepPosition Position
         {
@@ -97,9 +103,16 @@
             opponent.Health -= this.damage;
         }
 
-        public override string ToString()
-        {
-            return string.Format("Name: {0}\nHealth: {1}\nDamage: {2}\n", this.name, this.health, this.damage);
-        }
+        //public override string ToString()
+        //{
+        //    StringBuilder result = new StringBuilder();
+
+        //    result.AppendLine();
+        //    result.AppendFormat("Name: {0}\n".PadLeft(95), this.name);
+        //    result.AppendFormat("Health: {0}\n".PadLeft(97), this.health);
+        //    result.AppendFormat("Damage: {0}\n".PadLeft(97), this.damage);
+
+        //    return result.ToString();
+        //}
     }
 }
