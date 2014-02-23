@@ -299,8 +299,14 @@
                 PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
-                PrintOnPosition(Width - 25, Height - 44, string.Format("MANA: {0,5}", hero.Mana), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0}", hero.Health), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,5}", hero.Health), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0}", hero.Mana), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
 
                 PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.Gray);
 
