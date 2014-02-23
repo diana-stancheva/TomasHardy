@@ -259,6 +259,8 @@
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
 
+                        
+
                         // check for creeps on each step (if the player moves)
                         tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
@@ -284,6 +286,11 @@
                 if (tempCreep != null && tempCreep.IsDead == false)
                 {
                     hero.Health -= tempCreep.Damage;
+                }
+
+                if (player.PositionOnCol <= 2 && player.PositionOnRow >= 47)
+                {
+                    hero.ManaAndHealthIncreaseFountain();
                 }
 
                 hero.ManaAndHealthIncrease();

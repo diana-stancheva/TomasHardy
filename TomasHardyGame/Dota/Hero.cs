@@ -203,6 +203,19 @@
             }
         }
 
+        public void ManaAndHealthIncreaseFountain()
+        {
+            if (this.mana < this.initialMana - 20)
+            {
+                this.mana+=20;
+            }
+
+            if (this.Health < this.initialHealth - 20)
+            {
+                this.Health+=20;
+            }
+        }
+
         public async void PutTaskDelay()
         {
             await Task.Delay(2000);
