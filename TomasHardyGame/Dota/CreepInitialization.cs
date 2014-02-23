@@ -10,12 +10,14 @@
 
         private readonly List<CreepPosition> creepsPosition;
         private readonly char[,] matrix;
+        private Random random;
 
         public CreepInitialization(char[,] matrix)
         {
             this.matrix = matrix;
             this.Creeps = new List<Creep>();
             this.creepsPosition = new List<CreepPosition>();
+            this.random = new Random();
         }
 
         public List<Creep> Creeps
@@ -24,6 +26,7 @@
             set;
         }
 
+        // Search for the creeps in the map and add them to a list of creeps.
         private void ReadCreeps()
         {
             for (int row = 0; row < this.matrix.GetLength(0); row++)
@@ -37,7 +40,6 @@
                         creepsPosition.Add(new CreepPosition(row, col));
                     }
                 }
-
             }
         }
 
@@ -47,7 +49,7 @@
 
             for (int i = 0; i < creepsPosition.Count; i++)
             {
-                this.Creeps.Add(new Creep(CreepName, 300, 50, ConsoleColor.DarkMagenta, creepsPosition[i]));
+                this.Creeps.Add(new Creep(CreepName, random.Next(150, 350), random.Next(15, 35), ConsoleColor.DarkMagenta, creepsPosition[i]));
             }
         }
 
