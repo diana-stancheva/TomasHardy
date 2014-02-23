@@ -18,7 +18,7 @@
         static List<Hero> heroes = new List<Hero>
         {
             new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
-            new Hero("Dragon Knight", 300, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
+            new Hero("Dragon Knight", 550, 60/*, ConsoleColor.Green*/, 150, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
             new Hero("Anti Mage", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
             new Hero("Juggernaut", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
             new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
