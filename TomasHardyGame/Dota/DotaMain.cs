@@ -227,6 +227,8 @@
                 creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
             }
+            
+
 
             Console.WriteLine("ivo");
 
