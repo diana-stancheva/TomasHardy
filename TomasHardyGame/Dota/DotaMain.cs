@@ -264,13 +264,13 @@
                                         timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
                     }
 
+                    // check for creeps on each step (if the player moves)
+                    tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
-
-                        // check for creeps on each step (if the player moves)
-                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
                         List<Creep> creepsList = creepIni.Creeps;
 
@@ -318,10 +318,14 @@
                 {
                     if (hero.InitialHealth > 150)
                     {
+                        int currentLevel = hero.Level;
+                        int currentExperience = hero.Experience;
                         player.PrintSymbol(' ');
                         Thread.Sleep(10000);
-                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.Mana, 
+                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana, 
                             hero.AttackSpeed, hero.MoveSpeed, hero.Magics, hero.Position);
+                        hero.Level = currentLevel;
+                        hero.Experience = currentExperience;
                         player.PositionOnCol = 3;
                         player.PositionOnRow = 47;
                         player.PrintSymbol('@');
