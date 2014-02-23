@@ -12,8 +12,6 @@
     {
         const int Height = 50;
         const int Width = 110;
-        // const int delay = 150;
-        // public static char[,] arrayMapCells;
 
         static Hero hero;
 
@@ -26,104 +24,9 @@
             new Hero("Morphiling", 500, 40/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
             new Hero("Spirit Breaker", 1000, 50/*, ConsoleColor.Green*/, 300, 3, 2, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
             new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Wraith King", 500, 50/*, ConsoleColor.Green*/, 300, 2, 2, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
             new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, 1, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
-
-        //static void ClearBuffer()
-        //{
-        //    // Read keys until they finish without diplaying
-        //    while (Console.KeyAvailable)
-        //    {
-        //        Console.ReadKey(true);
-        //    }
-        //}
-
-        //static void StartNewGame()
-        //{
-        // Moved hero initialisation on line 19.
-        //Character hero = new Character("@", ConsoleColor.Green, 2, Height - 4);
-        // hero.Draw();
-
-        //    bool isKilled = false;
-
-        //    while (!isKilled)
-        //    {
-        //        if (Console.KeyAvailable)
-        //        {
-        //            ConsoleKeyInfo keyPressed = Console.ReadKey();
-        //            if (keyPressed.Key == ConsoleKey.Spacebar)
-        //            {
-        //                hero.Color = ConsoleColor.Magenta;
-        //            }
-        //            else if (keyPressed.Key == ConsoleKey.LeftArrow)
-        //            {
-        //                hero.Color = ConsoleColor.Green;
-
-        //                // int left = Console.CursorLeft;
-        //                // int top = Console.CursorTop;
-        //                if (arrayMapCells[hero.Y, hero.X - 1] != '#')
-        //                {
-        //                    hero.Move(-1, 0);
-        //                }
-        //            }
-        //            else if (keyPressed.Key == ConsoleKey.RightArrow)
-        //            {
-        //                hero.Color = ConsoleColor.Green;
-
-        //                if (arrayMapCells[hero.Y, hero.X + 2] != '#')
-        //                {
-        //                    hero.Move(1, 0);
-        //                }
-        //            }
-        //            else if (keyPressed.Key == ConsoleKey.UpArrow)
-        //            {
-        //                hero.Color = ConsoleColor.Green;
-
-        //                if (
-        //                        arrayMapCells[hero.Y - 1, hero.X] != '#' ||
-        //                        arrayMapCells[hero.Y - 1, hero.X + 1] != '#' ||
-        //                        arrayMapCells[hero.Y - 1, hero.X - 1] != '#'
-        //                    )
-        //                {
-        //                    hero.Move(0, -1);
-        //                }
-        //            }
-        //            else if (keyPressed.Key == ConsoleKey.DownArrow)
-        //            {
-        //                hero.Color = ConsoleColor.Green;
-
-        //                if (
-        //                        arrayMapCells[hero.Y + 1, hero.X] != '#' || 
-        //                        arrayMapCells[hero.Y + 1, hero.X - 1] != '#' || 
-        //                        arrayMapCells[hero.Y + 1, hero.X + 1] != '#'
-        //                    )
-        //                {
-        //                    hero.Move(0, 1);
-        //                }
-        //            }
-        //            else if (keyPressed.Key == ConsoleKey.Escape)
-        //            {
-        //                // Return to menu
-        //                return;
-        //            }
-        //            else if (keyPressed.Key == ConsoleKey.Insert)
-        //            {
-        //                // choose magic from menu
-        //                SelectMagic();
-
-        //            }
-        //        }
-
-        //        ClearBuffer();
-
-        //        hero.Draw();
-
-        //        Thread.Sleep(delay);
-
-        //        hero.ManaAndHealthIncrease();
-        //    }
-        //}
 
         //static void SelectMagic()
         //{
@@ -155,7 +58,6 @@
             Console.ForegroundColor = color;
             Console.WriteLine(str);
         }
-
 
 
         static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
@@ -190,6 +92,14 @@
             Console.WriteLine(name);
         }
 
+        static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(hero.Magics[0].Description);
+            Console.SetCursorPosition(x + 3, y + 3);
+            Console.WriteLine(hero.Magics[1].Description);
+        }
 
 
 
@@ -221,6 +131,8 @@
             PrintChoosingHero(Width - 65, Height - 13, heroes[7], ConsoleColor.Gray);
             PrintHeroName(Width - 30, Height - 15, heroes[8], "<N>");
             PrintChoosingHero(Width - 30, Height - 13, heroes[8], ConsoleColor.Gray);
+
+
 
 
             Console.CursorVisible = false;
@@ -300,8 +212,8 @@
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
                 PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,5}", hero.Health), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0}", hero.Mana), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
@@ -313,9 +225,10 @@
                 // printing creep info on the screen if available
                 if (tempCreep != null)
                 {
+                    PrintOnPosition(Width - 25, Height - 10, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 9, new string(' ', 20), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0}", tempCreep.Health), ConsoleColor.Gray);
+                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, new string(' ', 20), ConsoleColor.Gray);
                     PrintOnPosition(Width - 25, Height - 7, string.Format("Is it dead: {0}", tempCreep.IsDead), ConsoleColor.Gray);
@@ -436,10 +349,10 @@
                     }
                     else
                     {
-                        creep.Health -= hero.Damage;
-                    }
+                    creep.Health -= hero.Damage;
                 }
             }
         }
     }
+}
 }
