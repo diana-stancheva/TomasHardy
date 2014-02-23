@@ -222,18 +222,10 @@
                 //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
                 //    stopwatch.Elapsed));
 
-                //player.Move();
                 // check on each step for creeps
                 creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
             }
-
-
-
-            Console.WriteLine("ivo");
-
-
-            //Console.CursorVisible = false;
 
             //arrayMapCells = file.LoadMap();
             ////file.LoadMap();
