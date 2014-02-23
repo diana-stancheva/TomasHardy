@@ -6,11 +6,15 @@
     public class CreepInitialization
     {
         private const char CreepSymbol = '*';
-        private const string CreepName = "Spooky Lion";
         private const int CreepMaxHealth = 350;
         private const int CreepMinHealth = 150;
         private const int CreepMaxDamage = 35;
         private const int CreepMinDamage = 15;
+        private readonly List<string> creepyNames = new List<string> 
+        { 
+            "Barnabas", "Bloody Mary", "Spooky Lion", "Fang", "Frankenstein", "Hulk", "Morticia", "Salem", "Zorak"
+            , "Wednesday", "Sasquatch", "Phantom", "Quasimodo", "Merlin", "Midnight", "Freddie Krueger"
+        };
 
         private readonly List<CreepPosition> creepsPosition;
         private readonly char[,] matrix;
@@ -53,7 +57,9 @@
 
             for (int i = 0; i < creepsPosition.Count; i++)
             {
-                this.Creeps.Add(new Creep(CreepName, random.Next(CreepMinHealth, CreepMaxHealth),
+                this.Creeps.Add(new Creep(
+                    creepyNames[random.Next(creepyNames.Count)], 
+                    random.Next(CreepMinHealth, CreepMaxHealth),
                     random.Next(CreepMinDamage, CreepMaxDamage), creepsPosition[i]));
             }
         }
