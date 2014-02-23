@@ -17,20 +17,20 @@
         const int delay = 150;
         public static char[,] arrayMapCells;
 
-        static Hero hero = new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300);
+        static Hero hero = new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
 
         static List<Hero> heroes = new List<Hero>
         {
-            new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Dragon Knight", 300, 50, ConsoleColor.Green, 300), 
-            new Hero("Sven", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Tusk", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Ursa", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Zeus", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Troll Warlord", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Wraithking", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Nyx Assassin", 500, 50, ConsoleColor.Green, 300), 
-            new Hero("Huskar", 500, 50, ConsoleColor.Green, 300)
+            new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
+            new Hero("Dragon Knight", 300, 50, ConsoleColor.Green, 300, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
+            new Hero("Sven", 500, 50, ConsoleColor.Green, 300, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Tusk", 500, 50, ConsoleColor.Green, 300, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Ursa", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Zeus", 500, 50, ConsoleColor.Green, 300, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Troll Warlord", 500, 50, ConsoleColor.Green, 300, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
+            new Hero("Wraithking", 500, 50, ConsoleColor.Green, 300, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Nyx Assassin", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Vendetta.Instance, Impale.Instance }), 
+            new Hero("Huskar", 500, 50, ConsoleColor.Green, 300, new List<Magic> { InnerVitality.Instance, BurningSpear.Instance })
         };
 
         //static void ClearBuffer()
@@ -186,22 +186,26 @@
             creepIni.CreateCreeps();
             
             hero.Mana -= 100;
-            hero.Health -= 100;
+            hero.Health -= 50;
+
+            Stopwatch timeElapsed = new Stopwatch();
+            timeElapsed.Start();
 
             while (true)
             {
-                PrintOnPosition(Width - 25, Height - 45, string.Format("HEALTH: {0}", hero.Health));
-                PrintOnPosition(Width - 25, Height - 43, string.Format("MANA: {0}", hero.Mana));
+
+                PrintOnPosition(Width - 25, Height - 45, string.Format("Mana: {0}", hero.Mana));
+                PrintOnPosition(Width - 25, Height - 44, string.Format("Health: {0}", hero.Health));
 
                 //                          NE TRII, NE TRII, NE TRII KOMENTARITE
                 // TO DO Da izchakva max secunda za natiskane na kopche ili neshto takova
                 // Create new stopwatch
-                Stopwatch stopwatch = new Stopwatch();
-                // Begin timing
-                stopwatch.Start();
 
+                // Begin timing
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
                 // Do something
-                while (stopwatch.ElapsedMilliseconds < 2000)
+                while (stopwatch.ElapsedMilliseconds < 1000)
                 {
                     if (Console.KeyAvailable)
                     {
@@ -209,18 +213,21 @@
                         player.Move(pressedKey);
 
                         // check for creeps on each step (if the player moves)
-                        creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
-                    }
+                    creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                 }
-
+                }
 
                 hero.ManaAndHealthIncrease();
                 // Stop timing
                 stopwatch.Stop();
 
                 // Write result
-                //PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
-                //    stopwatch.Elapsed));
+                PrintOnPosition(Width - 45, Height - 43, string.Format("Time elapsed: {0}",
+                    timeElapsed.Elapsed));
+
+                // check on each step for creeps
+                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
             }
 
             //arrayMapCells = file.LoadMap();
