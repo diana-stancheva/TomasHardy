@@ -17,20 +17,20 @@
         const int delay = 150;
         public static char[,] arrayMapCells;
 
-        static Hero hero = new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
+        static Hero hero = new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance });
 
         static List<Hero> heroes = new List<Hero>
         {
-            new Hero("Bloodseeker", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
-            new Hero("Dragon Knight", 300, 50, ConsoleColor.Green, 300, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
-            new Hero("Sven", 500, 50, ConsoleColor.Green, 300, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
-            new Hero("Tusk", 500, 50, ConsoleColor.Green, 300, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
-            new Hero("Ursa", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
-            new Hero("Zeus", 500, 50, ConsoleColor.Green, 300, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
-            new Hero("Troll Warlord", 500, 50, ConsoleColor.Green, 300, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
-            new Hero("Wraithking", 500, 50, ConsoleColor.Green, 300, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
-            new Hero("Nyx Assassin", 500, 50, ConsoleColor.Green, 300, new List<Magic> { Vendetta.Instance, Impale.Instance }), 
-            new Hero("Huskar", 500, 50, ConsoleColor.Green, 300, new List<Magic> { InnerVitality.Instance, BurningSpear.Instance })
+            new Hero("Bloodseeker", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
+            new Hero("Dragon Knight", 300, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
+            new Hero("Sven", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { StormHammer.Instance, GreatCleave.Instance }), 
+            new Hero("Tusk", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { IceShards.Instance, StormHammer.Instance }), 
+            new Hero("Ursa", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { Earthshock.Instance, Overpower.Instance }), 
+            new Hero("Zeus", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { LightningBolt.Instance, FurySwipes.Instance }), 
+            new Hero("Troll Warlord", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { ArcLightning.Instance, BattleTrance.Instance }), 
+            new Hero("Wraithking", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { WraithfireBlast.Instance, Reincarnation.Instance }), 
+            new Hero("Nyx Assassin", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { Vendetta.Instance, Impale.Instance }), 
+            new Hero("Huskar", 500, 50/*, ConsoleColor.Green*/, 300, new List<Magic> { InnerVitality.Instance, BurningSpear.Instance })
         };
 
         //static void ClearBuffer()
@@ -223,12 +223,6 @@
                 hero.ManaAndHealthIncrease();
                 // Stop timing
                 stopwatch.Stop();
-
-                
-
-                // check on each step for creeps
-                creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
-
             }
 
             //arrayMapCells = file.LoadMap();
