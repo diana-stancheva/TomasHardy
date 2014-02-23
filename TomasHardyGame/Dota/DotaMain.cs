@@ -239,7 +239,7 @@
                         player.Move(pressedKey);
 
                         // check for creeps on each step (if the player moves)
-                        creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
@@ -252,11 +252,9 @@
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
                             
-                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                        }
                     }
                 }
-                }
-
 
                 hero.ManaAndHealthIncrease();
                 // Stop timing
