@@ -167,7 +167,7 @@
                         hero = heroes[6];
                         heroLetter = true;
                         break;
-                    case ConsoleKey.K:
+                    case ConsoleKey.W:
                         hero = heroes[7];
                         heroLetter = true;
                         break;
