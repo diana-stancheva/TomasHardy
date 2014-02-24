@@ -115,8 +115,7 @@
 
         public static void Main()
         {
-            //Screen startScreen = new Screen(@"..\..\StartScreen.txt");
-            Screen.LoadScreen();
+            StartScreen.LoadOnScreen();
 
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
@@ -201,7 +200,7 @@
             string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
-            mapHandling.LoadMapOnScreen();
+            mapHandling.LoadOnScreen();
 
             // player logic
             var player = new PlayerMovement(mapHandling.MapMatrix);

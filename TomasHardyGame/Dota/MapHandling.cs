@@ -3,7 +3,7 @@
     using System;
     using System.IO;
 
-    public class MapHandling
+    public class MapHandling : IScreen
     {
         private const int Height = 50;
         private const int Width = 110;
@@ -57,7 +57,7 @@
         }
 
         // print it on the console
-        public void LoadMapOnScreen()
+        public void LoadOnScreen()
         {
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;

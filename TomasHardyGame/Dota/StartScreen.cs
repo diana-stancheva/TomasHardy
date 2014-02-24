@@ -4,7 +4,7 @@
     using System.IO;
     using System.Threading;
 
-    public static class Screen //: IScreen
+    public class StartScreen //: IScreen
     {
         private const int HeightStartScreen = 20;
         private const int WidthStartScreen = 70;
@@ -12,13 +12,7 @@
         private const string GameTitle = "Dota v. 0.1®";
         private const string FileName = @"..\..\StartScreen.txt";
 
-        //public Screen(string fileName)
-        //{
-        //    this.FileName = fileName;
-        //}
-        //public string FileName { get; set; }
-
-        public static void LoadScreen()
+        public static void LoadOnScreen()
         {
             Console.Title = String.Format(GameTitle);
 
@@ -29,7 +23,6 @@
             {
                 string text = reader.ReadToEnd();
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
-                //Console.SetCursorPosition(0, 0);
 
                 Console.WriteLine(text);
 
