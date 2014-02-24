@@ -5,8 +5,8 @@
 
     public class MapHandling : IScreen
     {
-        private const int Height = 50;
-        private const int Width = 110;
+        private const int ConsoleHeight = 50;
+        private const int ConsoleWidth = 110;
         private readonly string filePath;
         private char[,] mapMatrix;
 
@@ -22,12 +22,12 @@
 
         public static int ScreenHeight
         {
-            get { return Height; }
+            get { return ConsoleHeight; }
         }
 
         public static int ScreenWidth
         {
-            get { return Width; }
+            get { return ConsoleWidth; }
         }
 
         // read a map from a file
@@ -69,8 +69,8 @@
         // print it on the console
         public void LoadOnScreen()
         {
-            Console.BufferHeight = Console.WindowHeight = Height;
-            Console.BufferWidth = Console.WindowWidth = Width;
+            Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
+            Console.BufferWidth = Console.WindowWidth = ConsoleWidth;
 
             for (int row = 0; row < this.mapMatrix.GetLength(0); row++)
             {
@@ -95,9 +95,16 @@
                 Console.WriteLine();
             }
 
-            DotaMain.PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.DarkCyan);
+            PrintOnPosition(ConsoleWidth - 25, ConsoleHeight - 11, "Creep info:", ConsoleColor.DarkCyan);
 
             Console.CursorVisible = false;
+        }
+
+        public static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(str);
         }
     }
 }

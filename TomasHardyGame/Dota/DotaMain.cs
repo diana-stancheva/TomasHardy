@@ -49,12 +49,7 @@
         //}
 
         //Prints on position and apply color for string
-        public static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.ForegroundColor = color;
-            Console.WriteLine(str);
-        }
+
 
         private static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
@@ -245,29 +240,29 @@
 
             while (true)
             {
-                PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                MapHandling.PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
-                PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Yellow);
-                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Yellow);
+                MapHandling.PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
 
                 // magics
-                PrintOnPosition(Width - 25, Height - 25, string.Format(hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
-                PrintOnPosition(Width - 25, Height - 24, "Damage: " + hero.Magics[0].Damage, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 23, "ManaCost: " + hero.Magics[0].ManaCost, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 22, "Cooldown: " + hero.Magics[0].CooldownTime, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 20, string.Format(hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
-                PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 25, string.Format(hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
+                MapHandling.PrintOnPosition(Width - 25, Height - 24, "Damage: " + hero.Magics[0].Damage, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 23, "ManaCost: " + hero.Magics[0].ManaCost, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 22, "Cooldown: " + hero.Magics[0].CooldownTime, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 20, string.Format(hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
+                MapHandling.PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
                 
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
@@ -277,7 +272,7 @@
                 {
                     if (stopwatch.ElapsedMilliseconds >= 1000)
                     {
-                        PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                        MapHandling.PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                                         timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes,
                                         timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
                     }
@@ -329,7 +324,7 @@
 
                 if (hero.IsDead)
                 {
-                    PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+                    MapHandling.PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
 
                     if (hero.InitialHealth > 150)
                     {
