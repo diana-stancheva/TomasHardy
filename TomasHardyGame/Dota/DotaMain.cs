@@ -341,6 +341,9 @@
 
                 if (hero.IsDead)
                 {
+                    hero.Health = 0;
+                    PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+
                     if (hero.InitialHealth > 150)
                     {
                         int currentLevel = hero.Level;
