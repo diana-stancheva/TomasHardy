@@ -6,12 +6,12 @@
 
     public static class Screen //: IScreen
     {
-        const int HeightStartScreen = 20;
-        const int WidthStartScreen = 70;
-        const int DelayTime = 5;
-        const string GameTitle = "Dota v. 0.1®";
-        const string FileName = @"..\..\StartScreen.txt";
-        
+        private const int HeightStartScreen = 20;
+        private const int WidthStartScreen = 70;
+        private const int DelayTime = 5;
+        private const string GameTitle = "Dota v. 0.1®";
+        private const string FileName = @"..\..\StartScreen.txt";
+
         //public Screen(string fileName)
         //{
         //    this.FileName = fileName;
