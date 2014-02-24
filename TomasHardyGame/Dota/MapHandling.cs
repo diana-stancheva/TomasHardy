@@ -20,6 +20,16 @@
             get { return this.mapMatrix; }
         }
 
+        public static int ScreenHeight
+        {
+            get { return Height; }
+        }
+
+        public static int ScreenWidth
+        {
+            get { return Width; }
+        }
+
         // read a map from a file
         public void ReadFromFile()
         {
@@ -84,6 +94,8 @@
 
                 Console.WriteLine();
             }
+
+            DotaMain.PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.DarkCyan);
 
             Console.CursorVisible = false;
         }

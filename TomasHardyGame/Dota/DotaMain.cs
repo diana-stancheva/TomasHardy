@@ -4,9 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using System.Text;
     using System.Threading;
-    using System.Threading.Tasks;
 
     class DotaMain
     {
@@ -52,13 +50,12 @@
         //}
 
         //Prints on position and apply color for string
-        static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
+        public static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(str);
         }
-
 
         static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
@@ -228,7 +225,7 @@
                 }
             }
 
-            // creating and loading map
+            // Reading map from file and printing it on the screen
             //string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
@@ -276,28 +273,7 @@
                 PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
-
-                PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.DarkCyan);
-
-                // printing creep info on the screen if available
-                if (tempCreep != null)
-                {
-                    PrintOnPosition(Width - 25, Height - 10, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, (tempCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
-                }
-                else
-                {
-                    PrintOnPosition(Width - 25, Height - 10, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 8, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, new string(' ', 25), ConsoleColor.Gray);
-                }
-
+                
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -311,13 +287,15 @@
                                         timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
                     }
 
-                    // check for creeps on each step (if the player moves)
-                    tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+
 
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
+
+                        // check for creeps on each step (if the player moves!)
+                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
                         List<Creep> creepsList = creepIni.Creeps;
 
@@ -376,6 +354,7 @@
                         player.PositionOnCol = 3;
                         player.PositionOnRow = 47;
                         player.PrintSymbol('@');
+                        tempCreep = null; // importnat line! (when we reset the player there is no creep around him!)
                     }
                     else
                     {

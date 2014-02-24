@@ -1,7 +1,5 @@
 ﻿namespace Dota
 {
-    using System;
-
     public class Creep : Character
     {
         public Creep()

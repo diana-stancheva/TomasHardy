@@ -92,11 +92,35 @@
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write('@');
 
+                    this.PrintCreepInfo(creep);
                     return creep;
                 }
             }
 
+            this.PrintCreepInfo(null);
             return null;
+        }
+
+        private void PrintCreepInfo(Creep tempCreep)
+        {
+            // printing creep info on the screen if available
+            if (tempCreep != null)
+            {
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, (tempCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
+            }
+            else
+            {
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
+                DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
+            }
         }
     }
 }
