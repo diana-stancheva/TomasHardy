@@ -2,7 +2,7 @@
 {
     using System;
 
-    class Earthshock : Magic
+    public class Earthshock : Magic
     {
         private static Earthshock instance = null;
         private static object syncRoot = new Object();
@@ -17,13 +17,14 @@
                     {
                         instance = new Earthshock();
                     }
+
                     return instance;
                 }
             }
         }
 
         private Earthshock()
-            :base()
+            : base()
         {
             this.Name = "Earthshock";
             this.Description = "Ursa slams the earth, causing a powerful shock to damage all enemy units in a nearby area.";  // BIG RANGE
@@ -34,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

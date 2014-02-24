@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class Impale:Magic
+    using System;
+
+    public class Impale : Magic
     {
         private static Impale instance = null;
         private static object syncRoot = new Object();
@@ -21,13 +17,14 @@ namespace Dota
                     {
                         instance = new Impale();
                     }
+
                     return instance;
                 }
             }
         }
 
         private Impale()
-            :base()
+            : base()
         {
             this.Name = "Impale";
             this.Description = "Rock spikes burst from the earth along a straight path and enemy units take damage.";
@@ -35,9 +32,9 @@ namespace Dota
             this.CooldownTime = 11;
             this.Damage = 80;
         }
+
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

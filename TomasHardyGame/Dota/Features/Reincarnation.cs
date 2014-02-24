@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class Reincarnation:Magic
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public class Reincarnation : Magic
     {
         private static Reincarnation instance = null;
         private static object syncRoot = new Object();
@@ -21,13 +21,14 @@ namespace Dota
                     {
                         instance = new Reincarnation();
                     }
+
                     return instance;
                 }
             }
         }
 
         private Reincarnation()
-            :base()
+            : base()
         {
             this.Name = "Reincarnation";
             this.Description = "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.";
@@ -35,11 +36,11 @@ namespace Dota
             this.CooldownTime = 260;
             this.Damage = 75;
         }
+
         public override void Use(Hero hero, Creep creep)
         {
             if (hero.Mana >= this.ManaCost)
             {
-                //hero.Color = ConsoleColor.Magenta;
                 hero.Mana -= this.ManaCost;
                 creep.Health -= this.Damage;
             }

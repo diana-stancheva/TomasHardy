@@ -3,17 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Linq;
     using System.Threading;
 
-    class DotaMain
+    public class DotaMain
     {
-        const int Height = 50;
-        const int Width = 110;
+        private const int Height = 50;
+        private const int Width = 110;
 
-        static Hero hero;
+        private static Hero hero;
 
-        static List<Hero> heroes = new List<Hero>
+        private static List<Hero> heroes = new List<Hero>
         {
             new Hero("Bloodseeker", 566, 50/*, ConsoleColor.Green*/, 320, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
             new Hero("Dragon Knight", 550, 60/*, ConsoleColor.Green*/, 150, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
@@ -57,7 +56,7 @@
             Console.WriteLine(str);
         }
 
-        static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
+        private static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
             Console.BufferHeight = Console.WindowHeight = 50;
             Console.BufferWidth = Console.WindowWidth = 110;
@@ -74,7 +73,7 @@
             Console.WriteLine("attack speed: " + hero.AttackSpeed);
         }
 
-        static void PrintMapMenu (int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        private static void PrintMapMenu(int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.BufferHeight = Console.WindowHeight = 32;
             Console.BufferWidth = Console.WindowWidth = 60;
@@ -86,7 +85,7 @@
             Console.SetCursorPosition(x, y + 2);
         }
 
-        static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
+        private static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -96,14 +95,14 @@
             Console.SetCursorPosition(x, y + 2);
         }
 
-        static void PrintChooseText(int x, int y, string name, ConsoleColor color)
+        private static void PrintChooseText(int x, int y, string name, ConsoleColor color)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(name);
         }
 
-        static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
+        private static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -111,8 +110,6 @@
             Console.SetCursorPosition(x + 3, y + 3);
             Console.WriteLine(hero.Magics[1].Description);
         }
-
-
 
         public static void Main()
         {
@@ -131,6 +128,7 @@
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyMap = Console.ReadKey(true);
             bool mapLetter = false;
+
             while (!mapLetter)
             {
                 switch (pressedKeyMap.Key)
@@ -179,6 +177,7 @@
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
             bool heroLetter = false;
+
             while (!heroLetter)
             {
                 switch (pressedKeyHero.Key)
@@ -241,9 +240,6 @@
             Creep tempCreep = new Creep();
             tempCreep = null;
 
-            //hero.Mana -= 100;
-            //hero.Health -= 50;
-
             Stopwatch timeElapsed = new Stopwatch();
             timeElapsed.Start();
 
@@ -258,7 +254,6 @@
                 PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
-                // ne trii zachistva Experience na geroq !!!!!!!!!!!!!!!!!!!!!!!
                 PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
@@ -273,7 +268,7 @@
                 PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
-                
+
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -317,9 +312,6 @@
                     }
                 }
 
-                // print position 3 47
-                //PrintOnPosition(Width - 19, Height - 50, player.PositionOnCol + " " + player.PositionOnRow, ConsoleColor.DarkCyan);
-
                 if (tempCreep != null && tempCreep.IsDead == false)
                 {
                     hero.Health -= tempCreep.Damage;
@@ -329,7 +321,7 @@
                 {
                     hero.ManaAndHealthIncreaseFountain();
                 }
-                else if(!hero.IsDead)
+                else if (!hero.IsDead)
                 {
                     hero.ManaAndHealthIncrease();
                 }
@@ -347,7 +339,7 @@
                         int currentExperience = hero.Experience;
                         player.PrintSymbol(' ');
                         Thread.Sleep(10000);
-                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana, 
+                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana,
                             hero.AttackSpeed, hero.MoveSpeed, hero.Magics, hero.Position);
                         hero.Level = currentLevel;
                         hero.Experience = currentExperience;
@@ -358,7 +350,6 @@
                     }
                     else
                     {
-                        // KAKVOTO RESHI SHTE PISHE NAKRAQ!!!!!!!!!!!!!!!!
                         Console.Clear();
                         Console.WriteLine("GAME OVER!");
                         break;

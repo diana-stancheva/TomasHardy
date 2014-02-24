@@ -1,7 +1,6 @@
 ﻿namespace Dota
 {
     using System;
-    using System.Text;
 
     public abstract class Character
     {
@@ -9,8 +8,6 @@
         private int health;
         private int damage;
         private bool isDead;
-        // private string symbol;
-        // private ConsoleColor color;
         private CreepPosition position;
 
         public Character()
@@ -18,14 +15,12 @@
 
         }
 
-        public Character(string name, int health, int damage/*, string symbol, ConsoleColor color*/, CreepPosition position)
+        public Character(string name, int health, int damage, CreepPosition position)
         {
             this.Name = name;
             this.Health = health;
             this.Damage = damage;
-            // this.Symbol = symbol;
-            // this.Color = color;
-            this.position = position;
+            this.Position = position;
         }
 
         public string Name
@@ -80,39 +75,15 @@
             set { this.isDead = value; }
         }
 
-        //public string Symbol
-        //{
-        //    get { return this.symbol; }
-        //    set { this.symbol = value; }
-        //}
-
-        //public ConsoleColor Color
-        //{
-        //    get { return this.color; }
-        //    set { this.color = value; }
-        //}
-
         public CreepPosition Position
         {
             get { return this.position; }
             set { this.position = value; }
         }
 
-        public void Attack(Character opponent)
-        {
-            opponent.Health -= this.damage;
-        }
-
-        //public override string ToString()
+        //public void Attack(Character opponent)
         //{
-        //    StringBuilder result = new StringBuilder();
-
-        //    result.AppendLine();
-        //    result.AppendFormat("Name: {0}\n".PadLeft(95), this.name);
-        //    result.AppendFormat("Health: {0}\n".PadLeft(97), this.health);
-        //    result.AppendFormat("Damage: {0}\n".PadLeft(97), this.damage);
-
-        //    return result.ToString();
+        //    opponent.Health -= this.damage;
         //}
     }
 }

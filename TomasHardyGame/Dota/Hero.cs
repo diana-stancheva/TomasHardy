@@ -2,18 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Timers;
 
     public class Hero : Character
     {
-        //private const int PlayerFieldLimitX = 78;
-        //private const int PlayerFieldLimitY = 47;
-
-        //private int x;
-        //private int y;
         private int mana;
         private int experience;
         private int level;
@@ -21,14 +12,12 @@
         private int moveSpeed;
         private readonly int initialMana;
         private readonly int initialHealth;
-        public List<Magic> Magics { get; set; }
+        private List<Magic> magics;
 
-        public Hero(string name, int health, int damage/*, string symbol, ConsoleColor color, int x, int y*/, int mana,
-            int attackSpeed, int moveSpeed, List<Magic> magicList, CreepPosition position = default(CreepPosition))
-            : base(name, health, damage/*, symbol, color*/, position)
+        public Hero(string name, int health, int damage, int mana, int attackSpeed, int moveSpeed, 
+            List<Magic> magicList, CreepPosition position = default(CreepPosition))
+            : base(name, health, damage, position)
         {
-            //this.X = x;
-            //this.Y = y;
             this.Mana = mana;
             this.AttackSpeed = attackSpeed;
             this.MoveSpeed = moveSpeed;
@@ -36,21 +25,8 @@
             this.Level = 1;
             this.initialMana = mana;
             this.initialHealth = health;
-            //magics = new List<Magic>();
             this.Magics = magicList;
         }
-
-        //public int X
-        //{
-        //    get { return this.x; }
-        //    set { this.x = value; }
-        //}
-
-        //public int Y
-        //{
-        //    get { return this.y; }
-        //    set { this.y = value; }
-        //}
 
         public int Mana
         {
@@ -134,8 +110,6 @@
             }
         }
 
-
-
         public int InitialMana
         {
             get { return this.initialMana; }
@@ -146,11 +120,11 @@
             get { return this.initialHealth; }
         }
 
-        //public List<Magic> Magics
-        //{
-        //    get { return this.magics; }
-        //    set { this.magics = value; }
-        //}
+        public List<Magic> Magics
+        {
+            get { return this.magics; }
+            set { this.magics = value; }
+        }
 
         private void LevelUp()
         {
@@ -160,35 +134,6 @@
                 this.Level++;
             }
         }
-
-        //public void Draw()
-        //{
-        //    Console.ForegroundColor = this.Color;
-        //    Console.SetCursorPosition(this.X, this.Y);
-        //    Console.Write(this.Symbol);
-        //}
-
-        //public void ClearPath()
-        //{
-        //    Console.ForegroundColor = this.Color;
-        //    Console.SetCursorPosition(this.X, this.Y);
-        //    Console.CursorVisible = true;
-        //    Console.Write(' ');
-        //}
-
-        //public void Move(int xDelta, int yDelta)
-        //{
-        //    this.ClearPath();
-
-        //    if (this.X + xDelta >= 1 && this.X + xDelta < PlayerFieldLimitX)
-        //    {
-        //        this.X += xDelta;
-        //    }
-        //    if (this.Y + yDelta >= 1 && this.Y + yDelta < PlayerFieldLimitY)
-        //    {
-        //        this.Y += yDelta;
-        //    }
-        //}
 
         public void ManaAndHealthIncrease()
         {
@@ -215,25 +160,5 @@
                 this.Health+=20;
             }
         }
-
-        public async void PutTaskDelay()
-        {
-            await Task.Delay(2000);
-            ManaAndHealthIncrease();
-        }
-
-        //public override string ToString()
-        //{
-
-        //    StringBuilder result = new StringBuilder();
-
-        //    result.Append(base.ToString());
-        //    result.AppendFormat("Mana: {0}\n".PadLeft(95), this.mana);
-        //    result.AppendFormat("Experience: {0}\n".PadLeft(101), this.experience);
-        //    result.AppendFormat("Level: {0}\n".PadLeft(96), this.level);
-
-        //    return result.ToString();
-        //    //return base.ToString() + string.Format("Mana: {0}\nExperience: {1}\nLevel: {2}\n", this.mana, this.experience, this.level);
-        //}
     }
 }

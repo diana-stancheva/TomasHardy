@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class ThundergodWrath:Magic
+    using System;
+
+    public class ThundergodWrath : Magic
     {
         private static ThundergodWrath instance = null;
         private static object syncRoot = new Object();
@@ -21,13 +17,14 @@ namespace Dota
                     {
                         instance = new ThundergodWrath();
                     }
+
                     return instance;
                 }
             }
         }
 
         private ThundergodWrath()
-            :base()
+            : base()
         {
             this.Name = "Thundergod's Wrath";
             this.Description = "Strikes all enemy heroes with a bolt of lightning, no matter where they may be.";
@@ -35,11 +32,11 @@ namespace Dota
             this.CooldownTime = 150;
             this.Damage = 80;
         }
+
         public override void Use(Hero hero, Creep creep)
         {
             if (hero.Mana >= this.ManaCost)
             {
-                //hero.Color = ConsoleColor.Magenta;
                 hero.Mana -= this.ManaCost;
                 creep.Health -= this.Damage;
             }
