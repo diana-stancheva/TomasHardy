@@ -138,7 +138,7 @@
 
         public int InitialMana
         {
-            get { return this.mana; }
+            get { return this.initialMana; }
         }
 
         public int InitialHealth
