@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class Vendetta:Magic
+    using System;
+
+    public class Vendetta : Magic
     {
         private static Vendetta instance = null;
         private static object syncRoot = new Object();
@@ -21,13 +17,14 @@ namespace Dota
                     {
                         instance = new Vendetta();
                     }
+
                     return instance;
                 }
             }
         }
 
         private Vendetta()
-            :base()
+            : base()
         {
             this.Name = "Vendetta";
             this.Description = "Allows Nyx Assassin to become invisible and gain a speed bonus.";
@@ -35,9 +32,9 @@ namespace Dota
             this.CooldownTime = 70;
             this.Damage = 90;
         }
+
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

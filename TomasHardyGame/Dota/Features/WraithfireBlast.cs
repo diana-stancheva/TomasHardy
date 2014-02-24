@@ -2,7 +2,7 @@
 {
     using System;
 
-    class WraithfireBlast : Magic
+    public class WraithfireBlast : Magic
     {
         private static WraithfireBlast instance = null;
         private static object syncRoot = new Object();
@@ -17,26 +17,26 @@
                     {
                         instance = new WraithfireBlast();
                     }
+
                     return instance;
                 }
             }
         }
 
         private WraithfireBlast()
-            :base()
+            : base()
         {
             this.Name = "Wraithfire Blast";
             this.Description = "Wraith King sears an enemy unit with spectral fire, dealing damage.";
             this.ManaCost = 140;
             this.CooldownTime = 8;
             this.Damage = 50;
-            
+
         }
         public override void Use(Hero hero, Creep creep)
         {
             if (hero.Mana >= this.ManaCost)
             {
-                //hero.Color = ConsoleColor.Magenta;
                 hero.Mana -= this.ManaCost;
                 creep.Health -= this.Damage;
             }

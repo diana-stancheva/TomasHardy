@@ -2,7 +2,7 @@
 {
     using System;
 
-    class GreatCleave : Magic
+    public class GreatCleave : Magic
     {
         private static GreatCleave instance = null;
         private static object syncRoot = new Object();
@@ -17,13 +17,14 @@
                     {
                         instance = new GreatCleave();
                     }
+
                     return instance;
                 }
             }
         }
 
         private GreatCleave()
-            :base()
+            : base()
         {
             this.Name = "Great Cleave";
             this.Description = "Sven strikes with great force, cleaving all nearby enemy units with his attack.";
@@ -34,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

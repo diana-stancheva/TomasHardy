@@ -9,7 +9,7 @@
         private const int Width = 110;
         private readonly string filePath;
         private char[,] mapMatrix;
-        
+
         public MapHandling(string mapPath)
         {
             this.filePath = mapPath;

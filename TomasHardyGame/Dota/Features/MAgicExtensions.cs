@@ -1,9 +1,5 @@
-﻿
-namespace Dota
+﻿namespace Dota
 {
-    using System.Collections.Generic;
-    using System;
-
     public static class MagicExtensions
     {
         //public static void BloodrageMagic(this Hero hero)

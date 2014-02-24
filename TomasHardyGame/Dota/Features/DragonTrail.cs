@@ -2,11 +2,10 @@
 {
     using System;
 
-    class DragonTrail : Magic
+    public class DragonTrail : Magic
     {
         private static DragonTrail instance = null;
         private static object syncRoot = new Object();
-
 
         public static DragonTrail Instance
         {
@@ -18,13 +17,14 @@
                     {
                         instance = new DragonTrail();
                     }
+
                     return instance;
                 }
             }
         }
 
         private DragonTrail()
-            :base()
+            : base()
         {
             this.Name = "Dragon Trail";
             this.Description = "Dragon Knight smites an enemy unit in melee range with his shield, while dealing minor damage.";
@@ -35,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

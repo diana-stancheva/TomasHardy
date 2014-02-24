@@ -2,9 +2,8 @@
 {
     using System;
 
-    class Overpower : Magic
+    public class Overpower : Magic
     {
-        public DateTime startTime = DateTime.Now;
         private static Overpower instance = null;
         private static object syncRoot = new Object();
 
@@ -18,13 +17,14 @@
                     {
                         instance = new Overpower();
                     }
+
                     return instance;
                 }
             }
         }
 
         private Overpower()
-            :base()
+            : base()
         {
             this.Name = "Overpower";
             this.Description = "Using his skill in combat, Ursa gains increased attack speed for a set number of attacks or until the duration expires.";
@@ -35,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

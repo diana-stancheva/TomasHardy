@@ -59,7 +59,7 @@
             for (int i = 0; i < creepsPosition.Count; i++)
             {
                 this.ListOfCreeps.Add(new Creep(
-                    creepyNames[random.Next(creepyNames.Count)],
+                    creepyNames[random.Next(creepyNames.Count)], 
                     random.Next(CreepMinHealth, CreepMaxHealth),
                     random.Next(CreepMinDamage, CreepMaxDamage), creepsPosition[i]));
             }
