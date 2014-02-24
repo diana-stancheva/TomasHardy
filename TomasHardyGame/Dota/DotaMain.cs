@@ -105,8 +105,8 @@
 
         public static void Main()
         {
-            Screen startScreen = new Screen(@"..\..\StartScreen.txt");
-            startScreen.LoadScreen();
+            //Screen startScreen = new Screen(@"..\..\StartScreen.txt");
+            Screen.LoadScreen();
 
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
