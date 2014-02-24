@@ -75,6 +75,16 @@
             Console.WriteLine("attack speed: " + hero.AttackSpeed);
         }
 
+        static void PrintMapMenu (int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(mapName);
+            Console.SetCursorPosition(x + (mapName.Length / 2 == 0 ? mapName.Length / 2 : mapName.Length / 2 - 1), y + 1);
+            Console.WriteLine(letter);
+            Console.SetCursorPosition(x, y + 2);
+        }
+
         static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.SetCursorPosition(x, y);
@@ -110,6 +120,12 @@
 
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
+
+            //PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR MAP", ConsoleColor.Magenta);
+
+            //PrintMapMenu(Width - 100, Height - 41, "Baby", "<B>");
+
+            //Console.ReadKey();
 
             PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
