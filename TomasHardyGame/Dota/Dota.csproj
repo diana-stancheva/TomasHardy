@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DotaClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DOTA 2.ico" />
