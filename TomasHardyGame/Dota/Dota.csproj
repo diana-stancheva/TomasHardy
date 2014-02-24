@@ -81,7 +81,7 @@
     <Compile Include="Features\InnerVitality.cs" />
     <Compile Include="Features\LightningBolt.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
-    <Compile Include="Features\IEnchantable.cs" />
+    <Compile Include="Interfaces\IEnchantable.cs" />
     <Compile Include="Features\Magic.cs" />
     <Compile Include="Features\Overpower.cs" />
     <Compile Include="Features\Reincarnation.cs" />

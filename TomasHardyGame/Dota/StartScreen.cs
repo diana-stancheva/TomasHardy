@@ -4,7 +4,7 @@
     using System.IO;
     using System.Threading;
 
-    public class StartScreen //: IScreen
+    public static class StartScreen //: IScreen
     {
         private const int HeightStartScreen = 20;
         private const int WidthStartScreen = 70;
