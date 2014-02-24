@@ -62,6 +62,8 @@
 
         static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
+            Console.BufferHeight = Console.WindowHeight = 50;
+            Console.BufferWidth = Console.WindowWidth = 110;
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine("health: " + hero.Health);
@@ -77,6 +79,8 @@
 
         static void PrintMapMenu (int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
+            Console.BufferHeight = Console.WindowHeight = 32;
+            Console.BufferWidth = Console.WindowWidth = 60;
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(mapName);
@@ -121,11 +125,39 @@
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
 
-            //PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR MAP", ConsoleColor.Magenta);
+            PrintChooseText(Width - 86, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
 
-            //PrintMapMenu(Width - 100, Height - 41, "Baby", "<B>");
+            PrintMapMenu(Width - 87, Height - 41, "dota_backalley", "<B>");
+            PrintMapMenu(Width - 87, Height - 33, "dota_iceworld", "<I>");
+            PrintMapMenu(Width - 87, Height - 25, "dota_compound", "<C>");
 
-            //Console.ReadKey();
+            string filePath = "";
+            Console.CursorVisible = false;
+            ConsoleKeyInfo pressedKeyMap = Console.ReadKey(true);
+            bool mapLetter = false;
+            while (!mapLetter)
+            {
+                switch (pressedKeyMap.Key)
+                {
+                    case ConsoleKey.B:
+                        filePath = "../../Map2.txt";
+                        mapLetter = true;
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.I:
+                        filePath = "../../Map1.txt";
+                        mapLetter = true;
+                        Console.Clear();
+                        break;
+                    //case ConsoleKey.C:
+                    //    filePath = "../../Map3.txt";
+                    //    mapLetter = true;
+                    //    break;
+                    default:
+                        pressedKeyMap = Console.ReadKey(true);
+                        break;
+                }
+            }
 
             PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
@@ -198,7 +230,7 @@
             }
 
             // creating and loading map
-            string filePath = "../../Map2.txt";
+            //string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
             mapHandling.LoadMapOnScreen();
