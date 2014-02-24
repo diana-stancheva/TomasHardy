@@ -83,7 +83,6 @@
     <Compile Include="Features\Vendetta.cs" />
     <Compile Include="Features\WraithfireBlast.cs" />
     <Compile Include="Hero.cs" />
-    <Compile Include="Interfaces\IMovable.cs" />
     <Compile Include="DotaMain.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
     <Compile Include="MapHandling%28Ivo%29.cs" />
