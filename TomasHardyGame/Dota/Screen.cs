@@ -8,7 +8,7 @@
     {
         const int HeightStartScreen = 20;
         const int WidthStartScreen = 70;
-        const int DelayTime = 50;
+        const int DelayTime = 5;
         const string GameTitle = "Dota v. 0.1®";
         const string FileName = @"..\..\StartScreen.txt";
         
