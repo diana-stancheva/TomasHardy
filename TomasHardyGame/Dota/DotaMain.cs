@@ -287,8 +287,6 @@
                                         timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
                     }
 
-
-
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
@@ -331,7 +329,7 @@
                 {
                     hero.ManaAndHealthIncreaseFountain();
                 }
-                else
+                else if(!hero.IsDead)
                 {
                     hero.ManaAndHealthIncrease();
                 }
@@ -341,6 +339,8 @@
 
                 if (hero.IsDead)
                 {
+                    PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+
                     if (hero.InitialHealth > 150)
                     {
                         int currentLevel = hero.Level;
