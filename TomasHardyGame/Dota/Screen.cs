@@ -8,9 +8,10 @@
     {
         const int HeightStartScreen = 20;
         const int WidthStartScreen = 70;
+        const int DelayTime = 50;
         const string GameTitle = "Dota v. 0.1®";
         const string FileName = @"..\..\StartScreen.txt";
-
+        
         //public Screen(string fileName)
         //{
         //    this.FileName = fileName;
@@ -34,12 +35,12 @@
 
                 Console.WriteLine("\n\n\n\n\n");
 
-                for (int i = 0; i < 70; i++)
+                for (int i = 0; i < WidthStartScreen; i++)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
 
                     Console.Write('|');
-                    Thread.Sleep(5);
+                    Thread.Sleep(DelayTime);
                 }
 
                 Console.ResetColor();
