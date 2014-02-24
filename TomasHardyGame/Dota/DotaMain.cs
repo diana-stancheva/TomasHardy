@@ -74,7 +74,7 @@
             Console.WriteLine("attack speed: " + hero.AttackSpeed);
         }
 
-        static void PrintMapMenu (int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        static void PrintMapMenu(int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.BufferHeight = Console.WindowHeight = 32;
             Console.BufferWidth = Console.WindowWidth = 60;
@@ -236,8 +236,8 @@
             player.GetPlayerStartPosition();
 
             // creep logic
-            CreepHandling creepHandling = new CreepHandling(mapHandling.MapMatrix);
-            creepHandling.CreateCreeps();
+            CreepHandling creepHandl = new CreepHandling(mapHandling.MapMatrix);
+            creepHandl.CreateCreeps();
             Creep tempCreep = new Creep();
             tempCreep = null;
 
@@ -273,7 +273,7 @@
                 PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
                 PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
-                
+
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -292,28 +292,26 @@
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
 
-                        // check for creeps on each step (if the player moves!)
-                        tempCreep = creepHandling.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
-
-                        List<Creep> creepsList = creepHandling.Creeps;
-
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            AttakCreep(tempCreep, creepsList, 0, true);
+                            creepHandl.AttakCreep(tempCreep, hero, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            AttakCreep(tempCreep, creepsList, 1, true);
+                            creepHandl.AttakCreep(tempCreep, hero, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            AttakCreep(tempCreep, creepsList);
+                            creepHandl.AttakCreep(tempCreep, hero);
                         }
 
-                        if (creepHandling.DeleteCreepFromMap(tempCreep))
+                        if (tempCreep != null && tempCreep.IsDead)
                         {
                             player.PrintSymbol('@');
                         }
+
+                        // check for creeps around our hero
+                        tempCreep = creepHandl.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                     }
                 }
 
@@ -329,7 +327,7 @@
                 {
                     hero.ManaAndHealthIncreaseFountain();
                 }
-                else if(!hero.IsDead)
+                else if (!hero.IsDead)
                 {
                     hero.ManaAndHealthIncrease();
                 }
@@ -347,7 +345,7 @@
                         int currentExperience = hero.Experience;
                         player.PrintSymbol(' ');
                         Thread.Sleep(10000);
-                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana, 
+                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana,
                             hero.AttackSpeed, hero.MoveSpeed, hero.Magics, hero.Position);
                         hero.Level = currentLevel;
                         hero.Experience = currentExperience;
@@ -367,33 +365,33 @@
                 }
             }
         }
-                
-        private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
-        {
-            foreach (var creep in creepsList)
-            {
-                if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
-                {
-                    if (isMagic)
-                    {
-                        hero.Magics[index].Use(hero, creep);
-                    }
-                    else
-                    {
-                        creep.Health -= hero.Damage;
 
-                        if (creep.IsDead == true)
-                        {
-                            if (hero.Level != 10)
-                            {
-                                hero.Experience += 50;
-                            }
-                        }
-                    }
+        //private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
+        //{
+        //    foreach (var creep in creepsList)
+        //    {
+        //        if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
+        //        {
+        //            if (isMagic)
+        //            {
+        //                hero.Magics[index].Use(hero, creep);
+        //            }
+        //            else
+        //            {
+        //                creep.Health -= hero.Damage;
 
-                    break;
-                }
-            }
-        }
+        //                if (creep.IsDead == true)
+        //                {
+        //                    if (hero.Level != 10)
+        //                    {
+        //                        hero.Experience += 50;
+        //                    }
+        //                }
+        //            }
+
+        //            break;
+        //        }
+        //    }
+        //}
     }
 }

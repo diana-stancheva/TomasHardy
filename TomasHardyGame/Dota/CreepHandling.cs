@@ -24,12 +24,12 @@
         public CreepHandling(char[,] matrix)
         {
             this.matrix = matrix;
-            this.Creeps = new List<Creep>();
+            this.ListOfCreeps = new List<Creep>();
             this.creepsPosition = new List<CreepPosition>();
             this.random = new Random();
         }
 
-        public List<Creep> Creeps
+        public List<Creep> ListOfCreeps
         {
             get;
             private set;
@@ -58,8 +58,8 @@
 
             for (int i = 0; i < creepsPosition.Count; i++)
             {
-                this.Creeps.Add(new Creep(
-                    creepyNames[random.Next(creepyNames.Count)], 
+                this.ListOfCreeps.Add(new Creep(
+                    creepyNames[random.Next(creepyNames.Count)],
                     random.Next(CreepMinHealth, CreepMaxHealth),
                     random.Next(CreepMinDamage, CreepMaxDamage), creepsPosition[i]));
             }
@@ -67,7 +67,7 @@
 
         public Creep CheckForCreeps(int row, int col)
         {
-            foreach (var creep in this.Creeps)
+            foreach (var creep in this.ListOfCreeps)
             {
                 // checking around the creeps
                 if ((creep.Position.Row + 1 == row && creep.Position.Col == col) ||
@@ -100,6 +100,47 @@
             this.PrintCreepInfo(null);
             return null;
         }
+                
+        public void AttakCreep(Creep tempCreep, Hero hero, int index = -1, bool isMagic = false)
+        {
+            foreach (var creep in this.ListOfCreeps)
+            {
+                if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
+                {
+                    if (isMagic)
+                    {
+                        hero.Magics[index].Use(hero, creep);
+                    }
+                    else
+                    {
+                        creep.Health -= hero.Damage;
+
+                        if (creep.IsDead == true)
+                        {
+                            this.DeleteCreepFromMap(tempCreep);
+
+                            if (hero.Level != 10)
+                            {
+                                hero.Experience += 50;
+                            }
+                        }
+                    }
+
+                    break;
+                }
+            }
+        }
+        private void DeleteCreepFromMap(Creep tempCreep)
+        {
+            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
+            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
+            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
+            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
+            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
+
+            DotaMain.PrintOnPosition(tempCreep.Position.Col, tempCreep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
+            this.ListOfCreeps.Remove(tempCreep);
+        }
 
         private void PrintCreepInfo(Creep tempCreep)
         {
@@ -121,25 +162,6 @@
                 DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
                 DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
             }
-        }
-
-        public bool DeleteCreepFromMap(Creep tempCreep)
-        {
-            if (tempCreep != null && tempCreep.IsDead == true)
-            {
-                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
-                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
-                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
-                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
-                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
-
-                DotaMain.PrintOnPosition(tempCreep.Position.Col, tempCreep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
-                this.Creeps.Remove(tempCreep);
-
-                return true;
-            }
-
-            return false;
         }
     }
 }
