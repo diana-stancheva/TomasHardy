@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public class CreepInitialization
+    public class CreepHandling
     {
         private const char CreepSymbol = '*';
         private const int CreepMaxHealth = 350;
@@ -21,7 +21,7 @@
         private readonly char[,] matrix;
         private readonly Random random;
 
-        public CreepInitialization(char[,] matrix)
+        public CreepHandling(char[,] matrix)
         {
             this.matrix = matrix;
             this.Creeps = new List<Creep>();
@@ -121,6 +121,25 @@
                 DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
                 DotaMain.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
             }
+        }
+
+        public bool DeleteCreepFromMap(Creep tempCreep)
+        {
+            if (tempCreep != null && tempCreep.IsDead == true)
+            {
+                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
+                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
+                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
+                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
+                this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
+
+                DotaMain.PrintOnPosition(tempCreep.Position.Col, tempCreep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
+                this.Creeps.Remove(tempCreep);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

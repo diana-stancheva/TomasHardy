@@ -235,8 +235,8 @@
             player.GetPlayerStartPosition();
 
             // creep logic
-            CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
-            creepIni.CreateCreeps();
+            CreepHandling creepHandling = new CreepHandling(mapHandling.MapMatrix);
+            creepHandling.CreateCreeps();
             Creep tempCreep = new Creep();
             tempCreep = null;
 
@@ -288,9 +288,9 @@
                         player.Move(pressedKey);
 
                         // check for creeps on each step (if the player moves!)
-                        tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                        tempCreep = creepHandling.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
-                        List<Creep> creepsList = creepIni.Creeps;
+                        List<Creep> creepsList = creepHandling.Creeps;
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
@@ -305,7 +305,7 @@
                             AttakCreep(tempCreep, creepsList);
                         }
 
-                        if (DeleteCreepFromMap(player.PlayerMap, tempCreep, creepIni.Creeps))
+                        if (creepHandling.DeleteCreepFromMap(tempCreep))
                         {
                             player.PrintSymbol('@');
                         }
@@ -358,26 +358,7 @@
                 }
             }
         }
-
-        private static bool DeleteCreepFromMap(char[,] matrix, Creep tempCreep, List<Creep> listOfCreeps)
-        {
-            if (tempCreep != null && tempCreep.IsDead == true)
-            {
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
-
-                PrintOnPosition(tempCreep.Position.Col, tempCreep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
-                listOfCreeps.Remove(tempCreep);
-
-                return true;
-            }
-
-            return false;
-        }
-
+                
         private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
         {
             foreach (var creep in creepsList)
