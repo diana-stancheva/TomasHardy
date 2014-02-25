@@ -239,5 +239,12 @@
       <FileName>Interfaces\IScreen.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Enum Name="Dota.Maps" Collapsed="true">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Maps.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
