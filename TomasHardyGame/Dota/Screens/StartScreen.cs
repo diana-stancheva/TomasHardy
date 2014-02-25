@@ -1,4 +1,4 @@
-﻿namespace Dota
+﻿namespace Dota.Screens
 {
     using System;
     using System.IO;
@@ -10,7 +10,7 @@
         private const int WidthStartScreen = 70;
         private const int DelayTime = 5;
         private const string GameTitle = "Dota v. 0.1®";
-        private const string FileName = @"..\..\StartScreen.txt";
+        private const string FileName = @"..\..\Screens\StartScreen.txt";
 
         public static void LoadOnScreen()
         {
