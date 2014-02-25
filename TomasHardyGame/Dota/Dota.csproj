@@ -114,6 +114,7 @@
     <Content Include="DOTA 2.ico" />
     <Content Include="Maps\Map1.txt" />
     <Content Include="Maps\Map2.txt" />
+    <Content Include="Maps\Map3.txt" />
     <Content Include="Screens\StartScreen.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -57,10 +57,11 @@
                         mapLetter = true;
                         Console.Clear();
                         break;
-                    //case ConsoleKey.C:
-                    //    this.FilePath = "../../Map3.txt";
-                    //    mapLetter = true;
-                    //    break;
+                    case ConsoleKey.C:
+                        this.FilePath = "../../Maps/Map3.txt";
+                        mapLetter = true;
+                        Console.Clear();
+                        break;
                     default:
                         pressedKeyMap = Console.ReadKey(true);
                         break;
