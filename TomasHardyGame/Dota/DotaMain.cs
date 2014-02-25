@@ -157,9 +157,9 @@
                     }
                 }
 
-                //if (proba.ElapsedMilliseconds >= hero.AttackSpeed * 1000)
+                //if (attackTime.ElapsedMilliseconds >= hero.AttackSpeed * 1000)
                 //{
-                //    proba.Reset();
+                //    attackTime.Reset();
                 //}
 
                 if (tempCreep != null && tempCreep.IsDead == false)
