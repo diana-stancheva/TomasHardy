@@ -15,23 +15,23 @@
             MapHandling.PrintOnPosition(ConsoleWidth - 66, ConsoleHeight - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
             PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 41, DotaMain.heroes[0], "<B>");
-            PrintChoosingHero(ConsoleWidth - 100, ConsoleHeight - 39, DotaMain.heroes[0], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 39, DotaMain.heroes[0], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 41, DotaMain.heroes[1], "<D>");
-            PrintChoosingHero(ConsoleWidth - 65, ConsoleHeight - 39, DotaMain.heroes[1], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 39, DotaMain.heroes[1], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 41, DotaMain.heroes[2], "<A>");
-            PrintChoosingHero(ConsoleWidth - 30, ConsoleHeight - 39, DotaMain.heroes[2], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 39, DotaMain.heroes[2], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 28, DotaMain.heroes[3], "<J>");
-            PrintChoosingHero(ConsoleWidth - 100, ConsoleHeight - 26, DotaMain.heroes[3], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 26, DotaMain.heroes[3], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 28, DotaMain.heroes[4], "<M>");
-            PrintChoosingHero(ConsoleWidth - 65, ConsoleHeight - 26, DotaMain.heroes[4], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 26, DotaMain.heroes[4], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 28, DotaMain.heroes[5], "<S>");
-            PrintChoosingHero(ConsoleWidth - 30, ConsoleHeight - 26, DotaMain.heroes[5], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 26, DotaMain.heroes[5], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 15, DotaMain.heroes[6], "<T>");
-            PrintChoosingHero(ConsoleWidth - 100, ConsoleHeight - 13, DotaMain.heroes[6], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 13, DotaMain.heroes[6], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 15, DotaMain.heroes[7], "<W>");
-            PrintChoosingHero(ConsoleWidth - 65, ConsoleHeight - 13, DotaMain.heroes[7], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 13, DotaMain.heroes[7], ConsoleColor.Gray);
             PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 15, DotaMain.heroes[8], "<N>");
-            PrintChoosingHero(ConsoleWidth - 30, ConsoleHeight - 13, DotaMain.heroes[8], ConsoleColor.Gray);
+            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 13, DotaMain.heroes[8], ConsoleColor.Gray);
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
@@ -94,7 +94,7 @@
             Console.SetCursorPosition(x, y + 2);
         }
 
-        private static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
+        private static void PrintChoosenHero(int x, int y, Hero hero, ConsoleColor color)
         {
             Console.BufferHeight = Console.WindowHeight = 50;
             Console.BufferWidth = Console.WindowWidth = 110;

@@ -26,12 +26,12 @@
                 switch (pressedKeyMap.Key)
                 {
                     case ConsoleKey.B:
-                        filePath = "../../Map2.txt";
+                        filePath = "../../Maps/Map2.txt";
                         mapLetter = true;
                         Console.Clear();
                         break;
                     case ConsoleKey.I:
-                        filePath = "../../Map1.txt";
+                        filePath = "../../Maps/Map1.txt";
                         mapLetter = true;
                         Console.Clear();
                         break;

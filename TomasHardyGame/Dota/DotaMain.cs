@@ -45,7 +45,6 @@
         //                // hero.Draw();
         //                //StartNewGame();
         //            }
-
         //        }
         //    }
         //}
