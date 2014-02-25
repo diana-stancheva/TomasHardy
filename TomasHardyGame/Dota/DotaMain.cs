@@ -6,6 +6,7 @@
     using System.Threading;
 
     using Dota.Screens;
+    using Dota.Features;
 
     public class DotaMain
     {
@@ -61,7 +62,6 @@
 
         public static void Main()
         {
-            //StartScreen.LoadOnScreen();
             StartScreen.Instance.LoadOnScreen();
             MapScreen.Instance.LoadOnScreen();            
             HeroScreen.Instance.LoadOnScreen();
@@ -197,33 +197,5 @@
                 }
             }
         }
-
-        //private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
-        //{
-        //    foreach (var creep in creepsList)
-        //    {
-        //        if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
-        //        {
-        //            if (isMagic)
-        //            {
-        //                hero.Magics[index].Use(hero, creep);
-        //            }
-        //            else
-        //            {
-        //                creep.Health -= hero.Damage;
-
-        //                if (creep.IsDead == true)
-        //                {
-        //                    if (hero.Level != 10)
-        //                    {
-        //                        hero.Experience += 50;
-        //                    }
-        //                }
-        //            }
-
-        //            break;
-        //        }
-        //    }
-        //}
     }
 }

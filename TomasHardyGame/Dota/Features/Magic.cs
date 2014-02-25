@@ -1,4 +1,4 @@
-﻿namespace Dota
+﻿namespace Dota.Features
 {
     public abstract class Magic : Features
     {
