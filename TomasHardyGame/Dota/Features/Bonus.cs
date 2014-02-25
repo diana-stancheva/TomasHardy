@@ -10,5 +10,7 @@
 
         }
 
+        public abstract void GetBonus(Hero hero);
+
     }
 }

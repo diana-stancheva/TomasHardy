@@ -31,5 +31,9 @@
             this.BonusDots = 100;
         }
 
+        public override void GetBonus(Hero hero)
+        {
+            hero.Experience += this.BonusDots;
+        }
     }
 }
