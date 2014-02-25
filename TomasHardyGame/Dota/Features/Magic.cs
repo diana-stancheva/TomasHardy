@@ -1,15 +1,13 @@
 ﻿namespace Dota
 {
-    public abstract class Magic
+    public abstract class Magic : Features
     {
-        public string Name { get; protected set; }
-        public string Description { get; protected set; }
-        public string Hero { get; protected set; }
         public int ManaCost { get; protected set; }
         public int CooldownTime { get; protected set; }
         public int Damage { get; protected set; }
-
+        
         public Magic()
+            :base()
         {
 
         }
