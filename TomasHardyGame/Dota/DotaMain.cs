@@ -54,9 +54,13 @@
             mapHandling.ReadFromFile();
             mapHandling.LoadOnScreen();
 
+            //Hero logic
+            var heroHandling = new HeroHandling(mapHandling.MapMatrix);
+            heroHandling.HeroMovement.GetPlayerStartPosition();
+
             // player(hero) movement logic
-            var player = new HeroMovement(mapHandling.MapMatrix);
-            player.GetPlayerStartPosition();
+            //var player = new HeroMovement(mapHandling.MapMatrix);
+            //player.GetPlayerStartPosition();
 
             // creep logic
             CreepHandling creepHandl = new CreepHandling(mapHandling.MapMatrix);
@@ -94,7 +98,7 @@
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-                        player.Move(pressedKey);
+                        heroHandling.HeroMovement.Move(pressedKey);
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
@@ -112,11 +116,11 @@
 
                         if (tempCreep != null && tempCreep.IsDead)
                         {
-                            player.PrintSymbol('@');
+                            heroHandling.HeroMovement.PrintSymbol('@');
                         }
 
                         // check for creeps around our hero
-                        tempCreep = creepHandl.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
+                        tempCreep = creepHandl.CheckForCreeps(heroHandling.HeroMovement.PositionOnRow, heroHandling.HeroMovement.PositionOnCol);
                     }
 
                     if (attackTime.ElapsedMilliseconds >= hero.AttackSpeed * 1000)
@@ -135,7 +139,7 @@
                     hero.Health -= tempCreep.Damage;
                 }
 
-                if (player.PositionOnCol == 1 && player.PositionOnRow == 47)
+                if (heroHandling.HeroMovement.PositionOnCol == 1 && heroHandling.HeroMovement.PositionOnRow == 47)
                 {
                     hero.ManaAndHealthIncreaseFountain();
                 }
@@ -155,15 +159,15 @@
                     {
                         int currentLevel = hero.Level;
                         int currentExperience = hero.Experience;
-                        player.PrintSymbol(' ');
+                        heroHandling.HeroMovement.PrintSymbol(' ');
                         Thread.Sleep(10000);
                         hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana,
                             hero.AttackSpeed, hero.MoveSpeed, hero.Magics, hero.Position);
                         hero.Level = currentLevel;
                         hero.Experience = currentExperience;
-                        player.PositionOnCol = 3;
-                        player.PositionOnRow = 47;
-                        player.PrintSymbol('@');
+                        heroHandling.HeroMovement.PositionOnCol = 3;
+                        heroHandling.HeroMovement.PositionOnRow = 47;
+                        heroHandling.HeroMovement.PrintSymbol('@');
                         tempCreep = null; // importnat line! (when we reset the player there is no creep around him!)
                     }
                     else

@@ -6,6 +6,8 @@
     using Dota.Features;
     class HeroHandling
     {
+        private readonly char[,] matrix;
+        private HeroMovement heroMovement;
         private static List<Hero> listOfHeroes = new List<Hero>
         {
             new Hero("Bloodseeker", 566, 50/*, ConsoleColor.Green*/, 320, 4, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
@@ -19,10 +21,21 @@
             new Hero("Nyx Assassin", 600, 27/*, ConsoleColor.Green*/, 270, 4, 2, new List<Magic> { Vendetta.Instance, Impale.Instance }),
         };
 
+        public HeroMovement HeroMovement
+        {
+            get { return this.heroMovement; }
+        }
+
         public static List<Hero> ListOfHeroes
         {
             get { return listOfHeroes; }
         }
+
+        public HeroHandling(char[,] mapMatrix)
+        {
+            this.matrix = mapMatrix;
+            this.heroMovement = new HeroMovement(this.matrix);
+        }        
 
         public static void PrintOnScreen()
         {
