@@ -11,11 +11,11 @@
         {
             // Loading startup screens
             StartScreen.Instance.LoadOnScreen();
-            MapScreen.Instance.LoadOnScreen();
+            ChooseMapScreen.Instance.LoadOnScreen();
             HeroScreen.Instance.LoadOnScreen();
 
             // Reading a map from file. Creating a new map matrix and printing it on the screen.
-            var map = new Map(MapScreen.Instance.FilePath);
+            var map = new Map(ChooseMapScreen.Instance.FilePath);
             map.ReadFromFile();
             map.LoadOnScreen();
 

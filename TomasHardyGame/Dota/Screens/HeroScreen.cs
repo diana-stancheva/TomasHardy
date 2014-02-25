@@ -2,6 +2,8 @@
 {
     using System;
 
+    using Dota.Interfaces;
+
     // Singleton class!!!
     public class HeroScreen : Screen, IScreen
     {
@@ -31,7 +33,7 @@
         public Hero ChosenHero
         {
             get { return this.hero; }
-            set { this.hero = value; }
+            private set { this.hero = value; }
         }
         
         public override void LoadOnScreen()
@@ -111,7 +113,7 @@
             }
         }
 
-        private static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
+        private void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -121,7 +123,7 @@
             Console.SetCursorPosition(x, y + 2);
         }
 
-        private static void PrintChoosenHero(int x, int y, Hero hero, ConsoleColor color)
+        private void PrintChoosenHero(int x, int y, Hero hero, ConsoleColor color)
         {
             Console.BufferHeight = Console.WindowHeight = 50;
             Console.BufferWidth = Console.WindowWidth = 110;

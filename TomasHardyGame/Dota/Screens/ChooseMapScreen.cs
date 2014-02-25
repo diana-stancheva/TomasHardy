@@ -2,23 +2,25 @@
 {
     using System;
 
+    using Dota.Interfaces;
+
     // Singleton class!!!
-    public class MapScreen : Screen, IScreen
+    public class ChooseMapScreen : Screen, IScreen
     {
         private const int ConsoleHeight = 32;
         private const int ConsoleWidth = 60;
         private string filePath;
-        private static MapScreen instance;
+        private static ChooseMapScreen instance;
 
-        private MapScreen() { }
+        private ChooseMapScreen() { }
 
-        public static MapScreen Instance
+        public static ChooseMapScreen Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new MapScreen();
+                    instance = new ChooseMapScreen();
                 }
 
                 return instance;
@@ -69,7 +71,7 @@
             }
         }
 
-        private static void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        private void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
             Console.BufferWidth = Console.WindowWidth = ConsoleWidth;

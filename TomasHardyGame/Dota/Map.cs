@@ -3,6 +3,8 @@
     using System;
     using System.IO;
 
+    using Dota.Interfaces;
+
     public class Map : IScreen
     {
         private const int ConsoleHeight = 50;

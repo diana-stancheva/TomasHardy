@@ -4,6 +4,8 @@
     using System.IO;
     using System.Threading;
 
+    using Dota.Interfaces;
+
     // Singleton class!!!
     public class StartScreen : Screen, IScreen
     {
