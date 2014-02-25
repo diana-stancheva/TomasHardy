@@ -17,21 +17,21 @@
   <Class Name="Dota.CreepHandling" Collapsed="true">
     <Position X="22.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAAAAQIQCEAAAA=</HashCode>
+      <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAIAAQIQCEAAAA=</HashCode>
       <FileName>CreepHandling.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.DotaMain" Collapsed="true">
     <Position X="24.25" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAABEAAAAAAAAAAAEAAAAAAABAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAEAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAA=</HashCode>
       <FileName>DotaMain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Bonus" Collapsed="true">
     <Position X="47.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>Features\Bonus.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,16 +59,16 @@
   <Class Name="Dota.MapHandling" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="22.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAEAABQAAAAAAAAAAAABCAEAAAGAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAABAAAABQAAABAAAAAAAAACAEAAAGAAAAAgABA=</HashCode>
       <FileName>MapHandling.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Dota.PlayerMovement" Collapsed="true">
+  <Class Name="Dota.HeroMovement" Collapsed="true">
     <Position X="24.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAMAAAAAQAhAAAAgQAAAEAMEIQAABAAAAAAA=</HashCode>
-      <FileName>PlayerMovement.cs</FileName>
+      <FileName>HeroMovement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Roshan" Collapsed="true">
