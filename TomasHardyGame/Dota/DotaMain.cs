@@ -109,6 +109,7 @@
                 MapHandling.PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
                 MapHandling.PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
                 MapHandling.PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 15, "Attack  <A>", ConsoleColor.Yellow);
 
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
