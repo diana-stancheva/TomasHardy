@@ -17,7 +17,7 @@
             "Endora", "Chaos"
         };
 
-        private readonly List<CreepPosition> creepsPosition;
+        private readonly List<CharacterPosition> creepsPosition;
         private readonly char[,] matrix;
         private readonly Random random;
         private Creep temporarilyCreep;
@@ -26,7 +26,7 @@
         {
             this.matrix = matrix;
             this.ListOfCreeps = new List<Creep>();
-            this.creepsPosition = new List<CreepPosition>();
+            this.creepsPosition = new List<CharacterPosition>();
             this.random = new Random();
             this.temporarilyCreep = new Creep();
         }
@@ -48,7 +48,7 @@
                       !(this.matrix[row, col + 1].Equals(CreepSymbol)) &&
                       !(this.matrix[row, col - 1].Equals(CreepSymbol)))
                     {
-                        creepsPosition.Add(new CreepPosition(row, col));
+                        creepsPosition.Add(new CharacterPosition(row, col));
                     }
                 }
             }

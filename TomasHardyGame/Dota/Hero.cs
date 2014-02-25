@@ -15,7 +15,7 @@
         private List<Magic> magics;
 
         public Hero(string name, int health, int damage, int mana, int attackSpeed, int moveSpeed, 
-            List<Magic> magicList, CreepPosition position = default(CreepPosition))
+            List<Magic> magicList, CharacterPosition position = default(CharacterPosition))
             : base(name, health, damage, position)
         {
             this.Mana = mana;
