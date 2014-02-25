@@ -8,8 +8,12 @@
         private const int ConsoleHeight = 50;
         private const int ConsoleWidth = 110;
         private static HeroScreen instance;
+        private Hero hero; // chosen hero
 
-        private HeroScreen() { }
+        private HeroScreen() 
+        {
+            this.ChosenHero = new Hero();
+        }
 
         public static HeroScreen Instance
         {
@@ -23,13 +27,19 @@
                 return instance;
             }
         }
+
+        public Hero ChosenHero
+        {
+            get { return this.hero; }
+            set { this.hero = value; }
+        }
         
         public override void LoadOnScreen()
         {
             Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
             Console.BufferWidth = Console.WindowWidth = ConsoleWidth;
 
-            MapHandling.PrintOnPosition(ConsoleWidth - 66, ConsoleHeight - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
+            Map.PrintOnPosition(ConsoleWidth - 66, ConsoleHeight - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
             PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 41, HeroHandling.ListOfHeroes[0], "<B>");
             PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 39, HeroHandling.ListOfHeroes[0], ConsoleColor.Gray);
@@ -59,39 +69,39 @@
                 switch (pressedKeyHero.Key)
                 {
                     case ConsoleKey.B:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[0];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[0];
                         heroLetter = true;
                         break;
                     case ConsoleKey.D:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[1];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[1];
                         heroLetter = true;
                         break;
                     case ConsoleKey.A:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[2];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[2];
                         heroLetter = true;
                         break;
                     case ConsoleKey.J:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[3];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[3];
                         heroLetter = true;
                         break;
                     case ConsoleKey.M:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[4];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[4];
                         heroLetter = true;
                         break;
                     case ConsoleKey.S:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[5];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[5];
                         heroLetter = true;
                         break;
                     case ConsoleKey.T:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[6];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[6];
                         heroLetter = true;
                         break;
                     case ConsoleKey.W:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[7];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[7];
                         heroLetter = true;
                         break;
                     case ConsoleKey.N:
-                        DotaMain.hero = HeroHandling.ListOfHeroes[8];
+                        this.ChosenHero = HeroHandling.ListOfHeroes[8];
                         heroLetter = true;
                         break;
                     default:

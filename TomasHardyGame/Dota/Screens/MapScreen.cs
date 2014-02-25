@@ -33,7 +33,7 @@
 
         public override void LoadOnScreen()
         {
-            MapHandling.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
+            Map.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
 
             PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 23, Maps.Backalley, "<B>");
             PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 15, Maps.Iceworld, "<I>");

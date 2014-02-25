@@ -96,7 +96,7 @@
     <Compile Include="Hero.cs" />
     <Compile Include="DotaMain.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
-    <Compile Include="MapHandling.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Maps.cs" />
     <Compile Include="HeroMovement.cs" />
     <Compile Include="CharacterPosition.cs" />

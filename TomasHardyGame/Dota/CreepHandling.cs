@@ -64,7 +64,7 @@
             for (int i = 0; i < creepsPosition.Count; i++)
             {
                 this.ListOfCreeps.Add(new Creep(
-                    creepyNames[random.Next(creepyNames.Count)], 
+                    creepyNames[random.Next(creepyNames.Count)],
                     random.Next(CreepMinHealth, CreepMaxHealth),
                     random.Next(CreepMinDamage, CreepMaxDamage), creepsPosition[i]));
             }
@@ -107,7 +107,7 @@
             this.PrintCreepInfo();
             return null;
         }
-                
+
         public void AttakCreep(Hero hero, int index = -1, bool isMagic = false)
         {
             foreach (var creep in this.ListOfCreeps)
@@ -121,22 +121,22 @@
                     else
                     {
                         creep.Health -= hero.Damage;
+                    }
 
-                        if (creep.IsDead == true)
+                    if (creep.IsDead == true)
+                    {
+                        this.DeleteCreepFromMap();
+                        this.KilledCreeps++;
+
+                        if (KilledCreeps == 10)
                         {
-                            this.DeleteCreepFromMap();
-                            this.KilledCreeps++;
+                            hero.Experience += 100;
+                            KilledCreeps = 0;
+                        }
 
-                            if (KilledCreeps == 10)
-                            {
-                                hero.Experience += 100;
-                                KilledCreeps = 0;
-                            }
-
-                            if (hero.Level != 10)
-                            {
-                                hero.Experience += 50;
-                            }
+                        if (hero.Level != 10)
+                        {
+                            hero.Experience += 50;
                         }
                     }
 
@@ -153,7 +153,7 @@
             this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col - 1] = ' ';
             this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col - 2] = ' ';
 
-            MapHandling.PrintOnPosition(this.temporarilyCreep.Position.Col, this.temporarilyCreep.Position.Row, 
+            Map.PrintOnPosition(this.temporarilyCreep.Position.Col, this.temporarilyCreep.Position.Row,
                 string.Format("\b\b     "), ConsoleColor.Gray);
             this.ListOfCreeps.Remove(this.temporarilyCreep);
         }
@@ -163,20 +163,20 @@
         {
             if (this.temporarilyCreep != null)
             {
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 10, string.Format("Name: {0}", this.temporarilyCreep.Name), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 9, string.Format("Health: {0,3}", this.temporarilyCreep.Health), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 8, string.Format("Damage: {0}", this.temporarilyCreep.Damage), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 7, (this.temporarilyCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 10, string.Format("Name: {0}", this.temporarilyCreep.Name), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 9, string.Format("Health: {0,3}", this.temporarilyCreep.Health), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 8, string.Format("Damage: {0}", this.temporarilyCreep.Damage), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 7, (this.temporarilyCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
             }
             else
             {
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
+                Map.PrintOnPosition(Map.MapScreenWidth - 25, Map.MapScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
             }
         }
     }

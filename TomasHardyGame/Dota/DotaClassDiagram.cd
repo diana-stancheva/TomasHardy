@@ -56,11 +56,11 @@
       <FileName>Hero.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dota.MapHandling" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="Dota.Map" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="22.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAABQAAABAAAAAAAAACAEAAAGAAAAAgABA=</HashCode>
-      <FileName>MapHandling.cs</FileName>
+      <FileName>Map.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
@@ -263,6 +263,13 @@
       <FileName>Screens\StartScreen.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dota.HeroHandling" Collapsed="true">
+    <Position X="26" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAhAAAAAAAAAAAACAAAAAAgAAAAIAAAAAAAAA=</HashCode>
+      <FileName>HeroHandling.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Struct Name="Dota.CharacterPosition" Collapsed="true">
     <Position X="22.5" Y="8.25" Width="1.5" />
