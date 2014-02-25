@@ -118,9 +118,6 @@
 
             PrintChooseText(Width - 86, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
 
-            //PrintMapMenu(Width - 87, Height - 41, "dota_backalley", "<B>");
-            //PrintMapMenu(Width - 87, Height - 33, "dota_iceworld", "<I>");
-            //PrintMapMenu(Width - 87, Height - 25, "dota_compound", "<C>");
             PrintMapMenu(Width - 87, Height - 41, Maps.dota_backalley, "<B>");
             PrintMapMenu(Width - 87, Height - 33, Maps.dota_iceworld, "<I>");
             PrintMapMenu(Width - 87, Height - 25, Maps.dota_compound, "<C>");
