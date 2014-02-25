@@ -129,7 +129,8 @@
 
                             if (KilledCreeps == 10)
                             {
-                                ///
+                                hero.Experience += 100;
+                                KilledCreeps = 0;
                             }
 
                             if (hero.Level != 10)
