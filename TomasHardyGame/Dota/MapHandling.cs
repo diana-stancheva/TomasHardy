@@ -20,12 +20,12 @@
             get { return this.mapMatrix; }
         }
 
-        public static int ScreenHeight
+        public static int MapScreenHeight
         {
             get { return ConsoleHeight; }
         }
 
-        public static int ScreenWidth
+        public static int MapScreenWidth
         {
             get { return ConsoleWidth; }
         }

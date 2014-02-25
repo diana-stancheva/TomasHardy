@@ -162,20 +162,20 @@
         {
             if (this.temporarilyCreep != null)
             {
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, string.Format("Name: {0}", this.temporarilyCreep.Name), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, string.Format("Health: {0,3}", this.temporarilyCreep.Health), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, string.Format("Damage: {0}", this.temporarilyCreep.Damage), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, (this.temporarilyCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 10, string.Format("Name: {0}", this.temporarilyCreep.Name), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 9, string.Format("Health: {0,3}", this.temporarilyCreep.Health), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 8, string.Format("Damage: {0}", this.temporarilyCreep.Damage), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 7, (this.temporarilyCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
             }
             else
             {
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 8, new string(' ', 25), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
             }
         }
     }

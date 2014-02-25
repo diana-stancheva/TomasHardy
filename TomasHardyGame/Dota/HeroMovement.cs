@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class PlayerMovement
+    public class HeroMovement
     {
         private const char PlayerSymbol = '@';
         private const char WhiteSpaceSymbol = ' ';
@@ -16,7 +16,7 @@
         private int positionOnCol;
         private bool checkForFobiddenSymbol = true;
 
-        public PlayerMovement(char[,] map)
+        public HeroMovement(char[,] map)
         {
             this.playerMap = map;
         }
