@@ -2,15 +2,37 @@
 {
     using System;
 
-    public class MapScreen
+    // Singleton class!!!
+    public class MapScreen : Screen
     {
         private const int ConsoleHeight = 32;
         private const int ConsoleWidth = 60;
+        private string filePath;
+        private static MapScreen instance;
 
-        public static string LoadOnScreen()
+        private MapScreen() { }
+
+        public static MapScreen Instance
         {
-            string filePath = null;
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new MapScreen();
+                }
 
+                return instance;
+            }
+        }
+
+        public string FilePath
+        {
+            get { return this.filePath; }
+            private set { this.filePath = value; }
+        }
+
+        public override void LoadOnScreen()
+        {
             MapHandling.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
 
             PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 23, Maps.Backalley, "<B>");
@@ -26,17 +48,17 @@
                 switch (pressedKeyMap.Key)
                 {
                     case ConsoleKey.B:
-                        filePath = "../../Maps/Map2.txt";
+                        this.FilePath = "../../Maps/Map2.txt";
                         mapLetter = true;
                         Console.Clear();
                         break;
                     case ConsoleKey.I:
-                        filePath = "../../Maps/Map1.txt";
+                        this.FilePath = "../../Maps/Map1.txt";
                         mapLetter = true;
                         Console.Clear();
                         break;
                     //case ConsoleKey.C:
-                    //    filePath = "../../Map3.txt";
+                    //    this.FilePath = "../../Map3.txt";
                     //    mapLetter = true;
                     //    break;
                     default:
@@ -44,8 +66,6 @@
                         break;
                 }
             }
-
-            return filePath;
         }
 
         private static void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)

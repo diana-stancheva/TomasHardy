@@ -61,12 +61,13 @@
 
         public static void Main()
         {
-            StartScreen.LoadOnScreen();
-            string filePath = MapScreen.LoadOnScreen();            
-            HeroScreen.LoadOnScreen();
+            //StartScreen.LoadOnScreen();
+            StartScreen.Instance.LoadOnScreen();
+            MapScreen.Instance.LoadOnScreen();            
+            HeroScreen.Instance.LoadOnScreen();
 
             // Reading a map from file and printing it on the screen
-            var mapHandling = new MapHandling(filePath);
+            var mapHandling = new MapHandling(MapScreen.Instance.FilePath);
             mapHandling.ReadFromFile();
             mapHandling.LoadOnScreen();
 

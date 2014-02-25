@@ -100,6 +100,7 @@
     <Compile Include="Roshan.cs" />
     <Compile Include="Screens\HeroScreen.cs" />
     <Compile Include="Screens\MapScreen.cs" />
+    <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\StartScreen.cs" />
   </ItemGroup>
   <ItemGroup>

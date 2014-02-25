@@ -4,15 +4,32 @@
     using System.IO;
     using System.Threading;
 
-    public static class StartScreen //: IScreen
+    // Singleton class!!!
+    public class StartScreen : Screen
     {
         private const int HeightStartScreen = 20;
         private const int WidthStartScreen = 70;
         private const int DelayTime = 5;
         private const string GameTitle = "Dota v. 0.1®";
         private const string FileName = @"..\..\Screens\StartScreen.txt";
+        private static StartScreen instance;
 
-        public static void LoadOnScreen()
+        private StartScreen() { }
+
+        public static StartScreen Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new StartScreen();
+                }
+
+                return instance;
+            }
+        }
+                
+        public override void LoadOnScreen()
         {
             Console.Title = String.Format(GameTitle);
 
