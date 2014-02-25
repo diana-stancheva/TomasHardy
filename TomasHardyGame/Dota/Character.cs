@@ -8,14 +8,14 @@
         private int health;
         private int damage;
         private bool isDead;
-        private CreepPosition position;
+        private CharacterPosition position;
 
         public Character()
         {
 
         }
 
-        public Character(string name, int health, int damage, CreepPosition position)
+        public Character(string name, int health, int damage, CharacterPosition position)
         {
             this.Name = name;
             this.Health = health;
@@ -75,7 +75,7 @@
             set { this.isDead = value; }
         }
 
-        public CreepPosition Position
+        public CharacterPosition Position
         {
             get { return this.position; }
             set { this.position = value; }

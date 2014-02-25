@@ -7,7 +7,7 @@
 
         }
 
-        public Creep(string name, int health, int damage, CreepPosition position)
+        public Creep(string name, int health, int damage, CharacterPosition position)
             : base(name, health, damage, position)
         {
 

@@ -95,7 +95,7 @@
     <Compile Include="MapHandling.cs" />
     <Compile Include="Maps.cs" />
     <Compile Include="PlayerMovement.cs" />
-    <Compile Include="CreepPosition.cs" />
+    <Compile Include="CharacterPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roshan.cs" />
     <Compile Include="StartScreen.cs" />

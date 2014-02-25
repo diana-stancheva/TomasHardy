@@ -171,7 +171,7 @@
   <Class Name="Dota.CreepHandling" Collapsed="true">
     <Position X="9" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAAAAQAQCEAAAA=</HashCode>
+      <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAAAAQIQCEAAAA=</HashCode>
       <FileName>CreepHandling.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -200,7 +200,7 @@
   <Class Name="Dota.PlayerMovement" Collapsed="true">
     <Position X="10.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAMAAAAAQAhAAAAgQAAAEAMEIQAABQAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAMAAAAAQAhAAAAgQAAAEAMEIQAABAAAAAAA=</HashCode>
       <FileName>PlayerMovement.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -218,11 +218,11 @@
       <FileName>StartScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="Dota.CreepPosition" Collapsed="true">
+  <Struct Name="Dota.CharacterPosition" Collapsed="true">
     <Position X="9" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
-      <FileName>CreepPosition.cs</FileName>
+      <FileName>CharacterPosition.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="Dota.IEnchantable" Collapsed="true">
@@ -242,7 +242,7 @@
   <Enum Name="Dota.Maps" Collapsed="true">
     <Position X="10.75" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAA=</HashCode>
       <FileName>Maps.cs</FileName>
     </TypeIdentifier>
   </Enum>

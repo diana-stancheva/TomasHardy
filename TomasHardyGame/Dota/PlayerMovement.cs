@@ -10,22 +10,22 @@
         { 
             '#', '_', '|', '.', ':', '[', 'd', '*', 'b', ']', '-', '='
         };
-        private bool checkForFobiddenSymbol = true;
 
-        private char[,] playerMap;
+        private readonly char[,] playerMap;
         private int positionOnRow;
         private int positionOnCol;
+        private bool checkForFobiddenSymbol = true;
 
         public PlayerMovement(char[,] map)
         {
-            this.PlayerMap = map;
+            this.playerMap = map;
         }
 
-        public char[,] PlayerMap
-        {
-            get { return this.playerMap; }
-            set { this.playerMap = value; }
-        }
+        //public char[,] PlayerMap
+        //{
+        //    get { return this.playerMap; }
+        //    set { this.playerMap = value; }
+        //}
 
         public int PositionOnRow
         {

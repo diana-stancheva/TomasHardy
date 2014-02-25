@@ -222,13 +222,13 @@
                 }
             }
 
-            // Reading map from file and printing it on the screen
+            // Reading a map from file and printing it on the screen
             //string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
             mapHandling.LoadOnScreen();
 
-            // player logic
+            // player(hero) movement logic
             var player = new PlayerMovement(mapHandling.MapMatrix);
             player.GetPlayerStartPosition();
 
@@ -287,15 +287,15 @@
 
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            creepHandl.AttakCreep(tempCreep, hero, 0, true);
+                            creepHandl.AttakCreep(hero, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            creepHandl.AttakCreep(tempCreep, hero, 1, true);
+                            creepHandl.AttakCreep(hero, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            creepHandl.AttakCreep(tempCreep, hero);
+                            creepHandl.AttakCreep(hero);
                         }
 
                         if (tempCreep != null && tempCreep.IsDead)

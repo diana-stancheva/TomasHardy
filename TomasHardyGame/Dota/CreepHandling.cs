@@ -17,16 +17,18 @@
             "Endora", "Chaos"
         };
 
-        private readonly List<CreepPosition> creepsPosition;
+        private readonly List<CharacterPosition> creepsPosition;
         private readonly char[,] matrix;
         private readonly Random random;
+        private Creep temporarilyCreep;
 
         public CreepHandling(char[,] matrix)
         {
             this.matrix = matrix;
             this.ListOfCreeps = new List<Creep>();
-            this.creepsPosition = new List<CreepPosition>();
+            this.creepsPosition = new List<CharacterPosition>();
             this.random = new Random();
+            this.temporarilyCreep = new Creep();
         }
 
         public List<Creep> ListOfCreeps
@@ -46,7 +48,7 @@
                       !(this.matrix[row, col + 1].Equals(CreepSymbol)) &&
                       !(this.matrix[row, col - 1].Equals(CreepSymbol)))
                     {
-                        creepsPosition.Add(new CreepPosition(row, col));
+                        creepsPosition.Add(new CharacterPosition(row, col));
                     }
                 }
             }
@@ -92,20 +94,22 @@
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write('@');
 
-                    this.PrintCreepInfo(creep);
+                    this.temporarilyCreep = creep;
+                    this.PrintCreepInfo();
                     return creep;
                 }
             }
 
-            this.PrintCreepInfo(null);
+            this.temporarilyCreep = null;
+            this.PrintCreepInfo();
             return null;
         }
                 
-        public void AttakCreep(Creep tempCreep, Hero hero, int index = -1, bool isMagic = false)
+        public void AttakCreep(Hero hero, int index = -1, bool isMagic = false)
         {
             foreach (var creep in this.ListOfCreeps)
             {
-                if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
+                if (this.temporarilyCreep != null && creep.Position.Equals(this.temporarilyCreep.Position))
                 {
                     if (isMagic)
                     {
@@ -117,7 +121,7 @@
 
                         if (creep.IsDead == true)
                         {
-                            this.DeleteCreepFromMap(tempCreep);
+                            this.DeleteCreepFromMap();
 
                             if (hero.Level != 10)
                             {
@@ -130,30 +134,32 @@
                 }
             }
         }
-        private void DeleteCreepFromMap(Creep tempCreep)
-        {
-            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
-            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
-            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
-            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
-            this.matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
 
-            MapHandling.PrintOnPosition(tempCreep.Position.Col, tempCreep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
-            this.ListOfCreeps.Remove(tempCreep);
+        private void DeleteCreepFromMap()
+        {
+            this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col] = ' ';
+            this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col + 1] = ' ';
+            this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col + 2] = ' ';
+            this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col - 1] = ' ';
+            this.matrix[this.temporarilyCreep.Position.Row, this.temporarilyCreep.Position.Col - 2] = ' ';
+
+            MapHandling.PrintOnPosition(this.temporarilyCreep.Position.Col, this.temporarilyCreep.Position.Row, 
+                string.Format("\b\b     "), ConsoleColor.Gray);
+            this.ListOfCreeps.Remove(this.temporarilyCreep);
         }
 
         // printing creep info on the screen if available
-        private void PrintCreepInfo(Creep tempCreep)
+        private void PrintCreepInfo()
         {
-            if (tempCreep != null)
+            if (this.temporarilyCreep != null)
             {
                 MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 10, string.Format("Name: {0}", this.temporarilyCreep.Name), ConsoleColor.Gray);
                 MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 9, string.Format("Health: {0,3}", this.temporarilyCreep.Health), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 8, string.Format("Damage: {0}", this.temporarilyCreep.Damage), ConsoleColor.Gray);
                 MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, new string(' ', 25), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, (tempCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(MapHandling.ScreenWidth - 25, MapHandling.ScreenHeight - 7, (this.temporarilyCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
             }
             else
             {

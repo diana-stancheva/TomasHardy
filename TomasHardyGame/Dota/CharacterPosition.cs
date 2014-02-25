@@ -1,8 +1,8 @@
 ﻿namespace Dota
 {
-    public struct CreepPosition
+    public struct CharacterPosition
     {
-        public CreepPosition(int row, int col)
+        public CharacterPosition(int row, int col)
             : this()
         {
             this.Row = row;
