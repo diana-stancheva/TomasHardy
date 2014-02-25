@@ -83,6 +83,7 @@
 
             Stopwatch timeElapsed = new Stopwatch();
             timeElapsed.Start();
+            Stopwatch proba = new Stopwatch();
 
             while (true)
             {
@@ -138,12 +139,10 @@
                         {
                             creepHandl.AttakCreep(hero, 1, true);
                         }
-                        else if (pressedKey.Key == ConsoleKey.A)
+                        else if (pressedKey.Key == ConsoleKey.A && !proba.IsRunning)
                         {
-                            if (timeElapsed.Elapsed.Seconds % hero.AttackSpeed == 0)
-                            {
-                                creepHandl.AttakCreep(hero);
-                            }
+                            creepHandl.AttakCreep(hero);
+                            proba.Start();
                         }
 
                         if (tempCreep != null && tempCreep.IsDead)
@@ -154,6 +153,16 @@
                         // check for creeps around our hero
                         tempCreep = creepHandl.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                     }
+
+                    if (proba.ElapsedMilliseconds >= hero.AttackSpeed * 1000)
+                    {
+                        proba.Reset();
+                    }
+                }
+
+                if (proba.ElapsedMilliseconds >= hero.AttackSpeed * 1000)
+                {
+                    proba.Reset();
                 }
 
                 if (tempCreep != null && tempCreep.IsDead == false)
