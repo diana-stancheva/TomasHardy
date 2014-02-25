@@ -23,5 +23,32 @@
         {
             get { return listOfHeroes; }
         }
+
+        public static void PrintOnScreen()
+        {
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 44, string.Format("NAME: {0}", DotaMain.hero.Name), ConsoleColor.Yellow);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 42, string.Format("HEALTH: {0,4}", DotaMain.hero.Health), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 40, string.Format("MANA: {0,4}", DotaMain.hero.Mana), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 38, string.Format("DAMAGE: {0}", DotaMain.hero.Damage), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 36, string.Format("MOVE SPEED: {0}", DotaMain.hero.MoveSpeed), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 34, string.Format("ATTACK SPEED: {0}", DotaMain.hero.AttackSpeed), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 32, string.Format("EXPERIENCE: {0}", DotaMain.hero.Experience), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 30, string.Format("LEVEL: {0}", DotaMain.hero.Level), ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
+
+            // magics
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 25, string.Format(DotaMain.hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 24, "Damage: " + DotaMain.hero.Magics[0].Damage, ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 23, "ManaCost: " + DotaMain.hero.Magics[0].ManaCost, ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 22, "Cooldown: " + DotaMain.hero.Magics[0].CooldownTime, ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 20, string.Format(DotaMain.hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 19, "Damage: " + DotaMain.hero.Magics[1].Damage, ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 18, "ManaCost: " + DotaMain.hero.Magics[1].ManaCost, ConsoleColor.Gray);
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 17, "Cooldown: " + DotaMain.hero.Magics[1].CooldownTime, ConsoleColor.Gray);
+
+            MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 15, "Attack  <A>", ConsoleColor.Yellow);
+
+        }
     }
 }

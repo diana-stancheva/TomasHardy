@@ -1,7 +1,6 @@
 ﻿namespace Dota
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.Threading;
 
@@ -11,8 +10,6 @@
     public class DotaMain
     {
         public static Hero hero;
-
-       
 
         //static void SelectMagic()
         //{
@@ -79,29 +76,8 @@
                 MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 19, MapHandling.MapScreenHeight - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Yellow);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
-
-                // magics
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 25, string.Format(hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 24, "Damage: " + hero.Magics[0].Damage, ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 23, "ManaCost: " + hero.Magics[0].ManaCost, ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 22, "Cooldown: " + hero.Magics[0].CooldownTime, ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 20, string.Format(hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
-
-                MapHandling.PrintOnPosition(MapHandling.MapScreenWidth - 25, MapHandling.MapScreenHeight - 15, "Attack  <A>", ConsoleColor.Yellow);
-
+                HeroHandling.PrintOnScreen();
+                
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
