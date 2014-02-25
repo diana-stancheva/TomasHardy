@@ -76,7 +76,9 @@
             Console.ForegroundColor = color;
             Console.WriteLine(mapName);
             Console.SetCursorPosition(x + (mapName.ToString().Length / 2 == 0 ? mapName.ToString().Length / 2 : mapName.ToString().Length / 2 - 1), y + 1);
+            
             //Console.SetCursorPosition(x + (mapName.Length / 2 == 0 ? mapName.Length / 2 : mapName.Length / 2 - 1), y + 1);
+
             Console.WriteLine(letter);
             Console.SetCursorPosition(x, y + 2);
         }
