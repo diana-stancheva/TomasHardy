@@ -68,14 +68,15 @@
             Console.WriteLine("attack speed: " + hero.AttackSpeed);
         }
 
-        private static void PrintMapMenu(int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        private static void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.BufferHeight = Console.WindowHeight = 32;
             Console.BufferWidth = Console.WindowWidth = 60;
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(mapName);
-            Console.SetCursorPosition(x + (mapName.Length / 2 == 0 ? mapName.Length / 2 : mapName.Length / 2 - 1), y + 1);
+            Console.SetCursorPosition(x + (mapName.ToString().Length / 2 == 0 ? mapName.ToString().Length / 2 : mapName.ToString().Length / 2 - 1), y + 1);
+            //Console.SetCursorPosition(x + (mapName.Length / 2 == 0 ? mapName.Length / 2 : mapName.Length / 2 - 1), y + 1);
             Console.WriteLine(letter);
             Console.SetCursorPosition(x, y + 2);
         }
@@ -115,9 +116,12 @@
 
             PrintChooseText(Width - 86, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
 
-            PrintMapMenu(Width - 87, Height - 41, "dota_backalley", "<B>");
-            PrintMapMenu(Width - 87, Height - 33, "dota_iceworld", "<I>");
-            PrintMapMenu(Width - 87, Height - 25, "dota_compound", "<C>");
+            //PrintMapMenu(Width - 87, Height - 41, "dota_backalley", "<B>");
+            //PrintMapMenu(Width - 87, Height - 33, "dota_iceworld", "<I>");
+            //PrintMapMenu(Width - 87, Height - 25, "dota_compound", "<C>");
+            PrintMapMenu(Width - 87, Height - 41, Maps.dota_backalley, "<B>");
+            PrintMapMenu(Width - 87, Height - 33, Maps.dota_iceworld, "<I>");
+            PrintMapMenu(Width - 87, Height - 25, Maps.dota_compound, "<C>");
 
             string filePath = "";
             Console.CursorVisible = false;

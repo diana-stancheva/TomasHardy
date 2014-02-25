@@ -93,6 +93,7 @@
     <Compile Include="DotaMain.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
     <Compile Include="MapHandling.cs" />
+    <Compile Include="Maps.cs" />
     <Compile Include="PlayerMovement.cs" />
     <Compile Include="CreepPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
