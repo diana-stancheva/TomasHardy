@@ -120,7 +120,7 @@
 
             PrintMapMenu(Width - 87, Height - 41, Maps.Backalley, "<B>");
             PrintMapMenu(Width - 87, Height - 33, Maps.Iceworld, "<I>");
-            PrintMapMenu(Width - 87, Height - 25, Maps.Compound, "<C>");
+            PrintMapMenu(Width - 87, Height - 25, Maps.Compound, "<C>"); 
 
             string filePath = "";
             Console.CursorVisible = false;
