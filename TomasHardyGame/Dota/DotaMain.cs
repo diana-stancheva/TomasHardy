@@ -27,8 +27,6 @@
             // Creep logic
             CreepHandling creepHandl = new CreepHandling(map.Matrix);
             creepHandl.CreateCreeps();
-            Creep tempCreep = new Creep();
-            tempCreep = null;
 
             Stopwatch timeElapsed = new Stopwatch();
             Stopwatch attackTime = new Stopwatch();
@@ -76,13 +74,13 @@
                             attackTime.Start();
                         }
 
-                        if (tempCreep != null && tempCreep.IsDead)
+                        if (creepHandl.TempCreep != null && creepHandl.TempCreep.IsDead)
                         {
                             heroHandling.HeroMovement.PrintSymbol('@');
                         }
 
                         // check for creeps around our hero
-                        tempCreep = creepHandl.CheckForCreeps(heroHandling.HeroMovement.PositionOnRow, heroHandling.HeroMovement.PositionOnCol);
+                        creepHandl.CheckForCreeps(heroHandling.HeroMovement.PositionOnRow, heroHandling.HeroMovement.PositionOnCol);
                     }
 
                     if (attackTime.ElapsedMilliseconds >= heroHandling.ChosenHero.AttackSpeed * 1000)
@@ -96,9 +94,9 @@
                 //    attackTime.Reset();
                 //}
 
-                if (tempCreep != null && tempCreep.IsDead == false)
+                if (creepHandl.TempCreep != null && creepHandl.TempCreep.IsDead == false)
                 {
-                    heroHandling.ChosenHero.Health -= tempCreep.Damage;
+                    heroHandling.ChosenHero.Health -= creepHandl.TempCreep.Damage;
                 }
 
                 if (heroHandling.HeroMovement.PositionOnCol == 1 && heroHandling.HeroMovement.PositionOnRow == 47)
@@ -113,7 +111,7 @@
                 // Stop timing
                 stopwatch.Stop();
 
-                heroHandling.CheckIfHeroIsDead(tempCreep);
+                heroHandling.CheckIfHeroIsDead(creepHandl.TempCreep);
             }
         }
 
