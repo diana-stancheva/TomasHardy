@@ -17,7 +17,6 @@
             PrintMapMenu(Width - 87, Height - 33, Maps.Iceworld, "<I>");
             PrintMapMenu(Width - 87, Height - 25, Maps.Compound, "<C>");
 
-            //string filePath = "";
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyMap = Console.ReadKey(true);
             bool mapLetter = false;

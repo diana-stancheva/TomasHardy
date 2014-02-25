@@ -62,7 +62,7 @@
 
         public static void Main()
         {
-            StartScreen.LoadOnScreen();            
+            StartScreen.LoadOnScreen();
             string filePath = MapScreen.LoadOnScreen();            
             HeroScreen.LoadOnScreen();
 
