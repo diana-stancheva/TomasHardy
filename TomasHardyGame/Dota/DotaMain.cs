@@ -6,6 +6,7 @@
     using System.Threading;
 
     using Dota.Screens;
+    using Dota.Features;
 
     public class DotaMain
     {
@@ -61,7 +62,6 @@
 
         public static void Main()
         {
-            //StartScreen.LoadOnScreen();
             StartScreen.Instance.LoadOnScreen();
             MapScreen.Instance.LoadOnScreen();            
             HeroScreen.Instance.LoadOnScreen();

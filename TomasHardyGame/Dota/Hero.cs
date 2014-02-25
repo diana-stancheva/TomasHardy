@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
 
+    using Dota.Features;
+
     public class Hero : Character
     {
         private int mana;
