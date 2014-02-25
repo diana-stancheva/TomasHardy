@@ -75,7 +75,7 @@
     <Compile Include="Features\BurningSpear.cs" />
     <Compile Include="Features\DragonTrail.cs" />
     <Compile Include="Features\Earthshock.cs" />
-    <Compile Include="Features\Features.cs" />
+    <Compile Include="Features\Feature.cs" />
     <Compile Include="Features\FurySwipes.cs" />
     <Compile Include="Features\GreatCleave.cs" />
     <Compile Include="Features\IceShards.cs" />
