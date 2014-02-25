@@ -27,9 +27,9 @@
             : base()
         {
             this.Name = "Impale";
-            this.Description = "Rock spikes burst from the earth along a straight path and enemy units take damage.";
+            this.Description = "Rock spikes burst from the earth along a straight path and enemy unit take damage.";
             this.ManaCost = 95;
-            this.CooldownTime = 11;
+            this.CooldownTime = 111;
             this.Damage = 80;
         }
 

@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Great Cleave";
-            this.Description = "Sven strikes with great force, cleaving all nearby enemy units with his attack.";
+            this.Description = "Sven strikes with great force, cleaving the enemy unit with his attack.";
             this.ManaCost = 80;
             this.CooldownTime = 35;
             this.Damage = 20;

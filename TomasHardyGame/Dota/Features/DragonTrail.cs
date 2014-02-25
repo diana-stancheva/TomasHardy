@@ -30,7 +30,7 @@
             this.Description = "Dragon Knight smites an enemy unit in melee range with his shield, while dealing minor damage.";
             this.ManaCost = 50;
             this.CooldownTime = 15;
-            this.Damage = 25;
+            this.Damage = 10;
         }
 
         public override void Use(Hero hero, Creep creep)

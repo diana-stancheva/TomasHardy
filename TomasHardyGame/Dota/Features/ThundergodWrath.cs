@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Thundergod's Wrath";
-            this.Description = "Strikes all enemy heroes with a bolt of lightning, no matter where they may be.";
+            this.Description = "Strikes the enemy hero with a bolt of lightning, damaging it.";
             this.ManaCost = 300;
             this.CooldownTime = 150;
             this.Damage = 80;

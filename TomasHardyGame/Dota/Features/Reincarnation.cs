@@ -31,7 +31,7 @@
             : base()
         {
             this.Name = "Reincarnation";
-            this.Description = "Wraith King's members regroup after death, allowing him to resurrect when killed in battle.";
+            this.Description = "Wraith King shocks the enemy creep, causing repeatable damage.";
             this.ManaCost = 140;
             this.CooldownTime = 260;
             this.Damage = 75;

@@ -27,9 +27,9 @@
             : base()
         {
             this.Name = "Fury Swipes";
-            this.Description = "Ursa's claws dig deeper wounds in the enemy, causing consecutive attacks to the same enemy to deal more damage.";
+            this.Description = "Hero's claws dig deeper wounds in the enemy, causing consecutive attacks to the same enemy, after each hit, hero makes 35 more damage.";
             this.ManaCost = 35;
-            this.CooldownTime = 5;
+            this.CooldownTime = 155;
             this.Damage = 15;
         }
 
@@ -39,6 +39,7 @@
             {
                 hero.Mana -= this.ManaCost;
                 creep.Health -= this.Damage;
+                this.Damage += 35;
             }
         }
     }

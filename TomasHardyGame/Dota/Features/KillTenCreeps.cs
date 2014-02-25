@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Kill Ten Creeps";
-            this.Description = "After killing ten creep, the hero can recieve this bonus dots";
+            this.Description = "After killing ten creeps, the hero can recieve bonus experience";
             this.BonusDots = 100;
         }
 

@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Earthshock";
-            this.Description = "Ursa slams the earth, causing a powerful shock to damage all enemy units in a nearby area.";  // BIG RANGE
+            this.Description = "Hero slams the earth, causing a powerful shock to damage all enemy units in a nearby area.";  // BIG RANGE
             this.ManaCost = 120;
             this.CooldownTime = 40;
             this.Damage = 90;

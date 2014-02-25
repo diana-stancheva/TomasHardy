@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Overpower";
-            this.Description = "Using his skill in combat, Ursa gains increased attack speed for a set number of attacks or until the duration expires.";
+            this.Description = "Using his skill in combat, Hero gains increased attack speed for a set number of attacks or until the duration expires.";
             this.ManaCost = 45;
             this.CooldownTime = 10;
             this.Damage = 15;
