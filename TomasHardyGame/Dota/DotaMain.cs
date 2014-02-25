@@ -79,8 +79,11 @@
             tempCreep = null;
 
             Stopwatch timeElapsed = new Stopwatch();
-            timeElapsed.Start();
             Stopwatch attackTime = new Stopwatch();
+            Stopwatch firstCoolDown = new Stopwatch();
+            Stopwatch secondCoolDown = new Stopwatch();
+
+            timeElapsed.Start();
 
             while (true)
             {
