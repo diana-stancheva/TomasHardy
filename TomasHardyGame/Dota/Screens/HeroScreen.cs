@@ -2,12 +2,29 @@
 {
     using System;
 
-    public static class HeroScreen
+    // Singleton class!!!
+    public class HeroScreen : Screen
     {
         private const int ConsoleHeight = 50;
         private const int ConsoleWidth = 110;
+        private static HeroScreen instance;
 
-        public static void LoadOnScreen()
+        private HeroScreen() { }
+
+        public static HeroScreen Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new HeroScreen();
+                }
+
+                return instance;
+            }
+        }
+        
+        public override void LoadOnScreen()
         {
             Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
             Console.BufferWidth = Console.WindowWidth = ConsoleWidth;
