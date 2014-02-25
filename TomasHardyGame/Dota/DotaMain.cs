@@ -121,9 +121,9 @@
             //PrintMapMenu(Width - 87, Height - 41, "dota_backalley", "<B>");
             //PrintMapMenu(Width - 87, Height - 33, "dota_iceworld", "<I>");
             //PrintMapMenu(Width - 87, Height - 25, "dota_compound", "<C>");
-            PrintMapMenu(Width - 87, Height - 41, Maps.dota_backalley, "<B>");
-            PrintMapMenu(Width - 87, Height - 33, Maps.dota_iceworld, "<I>");
-            PrintMapMenu(Width - 87, Height - 25, Maps.dota_compound, "<C>");
+            PrintMapMenu(Width - 87, Height - 41, Maps.Backalley, "<B>");
+            PrintMapMenu(Width - 87, Height - 33, Maps.Iceworld, "<I>");
+            PrintMapMenu(Width - 87, Height - 25, Maps.Compound, "<C>");
 
             string filePath = "";
             Console.CursorVisible = false;
