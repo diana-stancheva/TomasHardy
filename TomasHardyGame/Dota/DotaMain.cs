@@ -63,7 +63,7 @@
         public static void Main()
         {
             StartScreen.Instance.LoadOnScreen();
-            MapScreen.Instance.LoadOnScreen();            
+            MapScreen.Instance.LoadOnScreen();
             HeroScreen.Instance.LoadOnScreen();
 
             // Reading a map from file and printing it on the screen
@@ -140,7 +140,10 @@
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            creepHandl.AttakCreep(hero);
+                            if (timeElapsed.Elapsed.Seconds % hero.AttackSpeed == 0)
+                            {
+                                creepHandl.AttakCreep(hero);
+                            }
                         }
 
                         if (tempCreep != null && tempCreep.IsDead)
@@ -180,7 +183,7 @@
                         int currentExperience = hero.Experience;
                         player.PrintSymbol(' ');
                         Thread.Sleep(10000);
-                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana, 
+                        hero = new Hero(hero.Name, hero.InitialHealth - 150, hero.Damage, hero.InitialMana,
                             hero.AttackSpeed, hero.MoveSpeed, hero.Magics, hero.Position);
                         hero.Level = currentLevel;
                         hero.Experience = currentExperience;
