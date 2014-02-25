@@ -116,7 +116,7 @@
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
 
-            PrintChooseText(Width - 86, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
+            PrintChooseText(Width - 88, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
 
             PrintMapMenu(Width - 87, Height - 41, Maps.Backalley, "<B>");
             PrintMapMenu(Width - 87, Height - 33, Maps.Iceworld, "<I>");
