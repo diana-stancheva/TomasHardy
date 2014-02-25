@@ -10,6 +10,9 @@
         private const int CreepMinHealth = 150;
         private const int CreepMaxDamage = 35;
         private const int CreepMinDamage = 15;
+
+        public int KilledCreeps { get; private set; }
+
         private readonly List<string> creepyNames = new List<string> 
         { 
             "Barnabas", "Bloody Mary", "Spooky Lion", "Fang", "Frankenstein", "Hulk", "Morticia", "Salem", "Zorak"
@@ -122,6 +125,12 @@
                         if (creep.IsDead == true)
                         {
                             this.DeleteCreepFromMap();
+                            this.KilledCreeps++;
+
+                            if (KilledCreeps == 10)
+                            {
+                                ///
+                            }
 
                             if (hero.Level != 10)
                             {

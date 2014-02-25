@@ -31,7 +31,7 @@
   <Class Name="Dota.Bonus" Collapsed="true">
     <Position X="47.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>Features\Bonus.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,7 +45,7 @@
   <Class Name="Dota.KillTenCreeps" Collapsed="true">
     <Position X="47.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAgAAAAABAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\KillTenCreeps.cs</FileName>
     </TypeIdentifier>
   </Class>

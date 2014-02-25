@@ -2,7 +2,7 @@
 {
     using System;
 
-    class KillTenCreeps : Bonus
+    public class KillTenCreeps : Bonus
     {
         private static KillTenCreeps instance = null;
         private static object syncRoot = new Object();
@@ -31,7 +31,7 @@
             this.BonusDots = 100;
         }
 
-        public override void GetBonus(Hero hero)
+        public void GetBonus(Hero hero)
         {
             hero.Experience += this.BonusDots;
         }

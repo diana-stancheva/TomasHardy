@@ -1,8 +1,8 @@
 ﻿namespace Dota
 {
-    class Bonus : Feature
+    public class Bonus : Feature
     {
-        public int BonusDots { get; protected set; }
+        public int BonusDots { get;  set; }
 
         public Bonus()
             : base()
@@ -10,7 +10,7 @@
 
         }
 
-        public abstract void GetBonus(Hero hero);
+        //public abstract void GetBonus(Hero hero);
 
     }
 }
