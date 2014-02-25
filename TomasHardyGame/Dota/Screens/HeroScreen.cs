@@ -3,7 +3,7 @@
     using System;
 
     // Singleton class!!!
-    public class HeroScreen : Screen
+    public class HeroScreen : Screen, IScreen
     {
         private const int ConsoleHeight = 50;
         private const int ConsoleWidth = 110;
@@ -31,24 +31,24 @@
 
             MapHandling.PrintOnPosition(ConsoleWidth - 66, ConsoleHeight - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
-            PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 41, DotaMain.heroes[0], "<B>");
-            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 39, DotaMain.heroes[0], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 41, DotaMain.heroes[1], "<D>");
-            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 39, DotaMain.heroes[1], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 41, DotaMain.heroes[2], "<A>");
-            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 39, DotaMain.heroes[2], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 28, DotaMain.heroes[3], "<J>");
-            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 26, DotaMain.heroes[3], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 28, DotaMain.heroes[4], "<M>");
-            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 26, DotaMain.heroes[4], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 28, DotaMain.heroes[5], "<S>");
-            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 26, DotaMain.heroes[5], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 15, DotaMain.heroes[6], "<T>");
-            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 13, DotaMain.heroes[6], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 15, DotaMain.heroes[7], "<W>");
-            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 13, DotaMain.heroes[7], ConsoleColor.Gray);
-            PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 15, DotaMain.heroes[8], "<N>");
-            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 13, DotaMain.heroes[8], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 41, HeroHandling.ListOfHeroes[0], "<B>");
+            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 39, HeroHandling.ListOfHeroes[0], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 41, HeroHandling.ListOfHeroes[1], "<D>");
+            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 39, HeroHandling.ListOfHeroes[1], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 41, HeroHandling.ListOfHeroes[2], "<A>");
+            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 39, HeroHandling.ListOfHeroes[2], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 28, HeroHandling.ListOfHeroes[3], "<J>");
+            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 26, HeroHandling.ListOfHeroes[3], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 28, HeroHandling.ListOfHeroes[4], "<M>");
+            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 26, HeroHandling.ListOfHeroes[4], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 28, HeroHandling.ListOfHeroes[5], "<S>");
+            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 26, HeroHandling.ListOfHeroes[5], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 100, ConsoleHeight - 15, HeroHandling.ListOfHeroes[6], "<T>");
+            PrintChoosenHero(ConsoleWidth - 100, ConsoleHeight - 13, HeroHandling.ListOfHeroes[6], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 65, ConsoleHeight - 15, HeroHandling.ListOfHeroes[7], "<W>");
+            PrintChoosenHero(ConsoleWidth - 65, ConsoleHeight - 13, HeroHandling.ListOfHeroes[7], ConsoleColor.Gray);
+            PrintHeroName(ConsoleWidth - 30, ConsoleHeight - 15, HeroHandling.ListOfHeroes[8], "<N>");
+            PrintChoosenHero(ConsoleWidth - 30, ConsoleHeight - 13, HeroHandling.ListOfHeroes[8], ConsoleColor.Gray);
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
@@ -59,39 +59,39 @@
                 switch (pressedKeyHero.Key)
                 {
                     case ConsoleKey.B:
-                        DotaMain.hero = DotaMain.heroes[0];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[0];
                         heroLetter = true;
                         break;
                     case ConsoleKey.D:
-                        DotaMain.hero = DotaMain.heroes[1];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[1];
                         heroLetter = true;
                         break;
                     case ConsoleKey.A:
-                        DotaMain.hero = DotaMain.heroes[2];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[2];
                         heroLetter = true;
                         break;
                     case ConsoleKey.J:
-                        DotaMain.hero = DotaMain.heroes[3];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[3];
                         heroLetter = true;
                         break;
                     case ConsoleKey.M:
-                        DotaMain.hero = DotaMain.heroes[4];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[4];
                         heroLetter = true;
                         break;
                     case ConsoleKey.S:
-                        DotaMain.hero = DotaMain.heroes[5];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[5];
                         heroLetter = true;
                         break;
                     case ConsoleKey.T:
-                        DotaMain.hero = DotaMain.heroes[6];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[6];
                         heroLetter = true;
                         break;
                     case ConsoleKey.W:
-                        DotaMain.hero = DotaMain.heroes[7];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[7];
                         heroLetter = true;
                         break;
                     case ConsoleKey.N:
-                        DotaMain.hero = DotaMain.heroes[8];
+                        DotaMain.hero = HeroHandling.ListOfHeroes[8];
                         heroLetter = true;
                         break;
                     default:

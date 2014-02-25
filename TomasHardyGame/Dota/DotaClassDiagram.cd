@@ -24,7 +24,7 @@
   <Class Name="Dota.DotaMain" Collapsed="true">
     <Position X="24.25" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAEAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAA=</HashCode>
       <FileName>DotaMain.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -238,6 +238,7 @@
       <HashCode>AAAAACAAAAAABAAAAAAAAAAAAABKAAAAQEAAAAAAAAA=</HashCode>
       <FileName>Screens\HeroScreen.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Dota.Screens.MapScreen" Collapsed="true">
     <Position X="14" Y="7.25" Width="1.5" />
@@ -245,6 +246,7 @@
       <HashCode>AAAAAAAAAAAABAEAAAAAAAAAAABCAEAAQEBAAAAAAAA=</HashCode>
       <FileName>Screens\MapScreen.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Dota.Screens.Screen" Collapsed="true">
     <Position X="14" Y="6" Width="1.5" />
@@ -260,6 +262,7 @@
       <HashCode>AAAAAAAAAAAABAAAAIAAAAAAAABAAAAAQgAAAIBACAA=</HashCode>
       <FileName>Screens\StartScreen.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Struct Name="Dota.CharacterPosition" Collapsed="true">
     <Position X="22.5" Y="8.25" Width="1.5" />

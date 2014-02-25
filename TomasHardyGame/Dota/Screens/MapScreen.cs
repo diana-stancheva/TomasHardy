@@ -3,7 +3,7 @@
     using System;
 
     // Singleton class!!!
-    public class MapScreen : Screen
+    public class MapScreen : Screen, IScreen
     {
         private const int ConsoleHeight = 32;
         private const int ConsoleWidth = 60;
