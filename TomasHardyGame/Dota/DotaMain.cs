@@ -3,19 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Linq;
-    using System.Text;
     using System.Threading;
-    using System.Threading.Tasks;
 
-    class DotaMain
+    public class DotaMain
     {
-        const int Height = 50;
-        const int Width = 110;
+        private const int Height = 50;
+        private const int Width = 110;
 
-        static Hero hero;
+        private static Hero hero;
 
-        static List<Hero> heroes = new List<Hero>
+        private static List<Hero> heroes = new List<Hero>
         {
             new Hero("Bloodseeker", 566, 50/*, ConsoleColor.Green*/, 320, 2, 2, new List<Magic> { Bloodrage.Instance, BloodBath.Instance }), 
             new Hero("Dragon Knight", 550, 60/*, ConsoleColor.Green*/, 150, 3, 2, new List<Magic> { BreatheFire.Instance, DragonTrail.Instance }), 
@@ -52,16 +49,12 @@
         //}
 
         //Prints on position and apply color for string
-        static void PrintOnPosition(int x, int y, string str, ConsoleColor color)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.ForegroundColor = color;
-            Console.WriteLine(str);
-        }
 
 
-        static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
+        private static void PrintChoosingHero(int x, int y, Hero hero, ConsoleColor color)
         {
+            Console.BufferHeight = Console.WindowHeight = 50;
+            Console.BufferWidth = Console.WindowWidth = 110;
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine("health: " + hero.Health);
@@ -75,7 +68,19 @@
             Console.WriteLine("attack speed: " + hero.AttackSpeed);
         }
 
-        static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
+        private static void PrintMapMenu(int x, int y, string mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        {
+            Console.BufferHeight = Console.WindowHeight = 32;
+            Console.BufferWidth = Console.WindowWidth = 60;
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(mapName);
+            Console.SetCursorPosition(x + (mapName.Length / 2 == 0 ? mapName.Length / 2 : mapName.Length / 2 - 1), y + 1);
+            Console.WriteLine(letter);
+            Console.SetCursorPosition(x, y + 2);
+        }
+
+        private static void PrintHeroName(int x, int y, Hero hero, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -85,14 +90,14 @@
             Console.SetCursorPosition(x, y + 2);
         }
 
-        static void PrintChooseText(int x, int y, string name, ConsoleColor color)
+        private static void PrintChooseText(int x, int y, string name, ConsoleColor color)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(name);
         }
 
-        static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
+        private static void PrintMagics(int x, int y, Hero hero, ConsoleColor color = ConsoleColor.Gray)
         {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
@@ -101,15 +106,47 @@
             Console.WriteLine(hero.Magics[1].Description);
         }
 
-
-
         public static void Main()
         {
-            Screen startScreen = new Screen(@"..\..\StartScreen.txt");
-            startScreen.LoadScreen();
+            StartScreen.LoadOnScreen();
 
             Console.BufferHeight = Console.WindowHeight = Height;
             Console.BufferWidth = Console.WindowWidth = Width;
+
+            PrintChooseText(Width - 86, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
+
+            PrintMapMenu(Width - 87, Height - 41, "dota_backalley", "<B>");
+            PrintMapMenu(Width - 87, Height - 33, "dota_iceworld", "<I>");
+            PrintMapMenu(Width - 87, Height - 25, "dota_compound", "<C>");
+
+            string filePath = "";
+            Console.CursorVisible = false;
+            ConsoleKeyInfo pressedKeyMap = Console.ReadKey(true);
+            bool mapLetter = false;
+
+            while (!mapLetter)
+            {
+                switch (pressedKeyMap.Key)
+                {
+                    case ConsoleKey.B:
+                        filePath = "../../Map2.txt";
+                        mapLetter = true;
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.I:
+                        filePath = "../../Map1.txt";
+                        mapLetter = true;
+                        Console.Clear();
+                        break;
+                    //case ConsoleKey.C:
+                    //    filePath = "../../Map3.txt";
+                    //    mapLetter = true;
+                    //    break;
+                    default:
+                        pressedKeyMap = Console.ReadKey(true);
+                        break;
+                }
+            }
 
             PrintChooseText(Width - 66, Height - 48, "CHOOSE YOUR HERO", ConsoleColor.Magenta);
 
@@ -135,6 +172,7 @@
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyHero = Console.ReadKey(true);
             bool heroLetter = false;
+
             while (!heroLetter)
             {
                 switch (pressedKeyHero.Key)
@@ -181,76 +219,51 @@
                 }
             }
 
-            // creating and loading map
-            string filePath = "../../Map2.txt";
+            // Reading map from file and printing it on the screen
+            //string filePath = "../../Map2.txt";
             var mapHandling = new MapHandling(filePath);
             mapHandling.ReadFromFile();
-            mapHandling.LoadMapOnScreen();
+            mapHandling.LoadOnScreen();
 
             // player logic
             var player = new PlayerMovement(mapHandling.MapMatrix);
             player.GetPlayerStartPosition();
 
             // creep logic
-            CreepInitialization creepIni = new CreepInitialization(mapHandling.MapMatrix);
-            creepIni.CreateCreeps();
+            CreepHandling creepHandl = new CreepHandling(mapHandling.MapMatrix);
+            creepHandl.CreateCreeps();
             Creep tempCreep = new Creep();
             tempCreep = null;
-
-            //hero.Mana -= 100;
-            //hero.Health -= 50;
 
             Stopwatch timeElapsed = new Stopwatch();
             timeElapsed.Start();
 
             while (true)
             {
-                PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                MapHandling.PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                     timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes, timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
 
-                PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Yellow);
-                PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
-                // ne trii zachistva Experience na geroq !!!!!!!!!!!!!!!!!!!!!!!
-                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 44, string.Format("NAME: {0}", hero.Name), ConsoleColor.Yellow);
+                MapHandling.PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 40, string.Format("MANA: {0,4}", hero.Mana), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 38, string.Format("DAMAGE: {0}", hero.Damage), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 36, string.Format("MOVE SPEED: {0}", hero.MoveSpeed), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 34, string.Format("ATTACK SPEED: {0}", hero.AttackSpeed), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE:     "), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 32, string.Format("EXPERIENCE: {0}", hero.Experience), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 30, string.Format("LEVEL: {0}", hero.Level), ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 28, string.Format("MAGICS: "), ConsoleColor.Gray);
 
                 // magics
-                PrintOnPosition(Width - 25, Height - 25, string.Format(hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
-                PrintOnPosition(Width - 25, Height - 24, "Damage: " + hero.Magics[0].Damage, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 23, "ManaCost: " + hero.Magics[0].ManaCost, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 22, "Cooldown: " + hero.Magics[0].CooldownTime, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 20, string.Format(hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
-                PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
-                PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
-
-                PrintOnPosition(Width - 25, Height - 11, "Creep info:", ConsoleColor.DarkCyan);
-
-                // printing creep info on the screen if available
-                if (tempCreep != null)
-                {
-                    PrintOnPosition(Width - 25, Height - 10, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 10, string.Format("Name: {0}", tempCreep.Name), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, string.Format("Health: {0,3}", tempCreep.Health), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 8, string.Format("Damage: {0}", tempCreep.Damage), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, (tempCreep.IsDead ? "Dead" : "Alive"), ConsoleColor.Gray);
-                }
-                else
-                {
-                    PrintOnPosition(Width - 25, Height - 10, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 9, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 8, new string(' ', 25), ConsoleColor.Gray);
-                    PrintOnPosition(Width - 25, Height - 7, new string(' ', 25), ConsoleColor.Gray);
-                }
-
+                MapHandling.PrintOnPosition(Width - 25, Height - 25, string.Format(hero.Magics[0].Name + "  <Q>"), ConsoleColor.Yellow);
+                MapHandling.PrintOnPosition(Width - 25, Height - 24, "Damage: " + hero.Magics[0].Damage, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 23, "ManaCost: " + hero.Magics[0].ManaCost, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 22, "Cooldown: " + hero.Magics[0].CooldownTime, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 20, string.Format(hero.Magics[1].Name + "  <W>"), ConsoleColor.Yellow);
+                MapHandling.PrintOnPosition(Width - 25, Height - 19, "Damage: " + hero.Magics[1].Damage, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 18, "ManaCost: " + hero.Magics[1].ManaCost, ConsoleColor.Gray);
+                MapHandling.PrintOnPosition(Width - 25, Height - 17, "Cooldown: " + hero.Magics[1].CooldownTime, ConsoleColor.Gray);
+                
                 // Begin timing
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -259,43 +272,38 @@
                 {
                     if (stopwatch.ElapsedMilliseconds >= 1000)
                     {
-                        PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
+                        MapHandling.PrintOnPosition(Width - 19, Height - 48, string.Format("{0:D2}:{1:D2}:{2:D2}",
                                         timeElapsed.Elapsed.Hours, timeElapsed.Elapsed.Minutes,
                                         timeElapsed.Elapsed.Seconds), ConsoleColor.DarkCyan);
                     }
-
-                    // check for creeps on each step (if the player moves)
-                    tempCreep = creepIni.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
 
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                         player.Move(pressedKey);
 
-                        List<Creep> creepsList = creepIni.Creeps;
-
                         if (pressedKey.Key == ConsoleKey.Q)
                         {
-                            AttakCreep(tempCreep, creepsList, 0, true);
+                            creepHandl.AttakCreep(tempCreep, hero, 0, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.W)
                         {
-                            AttakCreep(tempCreep, creepsList, 1, true);
+                            creepHandl.AttakCreep(tempCreep, hero, 1, true);
                         }
                         else if (pressedKey.Key == ConsoleKey.A)
                         {
-                            AttakCreep(tempCreep, creepsList);
+                            creepHandl.AttakCreep(tempCreep, hero);
                         }
 
-                        if (DeleteCreepFromMap(player.PlayerMap, tempCreep, creepIni.Creeps))
+                        if (tempCreep != null && tempCreep.IsDead)
                         {
                             player.PrintSymbol('@');
                         }
+
+                        // check for creeps around our hero
+                        tempCreep = creepHandl.CheckForCreeps(player.PositionOnRow, player.PositionOnCol);
                     }
                 }
-
-                // print position 3 47
-                //PrintOnPosition(Width - 19, Height - 50, player.PositionOnCol + " " + player.PositionOnRow, ConsoleColor.DarkCyan);
 
                 if (tempCreep != null && tempCreep.IsDead == false)
                 {
@@ -306,7 +314,7 @@
                 {
                     hero.ManaAndHealthIncreaseFountain();
                 }
-                else
+                else if (!hero.IsDead)
                 {
                     hero.ManaAndHealthIncrease();
                 }
@@ -316,6 +324,8 @@
 
                 if (hero.IsDead)
                 {
+                    MapHandling.PrintOnPosition(Width - 25, Height - 42, string.Format("HEALTH: {0,4}", hero.Health), ConsoleColor.Gray);
+
                     if (hero.InitialHealth > 150)
                     {
                         int currentLevel = hero.Level;
@@ -329,10 +339,10 @@
                         player.PositionOnCol = 3;
                         player.PositionOnRow = 47;
                         player.PrintSymbol('@');
+                        tempCreep = null; // importnat line! (when we reset the player there is no creep around him!)
                     }
                     else
                     {
-                        // KAKVOTO RESHI SHTE PISHE NAKRAQ!!!!!!!!!!!!!!!!
                         Console.Clear();
                         Console.WriteLine("GAME OVER!");
                         break;
@@ -341,52 +351,33 @@
                 }
             }
         }
+                
+        //private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
+        //{
+        //    foreach (var creep in creepsList)
+        //    {
+        //        if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
+        //        {
+        //            if (isMagic)
+        //            {
+        //                hero.Magics[index].Use(hero, creep);
+        //            }
+        //            else
+        //            {
+        //                creep.Health -= hero.Damage;
 
-        private static bool DeleteCreepFromMap(char[,] matrix, Creep tempCreep, List<Creep> listOfCreeps)
-        {
-            if (tempCreep != null && tempCreep.IsDead == true)
-            {
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 1] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col + 2] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 1] = ' ';
-                matrix[tempCreep.Position.Row, tempCreep.Position.Col - 2] = ' ';
+        //                if (creep.IsDead == true)
+        //                {
+        //                    if (hero.Level != 10)
+        //                    {
+        //                        hero.Experience += 50;
+        //                    }
+        //                }
+        //            }
 
-                PrintOnPosition(tempCreep.Position.Col, tempCreep.Position.Row, string.Format("\b\b     "), ConsoleColor.Gray);
-                listOfCreeps.Remove(tempCreep);
-
-                return true;
-            }
-
-            return false;
-        }
-
-        private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
-        {
-            foreach (var creep in creepsList)
-            {
-                if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
-                {
-                    if (isMagic)
-                    {
-                        hero.Magics[index].Use(hero, creep);
-                    }
-                    else
-                    {
-                        creep.Health -= hero.Damage;
-
-                        if (creep.IsDead == true)
-                        {
-                            if (hero.Level != 10)
-                            {
-                                hero.Experience += 50;
-                            }
-                        }
-                    }
-
-                    break;
-                }
-            }
-        }
+        //            break;
+        //        }
+        //    }
+        //}
     }
 }

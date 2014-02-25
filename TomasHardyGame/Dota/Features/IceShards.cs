@@ -2,7 +2,7 @@
 {
     using System;
 
-    class IceShards : Magic
+    public class IceShards : Magic
     {
         private static IceShards instance = null;
         private static object syncRoot = new Object();
@@ -17,13 +17,14 @@
                     {
                         instance = new IceShards();
                     }
+
                     return instance;
                 }
             }
         }
 
         private IceShards()
-            :base()
+            : base()
         {
             this.Name = "Ice Shards";
             this.Description = "Tusk compresses 5 shards of ice into a ball of frozen energy that damages all enemies it comes in contact with.";
@@ -34,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

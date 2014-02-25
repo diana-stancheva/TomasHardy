@@ -2,7 +2,7 @@
 {
     using System;
 
-    class FurySwipes : Magic
+    public class FurySwipes : Magic
     {
         private static FurySwipes instance = null;
         private static object syncRoot = new Object();
@@ -17,15 +17,14 @@
                     {
                         instance = new FurySwipes();
                     }
+
                     return instance;
                 }
             }
         }
 
-
-
         private FurySwipes()
-            :base()
+            : base()
         {
             this.Name = "Fury Swipes";
             this.Description = "Ursa's claws dig deeper wounds in the enemy, causing consecutive attacks to the same enemy to deal more damage.";
@@ -36,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

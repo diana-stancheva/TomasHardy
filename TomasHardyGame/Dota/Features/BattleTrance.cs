@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class BattleTrance:Magic
+    using System;
+
+    public class BattleTrance : Magic
     {
         private static BattleTrance instance = null;
         private static object syncRoot = new Object();
@@ -21,13 +17,14 @@ namespace Dota
                     {
                         instance = new BattleTrance();
                     }
+
                     return instance;
                 }
             }
         }
 
         private BattleTrance()
-            :base()
+            : base()
         {
             this.Name = "Battle Trance";
             this.Description = "Troll's presence on the battlefield increases the attack speed of himself.";
@@ -35,11 +32,11 @@ namespace Dota
             this.CooldownTime = 30;
             this.Damage = 60;
         }
+
         public override void Use(Hero hero, Creep creep)
         {
             if (hero.Mana >= this.ManaCost)
             {
-                //hero.Color = ConsoleColor.Cyan;
                 hero.Mana -= this.ManaCost;
                 creep.Health -= this.Damage;
             }

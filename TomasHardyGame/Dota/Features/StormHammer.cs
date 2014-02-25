@@ -2,7 +2,7 @@
 {
     using System;
 
-    class StormHammer : Magic
+    public class StormHammer : Magic
     {
         private static StormHammer instance = null;
         private static object syncRoot = new Object();
@@ -17,13 +17,14 @@
                     {
                         instance = new StormHammer();
                     }
+
                     return instance;
                 }
             }
         }
 
         private StormHammer()
-            :base()
+            : base()
         {
             this.Name = "Storm Hammer";
             this.Description = "Sven unleashes his magical gauntlet that deals damage on enemy units.";
@@ -34,7 +35,6 @@
 
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

@@ -46,6 +46,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DOTA 2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,7 +65,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Creep.cs" />
-    <Compile Include="CreepInitialization.cs" />
+    <Compile Include="CreepHandling.cs" />
     <Compile Include="Features\ArcLightning.cs" />
     <Compile Include="Features\BattleTrance.cs" />
     <Compile Include="Features\BloodBath.cs" />
@@ -74,7 +81,7 @@
     <Compile Include="Features\InnerVitality.cs" />
     <Compile Include="Features\LightningBolt.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
-    <Compile Include="Features\IEnchantable.cs" />
+    <Compile Include="Interfaces\IEnchantable.cs" />
     <Compile Include="Features\Magic.cs" />
     <Compile Include="Features\Overpower.cs" />
     <Compile Include="Features\Reincarnation.cs" />
@@ -85,18 +92,19 @@
     <Compile Include="Hero.cs" />
     <Compile Include="DotaMain.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
-    <Compile Include="MapHandling%28Ivo%29.cs" />
-    <Compile Include="PlayerMovement%28Ivo%29.cs" />
+    <Compile Include="MapHandling.cs" />
+    <Compile Include="PlayerMovement.cs" />
     <Compile Include="CreepPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roshan.cs" />
-    <Compile Include="Screen.cs" />
+    <Compile Include="StartScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DotaClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Map.txt" />
+    <Content Include="DOTA 2.ico" />
     <Content Include="Map1.txt" />
     <Content Include="Map2.txt" />
     <Content Include="StartScreen.txt" />

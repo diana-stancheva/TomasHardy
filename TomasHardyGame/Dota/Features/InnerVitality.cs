@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dota
+﻿namespace Dota
 {
-    class InnerVitality:Magic
+    using System;
+
+    public class InnerVitality : Magic
     {
         private static InnerVitality instance = null;
         private static object syncRoot = new Object();
@@ -21,13 +17,14 @@ namespace Dota
                     {
                         instance = new InnerVitality();
                     }
+
                     return instance;
                 }
             }
         }
 
         private InnerVitality()
-            :base()
+            : base()
         {
             this.Name = "Inner Vitality";
             this.Description = "Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 40% it will heal faster. Lasts 16 seconds.";
@@ -37,7 +34,6 @@ namespace Dota
         }
         public override void Use(Hero hero, Creep creep)
         {
-            //hero.Color = ConsoleColor.Magenta;
             if (hero.Mana >= this.ManaCost)
             {
                 hero.Mana -= this.ManaCost;

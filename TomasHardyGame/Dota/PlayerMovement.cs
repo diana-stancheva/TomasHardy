@@ -1,4 +1,4 @@
-﻿ namespace Dota
+﻿namespace Dota
 {
     using System;
 
@@ -6,24 +6,11 @@
     {
         private const char PlayerSymbol = '@';
         private const char WhiteSpaceSymbol = ' ';
-        private const char WoodSymbol = '#';
-        private const char WallSymbolOne = '_';
-        private const char WallSymbolTwo = '|';
-        private const char DotSymbol = '.';
-        private const char SemiColonSymbol = ':';
-        private const char EnemySymbolOne = '[';
-        private const char EnemySymbolTwo = 'd';
-        private const char EnemySymbolThree = '*';
-        private const char EnemySymbolFour = 'b';
-        private const char EnemySymbolFive = ']';
-        private const char BossSymbolOne = '-';
-        private const char BossSymbolTwo = '=';
         private readonly char[] forbiddenSymbos = new char[] 
         { 
-            WoodSymbol, WallSymbolOne, WallSymbolTwo, DotSymbol, SemiColonSymbol,
-            EnemySymbolOne, EnemySymbolTwo, EnemySymbolThree, EnemySymbolFour, EnemySymbolFive,
-            BossSymbolOne, BossSymbolTwo
+            '#', '_', '|', '.', ':', '[', 'd', '*', 'b', ']', '-', '='
         };
+        private bool checkForFobiddenSymbol = true;
 
         private char[,] playerMap;
         private int positionOnRow;
@@ -31,7 +18,7 @@
 
         public PlayerMovement(char[,] map)
         {
-            this.playerMap = map;
+            this.PlayerMap = map;
         }
 
         public char[,] PlayerMap
@@ -69,8 +56,6 @@
 
         public void Move(ConsoleKeyInfo pressedKey)
         {
-            //ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-
             // To remove lag! Check if needed.
             //while (Console.KeyAvailable)
             //{
@@ -103,26 +88,24 @@
             }
         }
 
-        private bool checkFobidden = true;
-
         private void MoveUp()
         {
             foreach (var item in this.forbiddenSymbos)
             {
                 if (this.playerMap[this.PositionOnRow - 1, this.PositionOnCol] == item)
                 {
-                    this.checkFobidden = false;
+                    this.checkForFobiddenSymbol = false;
                     break;
                 }
             }
 
-            if (this.checkFobidden)
+            if (this.checkForFobiddenSymbol)
             {
                 this.PositionOnRow--;
             }
 
             // reset
-            this.checkFobidden = true;
+            this.checkForFobiddenSymbol = true;
         }
 
         private void MoveDown()
@@ -131,18 +114,18 @@
             {
                 if (this.playerMap[this.PositionOnRow + 1, this.PositionOnCol] == item)
                 {
-                    this.checkFobidden = false;
+                    this.checkForFobiddenSymbol = false;
                     break;
                 }
             }
 
-            if (this.checkFobidden)
+            if (this.checkForFobiddenSymbol)
             {
                 this.PositionOnRow++;
             }
 
             // reset
-            this.checkFobidden = true;
+            this.checkForFobiddenSymbol = true;
         }
 
         private void MoveLeft()
@@ -151,18 +134,18 @@
             {
                 if (this.playerMap[this.PositionOnRow, this.PositionOnCol - 1] == item)
                 {
-                    this.checkFobidden = false;
+                    this.checkForFobiddenSymbol = false;
                     break;
                 }
             }
 
-            if (this.checkFobidden)
+            if (this.checkForFobiddenSymbol)
             {
                 this.PositionOnCol--;
             }
 
             // reset
-            this.checkFobidden = true;
+            this.checkForFobiddenSymbol = true;
         }
 
         private void MoveRight()
@@ -171,18 +154,18 @@
             {
                 if (this.playerMap[this.PositionOnRow, this.PositionOnCol + 1] == item)
                 {
-                    this.checkFobidden = false;
+                    this.checkForFobiddenSymbol = false;
                     break;
                 }
             }
 
-            if (this.checkFobidden)
+            if (this.checkForFobiddenSymbol)
             {
                 this.PositionOnCol++;
             }
 
             // reset
-            this.checkFobidden = true;
+            this.checkForFobiddenSymbol = true;
         }
 
         public void PrintSymbol(char symbol)

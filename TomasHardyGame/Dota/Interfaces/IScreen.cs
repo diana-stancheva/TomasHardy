@@ -2,6 +2,6 @@
 {
     public interface IScreen
     {
-        void LoadScreen();
+        void LoadOnScreen();
     }
 }
