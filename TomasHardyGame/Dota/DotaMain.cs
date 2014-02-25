@@ -197,33 +197,5 @@
                 }
             }
         }
-
-        //private static void AttakCreep(Creep tempCreep, List<Creep> creepsList, int index = -1, bool isMagic = false)
-        //{
-        //    foreach (var creep in creepsList)
-        //    {
-        //        if (tempCreep != null && creep.Position.Equals(tempCreep.Position))
-        //        {
-        //            if (isMagic)
-        //            {
-        //                hero.Magics[index].Use(hero, creep);
-        //            }
-        //            else
-        //            {
-        //                creep.Health -= hero.Damage;
-
-        //                if (creep.IsDead == true)
-        //                {
-        //                    if (hero.Level != 10)
-        //                    {
-        //                        hero.Experience += 50;
-        //                    }
-        //                }
-        //            }
-
-        //            break;
-        //        }
-        //    }
-        //}
     }
 }
