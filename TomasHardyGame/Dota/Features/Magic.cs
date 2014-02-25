@@ -1,6 +1,6 @@
 ﻿namespace Dota.Features
 {
-    public abstract class Magic : Features
+    public abstract class Magic : Feature
     {
         public int ManaCost { get; protected set; }
         public int CooldownTime { get; protected set; }

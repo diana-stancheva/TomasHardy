@@ -1,6 +1,6 @@
 ﻿namespace Dota
 {
-    class Bonus : Features
+    class Bonus : Feature
     {
         public int BonusDots { get; protected set; }
 
