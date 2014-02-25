@@ -4,18 +4,18 @@
 
     public class MapScreen
     {
-        private const int Height = 50;
-        private const int Width = 110;
+        private const int ConsoleHeight = 32;
+        private const int ConsoleWidth = 60;
 
         public static string LoadOnScreen()
         {
             string filePath = null;
 
-            MapHandling.PrintOnPosition(Width - 86, Height - 47, "CHOOSE A MAP", ConsoleColor.Magenta);
+            MapHandling.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
 
-            PrintMapMenu(Width - 87, Height - 41, Maps.Backalley, "<B>");
-            PrintMapMenu(Width - 87, Height - 33, Maps.Iceworld, "<I>");
-            PrintMapMenu(Width - 87, Height - 25, Maps.Compound, "<C>");
+            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 23, Maps.Backalley, "<B>");
+            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 15, Maps.Iceworld, "<I>");
+            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 7, Maps.Compound, "<C>");
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyMap = Console.ReadKey(true);
@@ -50,8 +50,8 @@
 
         private static void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
-            Console.BufferHeight = Console.WindowHeight = 32;
-            Console.BufferWidth = Console.WindowWidth = 60;
+            Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
+            Console.BufferWidth = Console.WindowWidth = ConsoleWidth;
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(mapName);

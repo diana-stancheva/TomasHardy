@@ -106,7 +106,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.MagicExtensions" Collapsed="true">
-    <Position X="12.5" Y="3.75" Width="1.5" />
+    <Position X="9.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Features\MagicExtensions.cs</FileName>
@@ -169,16 +169,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.CreepHandling" Collapsed="true">
-    <Position X="9" Y="3.75" Width="1.5" />
+    <Position X="9.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAAAAQIQCEAAAA=</HashCode>
       <FileName>CreepHandling.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.DotaMain" Collapsed="true">
-    <Position X="10.75" Y="3.75" Width="1.5" />
+    <Position X="11" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACCAABEAAAAEEAgAAAEAAAAAAABAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAACAAABEAAAAAAAAAAAEAAAAAAABAAAAAABAAAAAA=</HashCode>
       <FileName>DotaMain.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -190,7 +190,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.MapHandling" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9" Y="4.75" Width="1.5" />
+    <Position X="11" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAEAABQAAAAAAAAAAAABCAEAAAGAAAAAgAAA=</HashCode>
       <FileName>MapHandling.cs</FileName>
@@ -198,7 +198,7 @@
     <Lollipop Position="0.1" />
   </Class>
   <Class Name="Dota.PlayerMovement" Collapsed="true">
-    <Position X="10.75" Y="4.75" Width="1.5" />
+    <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAMAAAAAQAhAAAAgQAAAEAMEIQAABAAAAAAA=</HashCode>
       <FileName>PlayerMovement.cs</FileName>
@@ -212,35 +212,49 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Screens.StartScreen" Collapsed="true">
-    <Position X="12.5" Y="4.75" Width="1.5" />
+    <Position X="11" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAIAAAAAAAAAAAAAAAgAAAIBACAA=</HashCode>
       <FileName>Screens\StartScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Dota.Screens.HeroScreen" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAABAAAAgAAAAAAAAACAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Screens\HeroScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dota.Screens.MapScreen" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAABAEAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Screens\MapScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="Dota.CharacterPosition" Collapsed="true">
-    <Position X="9" Y="6" Width="1.5" />
+    <Position X="9.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>CharacterPosition.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="Dota.IEnchantable" Collapsed="true">
-    <Position X="9" Y="7.25" Width="1.5" />
+    <Position X="9.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IEnchantable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Dota.IScreen" Collapsed="true">
-    <Position X="10.75" Y="7.25" Width="1.5" />
+    <Position X="11" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IScreen.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Dota.Maps" Collapsed="true">
-    <Position X="10.75" Y="6" Width="1.5" />
+    <Position X="9.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAA=</HashCode>
       <FileName>Maps.cs</FileName>
