@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Inner Vitality";
-            this.Description = "Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 40% it will heal faster. Lasts 16 seconds.";
+            this.Description = "Unlocks the regenerative power of himself with healing. If he is below 50% it will heal faster. Lasts 16 seconds.";
             this.ManaCost = 170;
             this.CooldownTime = 25;
             this.Damage = 40;

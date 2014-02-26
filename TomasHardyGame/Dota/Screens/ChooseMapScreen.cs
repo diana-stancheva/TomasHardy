@@ -2,23 +2,25 @@
 {
     using System;
 
+    using Dota.Interfaces;
+
     // Singleton class!!!
-    public class MapScreen : Screen
+    public class ChooseMapScreen : Screen, IScreen
     {
         private const int ConsoleHeight = 32;
         private const int ConsoleWidth = 60;
         private string filePath;
-        private static MapScreen instance;
+        private static ChooseMapScreen instance;
 
-        private MapScreen() { }
+        private ChooseMapScreen() { }
 
-        public static MapScreen Instance
+        public static ChooseMapScreen Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new MapScreen();
+                    instance = new ChooseMapScreen();
                 }
 
                 return instance;
@@ -33,7 +35,7 @@
 
         public override void LoadOnScreen()
         {
-            MapHandling.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
+            Map.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
 
             PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 23, Maps.Backalley, "<B>");
             PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 15, Maps.Iceworld, "<I>");
@@ -69,7 +71,7 @@
             }
         }
 
-        private static void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)
+        private void PrintMapMenu(int x, int y, Maps mapName, string letter, ConsoleColor color = ConsoleColor.Red)
         {
             Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
             Console.BufferWidth = Console.WindowWidth = ConsoleWidth;

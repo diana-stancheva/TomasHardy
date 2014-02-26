@@ -4,8 +4,10 @@
     using System.IO;
     using System.Threading;
 
+    using Dota.Interfaces;
+
     // Singleton class!!!
-    public class StartScreen : Screen
+    public class StartScreen : Screen, IScreen
     {
         private const int HeightStartScreen = 20;
         private const int WidthStartScreen = 70;

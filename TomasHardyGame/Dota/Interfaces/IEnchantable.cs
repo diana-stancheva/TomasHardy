@@ -1,4 +1,4 @@
-﻿namespace Dota
+﻿namespace Dota.Interfaces
 {
     public interface IEnchantable
     {

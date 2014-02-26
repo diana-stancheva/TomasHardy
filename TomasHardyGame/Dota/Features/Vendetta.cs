@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Vendetta";
-            this.Description = "Allows Nyx Assassin to become invisible and gain a speed bonus.";
+            this.Description = "Allows Nyx Assassin to gain a speed bonus.";
             this.ManaCost = 160;
             this.CooldownTime = 70;
             this.Damage = 90;

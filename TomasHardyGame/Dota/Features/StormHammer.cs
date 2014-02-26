@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Storm Hammer";
-            this.Description = "Sven unleashes his magical gauntlet that deals damage on enemy units.";
+            this.Description = "Hero unleashes his magical gauntlet that deals damage on enemy unit.";
             this.ManaCost = 140;
             this.CooldownTime = 55;
             this.Damage = 100;

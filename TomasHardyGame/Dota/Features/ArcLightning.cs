@@ -27,7 +27,7 @@
             : base()
         {
             this.Name = "Arc Lightning";
-            this.Description = "Hurls a bolt of lightning that leaps through nearby enemy units.";
+            this.Description = "Hurls a bolt of lightning that damages the enemy creep and Roshan.";
             this.ManaCost = 65;
             this.CooldownTime = 10;
             this.Damage = 85;
@@ -39,6 +39,7 @@
             {
                 hero.Mana -= this.ManaCost;
                 creep.Health -= this.Damage;
+                // roshan.Health -= this.Damage;
             }
         }
     }

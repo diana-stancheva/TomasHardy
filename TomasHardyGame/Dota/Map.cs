@@ -3,29 +3,32 @@
     using System;
     using System.IO;
 
-    public class MapHandling : IScreen
+    using Dota.Interfaces;
+
+    public class Map : IScreen
     {
         private const int ConsoleHeight = 50;
         private const int ConsoleWidth = 110;
         private readonly string filePath;
         private char[,] mapMatrix;
 
-        public MapHandling(string mapPath)
+        public Map(string mapPath)
         {
             this.filePath = mapPath;
         }
 
-        public char[,] MapMatrix
+        public char[,] Matrix
         {
             get { return this.mapMatrix; }
+            private set { this.mapMatrix = value; }
         }
 
-        public static int ScreenHeight
+        public static int MapScreenHeight
         {
             get { return ConsoleHeight; }
         }
 
-        public static int ScreenWidth
+        public static int MapScreenWidth
         {
             get { return ConsoleWidth; }
         }
@@ -43,7 +46,7 @@
                     string[] lineAsArray = line.Split(' ');
                     int totalRows = int.Parse(lineAsArray[0]);
                     int totalCols = int.Parse(lineAsArray[1]);
-                    this.mapMatrix = new char[totalRows, totalCols];
+                    this.Matrix = new char[totalRows, totalCols];
 
                     for (int row = 0; row < totalRows; row++)
                     {
@@ -51,7 +54,7 @@
 
                         for (int col = 0; col < totalCols; col++)
                         {
-                            this.mapMatrix[row, col] = line[col];
+                            this.Matrix[row, col] = line[col];
                         }
                     }
                 }
@@ -72,11 +75,11 @@
             Console.BufferHeight = Console.WindowHeight = ConsoleHeight;
             Console.BufferWidth = Console.WindowWidth = ConsoleWidth;
 
-            for (int row = 0; row < this.mapMatrix.GetLength(0); row++)
+            for (int row = 0; row < this.Matrix.GetLength(0); row++)
             {
-                for (int col = 0; col < this.mapMatrix.GetLength(1); col++)
+                for (int col = 0; col < this.Matrix.GetLength(1); col++)
                 {
-                    switch (this.mapMatrix[row, col])
+                    switch (this.Matrix[row, col])
                     {
                         case '#': Console.ForegroundColor = ConsoleColor.DarkGreen; break;
                         case '[': Console.ForegroundColor = ConsoleColor.DarkYellow; break;
@@ -89,7 +92,7 @@
                         case '0': Console.ForegroundColor = ConsoleColor.Green; break;
                         default: Console.ResetColor(); break;
                     }
-                    Console.Write(this.mapMatrix[row, col]);
+                    Console.Write(this.Matrix[row, col]);
                 }
 
                 Console.WriteLine();

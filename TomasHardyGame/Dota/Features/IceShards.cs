@@ -27,9 +27,9 @@
             : base()
         {
             this.Name = "Ice Shards";
-            this.Description = "Tusk compresses 5 shards of ice into a ball of frozen energy that damages all enemies it comes in contact with.";
+            this.Description = "Hero compresses 5 shards of ice into a ball of frozen energy that damages the enemy that comes in contact with.";
             this.ManaCost = 100;
-            this.CooldownTime = 30;
+            this.CooldownTime = 130;
             this.Damage = 70;
         }
 

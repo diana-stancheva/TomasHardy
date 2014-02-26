@@ -1,253 +1,258 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Dota.Character" Collapsed="true">
-    <Position X="14" Y="9" Width="1.5" />
+    <Position X="21.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACACAAAAAgAAgAAAAMAQAABAEAAAAAAAAAAAAAAg=</HashCode>
       <FileName>Character.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Position" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Dota.Creep" Collapsed="true">
-    <Position X="16.25" Y="10.25" Width="1.5" />
+    <Position X="23.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Creep.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.CreepHandling" Collapsed="true">
-    <Position X="22.5" Y="6" Width="1.5" />
+    <Position X="28" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAAAAQIQCEAAAA=</HashCode>
+      <HashCode>AACEAAgACIAAAAAAQAACgCCAIAAAAAAIAAQIQCEAAAA=</HashCode>
       <FileName>CreepHandling.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.DotaMain" Collapsed="true">
-    <Position X="24.25" Y="6" Width="1.5" />
+    <Position X="29.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAABEAAAAAAAAAAAEAAAAAAABAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAABAAAAAA=</HashCode>
       <FileName>DotaMain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Bonus" Collapsed="true">
-    <Position X="47.5" Y="1.75" Width="1.5" />
+    <Position X="49.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>Features\Bonus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Feature" Collapsed="true">
-    <Position X="25" Y="0.5" Width="1.5" />
+    <Position X="27" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Features\Feature.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.KillTenCreeps" Collapsed="true">
-    <Position X="47.5" Y="5" Width="1.5" />
+    <Position X="49.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAgAAAAABAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\KillTenCreeps.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Hero" Collapsed="true">
-    <Position X="14" Y="10.25" Width="1.5" />
+    <Position X="21.25" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAKEAEAEAAAABAAAAAACAABAAkAAAIBAABAIAAgQDA=</HashCode>
       <FileName>Hero.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Dota.MapHandling" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="22.5" Y="7" Width="1.5" />
+  <Class Name="Dota.Map" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="31.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAEAABQAAAAAAAAAAAABCAEAAAGAAAAAgAAA=</HashCode>
-      <FileName>MapHandling.cs</FileName>
+      <HashCode>AAAAAAABAAAABQAAABAAAAAAAAAiAEAAAGAAAAAAABA=</HashCode>
+      <FileName>Map.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Dota.PlayerMovement" Collapsed="true">
-    <Position X="24.25" Y="7" Width="1.5" />
+  <Class Name="Dota.HeroMovement" Collapsed="true">
+    <Position X="28" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAMAAAAAQAhAAAAgQAAAEAMEIQAABAAAAAAA=</HashCode>
-      <FileName>PlayerMovement.cs</FileName>
+      <FileName>HeroMovement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Roshan" Collapsed="true">
-    <Position X="11.75" Y="10.25" Width="1.5" />
+    <Position X="19" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Roshan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.ArcLightning" Collapsed="true">
-    <Position X="9.25" Y="3.25" Width="1.5" />
+    <Position X="11.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\ArcLightning.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.BattleTrance" Collapsed="true">
-    <Position X="16" Y="3.25" Width="1.5" />
+    <Position X="18" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\BattleTrance.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.BloodBath" Collapsed="true">
-    <Position X="20.5" Y="3.25" Width="1.5" />
+    <Position X="22.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\BloodBath.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Bloodrage" Collapsed="true">
-    <Position X="27.25" Y="3.25" Width="1.5" />
+    <Position X="29.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\Bloodrage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.BreatheFire" Collapsed="true">
-    <Position X="34" Y="3.25" Width="1.5" />
+    <Position X="36" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\BreatheFire.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.BurningSpear" Collapsed="true">
-    <Position X="40.75" Y="3.25" Width="1.5" />
+    <Position X="42.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\BurningSpear.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.DragonTrail" Collapsed="true">
-    <Position X="2.5" Y="3.25" Width="1.5" />
+    <Position X="4.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\DragonTrail.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Earthshock" Collapsed="true">
-    <Position X="11.5" Y="3.25" Width="1.5" />
+    <Position X="13.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\Earthshock.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.FurySwipes" Collapsed="true">
-    <Position X="18.25" Y="3.25" Width="1.5" />
+    <Position X="20.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\FurySwipes.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.GreatCleave" Collapsed="true">
-    <Position X="22.75" Y="3.25" Width="1.5" />
+    <Position X="24.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\GreatCleave.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.IceShards" Collapsed="true">
-    <Position X="29.5" Y="3.25" Width="1.5" />
+    <Position X="31.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\IceShards.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Impale" Collapsed="true">
-    <Position X="36.25" Y="3.25" Width="1.5" />
+    <Position X="38.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\Impale.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.InnerVitality" Collapsed="true">
-    <Position X="43" Y="3.25" Width="1.5" />
+    <Position X="45" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\InnerVitality.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.LightningBolt" Collapsed="true">
-    <Position X="4.75" Y="3.25" Width="1.5" />
+    <Position X="6.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\LightningBolt.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Magic" Collapsed="true">
-    <Position X="23.75" Y="1.75" Width="1.5" />
+    <Position X="25.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAIAAAAAAAAAAAAAAAAAAEAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Features\Magic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.MagicExtensions" Collapsed="true">
-    <Position X="26" Y="6" Width="1.5" />
+    <Position X="29.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Features\MagicExtensions.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Overpower" Collapsed="true">
-    <Position X="25" Y="3.25" Width="1.5" />
+    <Position X="27" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\Overpower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Reincarnation" Collapsed="true">
-    <Position X="31.75" Y="3.25" Width="1.5" />
+    <Position X="33.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\Reincarnation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.StormHammer" Collapsed="true">
-    <Position X="38.5" Y="3.25" Width="1.5" />
+    <Position X="40.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\StormHammer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.ThundergodWrath" Collapsed="true">
-    <Position X="45.25" Y="3.25" Width="1.5" />
+    <Position X="47.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\ThundergodWrath.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.Vendetta" Collapsed="true">
-    <Position X="7" Y="3.25" Width="1.5" />
+    <Position X="9" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\Vendetta.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Features.WraithfireBlast" Collapsed="true">
-    <Position X="13.75" Y="3.25" Width="1.5" />
+    <Position X="15.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAABEAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Features\WraithfireBlast.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dota.Screens.HeroScreen" Collapsed="true">
-    <Position X="11.75" Y="7.25" Width="1.5" />
+    <Position X="19" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAABAAAAAAAAAAAAABKAAAAQEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAEAAJAAAAAAAAAAAAABKAAAAQEAAAAAAAAA=</HashCode>
       <FileName>Screens\HeroScreen.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Dota.Screens.MapScreen" Collapsed="true">
-    <Position X="14" Y="7.25" Width="1.5" />
+  <Class Name="Dota.Screens.ChooseMapScreen" Collapsed="true">
+    <Position X="21.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAEAAAAAAAAAAABCAEAAQEBAAAAAAAA=</HashCode>
-      <FileName>Screens\MapScreen.cs</FileName>
+      <FileName>Screens\ChooseMapScreen.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Dota.Screens.Screen" Collapsed="true">
-    <Position X="14" Y="6" Width="1.5" />
+    <Position X="21.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Screens\Screen.cs</FileName>
@@ -255,35 +260,43 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Dota.Screens.StartScreen" Collapsed="true">
-    <Position X="16.25" Y="7.25" Width="1.5" />
+    <Position X="23.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAIAAAAAAAABAAAAAQgAAAIBACAA=</HashCode>
       <FileName>Screens\StartScreen.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Dota.HeroHandling" Collapsed="true">
+    <Position X="31.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAAhEAAIAAAAAAAACAAAAAAgAAAAIAAAAAAAAA=</HashCode>
+      <FileName>HeroHandling.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Struct Name="Dota.CharacterPosition" Collapsed="true">
-    <Position X="22.5" Y="8.25" Width="1.5" />
+    <Position X="28" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>CharacterPosition.cs</FileName>
     </TypeIdentifier>
   </Struct>
-  <Interface Name="Dota.IEnchantable" Collapsed="true">
-    <Position X="22.5" Y="9.5" Width="1.5" />
+  <Interface Name="Dota.Interfaces.IEnchantable" Collapsed="true">
+    <Position X="28" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IEnchantable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Dota.IScreen" Collapsed="true">
-    <Position X="24.25" Y="9.5" Width="1.5" />
+  <Interface Name="Dota.Interfaces.IScreen" Collapsed="true">
+    <Position X="29.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IScreen.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Dota.Maps" Collapsed="true">
-    <Position X="22.5" Y="10.5" Width="1.5" />
+    <Position X="28" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAA=</HashCode>
       <FileName>Maps.cs</FileName>

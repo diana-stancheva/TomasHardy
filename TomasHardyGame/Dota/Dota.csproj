@@ -84,6 +84,7 @@
     <Compile Include="Features\KillTenCreeps.cs" />
     <Compile Include="Features\LightningBolt.cs" />
     <Compile Include="Features\MagicExtensions.cs" />
+    <Compile Include="HeroHandling.cs" />
     <Compile Include="Interfaces\IEnchantable.cs" />
     <Compile Include="Features\Magic.cs" />
     <Compile Include="Features\Overpower.cs" />
@@ -95,14 +96,14 @@
     <Compile Include="Hero.cs" />
     <Compile Include="DotaMain.cs" />
     <Compile Include="Interfaces\IScreen.cs" />
-    <Compile Include="MapHandling.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Maps.cs" />
-    <Compile Include="PlayerMovement.cs" />
+    <Compile Include="HeroMovement.cs" />
     <Compile Include="CharacterPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roshan.cs" />
     <Compile Include="Screens\HeroScreen.cs" />
-    <Compile Include="Screens\MapScreen.cs" />
+    <Compile Include="Screens\ChooseMapScreen.cs" />
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\StartScreen.cs" />
   </ItemGroup>

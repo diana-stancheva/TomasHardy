@@ -16,6 +16,8 @@
         private readonly int initialHealth;
         private List<Magic> magics;
 
+        public Hero() { }
+
         public Hero(string name, int health, int damage, int mana, int attackSpeed, int moveSpeed, 
             List<Magic> magicList, CharacterPosition position = default(CharacterPosition))
             : base(name, health, damage, position)
