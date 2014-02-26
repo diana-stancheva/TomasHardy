@@ -124,29 +124,5 @@
             Console.SetCursorPosition(x + 3, y + 3);
             Console.WriteLine(hero.Magics[1].Description);
         }
-
-        // Please delete if you don't use!
-
-        //static void SelectMagic()
-        //{
-        //    PrintOnPosition(Width - 25, Height - 45, "F1 Bloodrage", ConsoleColor.Gray);
-        //    PrintOnPosition(Width - 25, Height - 44, "F2 Blood Bath", ConsoleColor.Gray);
-
-        //    while (true)
-        //    {
-        //        if (Console.KeyAvailable)
-        //        {
-        //            ConsoleKeyInfo key = Console.ReadKey();
-
-        //            if (key.Key == ConsoleKey.F1)
-        //            {
-        //                hero.Magics[0].Use(hero);
-        //                //hero.BloodrageMagic();
-        //                // hero.Draw();
-        //                //StartNewGame();
-        //            }
-        //        }
-        //    }
-        //}
     }
 }
