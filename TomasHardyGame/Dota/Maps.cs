@@ -2,8 +2,8 @@
 {
     enum Maps
     {
-        Backalley,
-        Iceworld,
-        Compound
+        dota_deathmatch,
+        dota_iceworld,
+        dota_italy
     }
 }

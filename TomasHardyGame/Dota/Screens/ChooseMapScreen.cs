@@ -35,11 +35,11 @@
 
         public override void LoadOnScreen()
         {
-            Map.PrintOnPosition(ConsoleWidth - 38, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
+            Map.PrintOnPosition(ConsoleWidth - 35, ConsoleHeight - 29, "CHOOSE A MAP", ConsoleColor.Magenta);
 
-            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 23, Maps.Backalley, "<B>");
-            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 15, Maps.Iceworld, "<I>");
-            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 7, Maps.Compound, "<C>");
+            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 23, Maps.dota_deathmatch, "<D>");
+            PrintMapMenu(ConsoleWidth - 37, ConsoleHeight - 15, Maps.dota_iceworld, "<W>");
+            PrintMapMenu(ConsoleWidth - 36, ConsoleHeight - 7, Maps.dota_italy, "<I>");
 
             Console.CursorVisible = false;
             ConsoleKeyInfo pressedKeyMap = Console.ReadKey(true);
@@ -49,17 +49,17 @@
             {
                 switch (pressedKeyMap.Key)
                 {
-                    case ConsoleKey.B:
+                    case ConsoleKey.D:
                         this.FilePath = "../../Maps/Map2.txt";
                         mapLetter = true;
                         Console.Clear();
                         break;
-                    case ConsoleKey.I:
+                    case ConsoleKey.W:
                         this.FilePath = "../../Maps/Map1.txt";
                         mapLetter = true;
                         Console.Clear();
                         break;
-                    case ConsoleKey.C:
+                    case ConsoleKey.I:
                         this.FilePath = "../../Maps/Map3.txt";
                         mapLetter = true;
                         Console.Clear();
