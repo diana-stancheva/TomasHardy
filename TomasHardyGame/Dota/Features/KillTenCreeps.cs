@@ -20,7 +20,7 @@
 
                     return instance;
                 }
-            }
+            } 
         }
 
         public KillTenCreeps()
